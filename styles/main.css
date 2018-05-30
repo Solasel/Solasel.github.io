@@ -1,0 +1,39 @@
+* {
+    font-family: monospace;
+}
+
+body {
+    background: #419F6C;
+    padding: 0.5vw;
+}
+
+#menu {
+    width: 100%;
+    height: 50px;
+}
+
+.menu-button {
+    float: left;
+    color: white;
+    border-radius: 10px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    background: darkgreen;
+    border: solid black 1px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-bottom: black solid 3px;
+    border-left: black solid 3px;
+}
+
+.menu-button:hover {
+    background: lightgreen;
+    border-bottom: black solid 2px;
+    border-left: black solid 2px;
+}
+
+.task {
+    height: 100px;
+    width: 100%;
+}
