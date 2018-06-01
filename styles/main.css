@@ -29,11 +29,10 @@ body {
 
 .menu-button:hover {
     background: lightgreen;
-    border-bottom: black solid 2px;
-    border-left: black solid 2px;
 }
 
 .task {
+    float: left;
     height: 100px;
-    width: 100%;
+    width: 30%;
 }
