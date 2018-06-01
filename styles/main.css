@@ -22,8 +22,6 @@ body {
     max-width: 100px;
     background: darkgreen;
     
-    padding: 0.5vw 1.5vw;
-    
     border: solid black 1px;
     border-bottom: black solid 3px;
     border-left: black solid 3px;
@@ -36,9 +34,11 @@ body {
 }
 
 .menu-button p {
-    font-size: 1.5vw;
+    font-size: 100%;
     color: white;
     text-align: center;
+    margin: auto;
+    margin-top: 16%
 }
 
 #content {
