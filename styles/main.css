@@ -17,6 +17,7 @@ body {
     float: left;
     width: 10vw;
     height: 5vw;
+
     max-height: 50px;
     max-width: 100px;
     background: darkgreen;
@@ -35,7 +36,7 @@ body {
 }
 
 .menu-button p {
-    font-size: 1em;
+    font-size: 1.5vw;
     color: white;
     text-align: center;
 }
@@ -50,7 +51,7 @@ body {
 }
 
 h1 {
-    font-size: 3em;
+    font-size: 2em;
     text-decoration: underline;
 }
 
@@ -63,7 +64,7 @@ h5 {
     font-size: 1.3em;
 }
 
-p, li {
+#information p, li {
     font-size: 1.1em;
 }
 
@@ -73,7 +74,7 @@ p, li {
     font-size: 2em;
     font-weight: bold;
     text-align: center;
-    border: purple 0.4vw solid;
+    border: purple 1vw solid;
 }
 
 .NYI:hover {
