@@ -22,8 +22,8 @@ body {
     max-width: 100px;
     background: darkgreen;
     
-    padding-left: 1vw;
-    padding-right: 1vw;
+    padding: 0.5vw 1.5vw;
+    
     border: solid black 1px;
     border-bottom: black solid 3px;
     border-left: black solid 3px;
