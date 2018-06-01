@@ -4,12 +4,13 @@
 
 body {
     background: #419F6C;
-    padding: 0.5vw;
+    padding: 0.5vw 2vw;
 }
 
 #menu {
     width: 100%;
-    height: 10vw;
+    height: 5vw;
+    max-height: 53px;
 }
 
 .menu-button {
@@ -72,7 +73,7 @@ p, li {
     font-size: 2em;
     font-weight: bold;
     text-align: center;
-    border: purple 0.6vw solid;
+    border: purple 0.4vw solid;
 }
 
 .NYI:hover {
