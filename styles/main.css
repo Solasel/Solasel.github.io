@@ -15,30 +15,34 @@ body {
 
 .menu-button {
     float: left;
-    width: 10vw;
-    height: 5vw;
-
+    background: darkgreen;
+    color: white;
+    
+    width: 6vw;
     max-height: 50px;
     max-width: 100px;
-    background: darkgreen;
     
     border: solid black 1px;
     border-bottom: black solid 3px;
     border-left: black solid 3px;
     border-radius: 10px;
-    margin-right: 0.5vw;
+    margin-right: 3px;
+    padding: 7px 20px;
+    
+    
+    font-size: 100%;
+    text-decoration: none;
+    
+    text-align: center;
 }
 
 .menu-button:hover {
     background: lightgreen;
+    color: black;
 }
 
 .menu-button p {
-    font-size: 100%;
-    color: white;
-    text-align: center;
-    margin: auto;
-    margin-top: 16%
+    
 }
 
 #content {
