@@ -75,11 +75,9 @@ body {
 
 .submission {
     clear: both;
-    display: block;
+    margin: 5vh;
     
-    text-decoration: none;
     text-align: center;
-    margin: 5vh auto;
 }
 
 h1 {
