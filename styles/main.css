@@ -101,13 +101,13 @@ h5 {
 .NYI {
     color: black;
     background: red;
-    font-size: 2em;
+    padding: 1px;
+    font-size: 1.5em;
     font-weight: bold;
     text-align: center;
     border: purple 0.25em solid;
 }
 
 .NYI:hover {
-    text-decoration: none;
     background: yellow;
 }
