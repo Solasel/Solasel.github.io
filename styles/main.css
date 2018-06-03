@@ -111,3 +111,16 @@ h5 {
 .NYI:hover {
     background: yellow;
 }
+
+.buddy {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    
+    width: 15vw;
+    height: 15vw;
+    max-height: 70px;
+    max-width: 70px;
+    
+    margin: 0vh 1vw;
+}
