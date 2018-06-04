@@ -77,8 +77,13 @@ body {
     clear: left;
 }
 
+#data {
+    text-align: center;
+}
+
 .task {
-    float: left;
+    text-align: left;
+    display: inline-block;
     padding: 1em;
     padding-top: 0.2em;
     width: 10%;
