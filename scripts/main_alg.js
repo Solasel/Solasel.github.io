@@ -1,4 +1,4 @@
-/*eslint no-unused-vars: off */
+/*exported alg */
 /*jslint plusplus: true */
 /*jslint nomen: true*/
 /*jslint continue: true*/
@@ -7,14 +7,20 @@
 #### CONSTANT DATA ####
 #####################*/
 
+/* Everything below here and above the 'algorithm' section
+	should be treated as constant - rarely changing unless
+	Jagex decides to change the inner workings of slayer,
+	or adds another master. */
+
 /* The Number of Masters. */
 var num_masters = 7;
+/* Points needed to skip. */
 var pt_thresh = 30;
 
 /* Contains information about a given slayer master. */
 function Master(n, t, p, c) {
 	"use strict";
-	/* Intrinsic Values. */
+	
 	this.name = n;
 	this.tasks = t;
 	this.num_tasks = t.length;
@@ -22,38 +28,45 @@ function Master(n, t, p, c) {
 	this.cmb_app = c;
 }
 
+/* toString for a Master. */
 Master.prototype.toString = function m_toS() {
 	"use strict";
-	var i, rv = this.name + "nnList of Tasks:";
+	var i, rv = this.name + "<br /><br />List of Tasks:";
+	
 	for (i = 0; i < this.tasks.length; i++) {
-		rv += "nn";
+		rv += "<br /><br />";
 		rv += this.tasks[i].toString();
 	}
+	
 	return rv;
 };
 
 /* Contains info about a particular task from a particular master. */
 function Task(n, s, c, f, m, w) {
 	"use strict";
+	
 	/* Intrinsic values. */
 	this.name = n;
 	this.s_reqt = s;
 	this.cmb_rec = c;
 	this.fblock = f;
+	
 	/* Master-specific values. */
 	this.master = m;
 	this.weight = w;
 }
 
+/* toString for a Task */
 Task.prototype.toString = function t_toS() {
 	"use strict";
-	return "Task: " + this.name + " from " + this.master + ":n" +
-		"tSlayer Level Req: " + this.s_reqt + "n" +
-		"tCombat Level Rec: " + this.cmb_rec + "n" +
-		"tFree Block: " + this.fblock;
+	
+	return "Task: " + this.name + " from " + this.master + ":<br />" +
+		"Slayer Level Req: " + this.s_reqt + "<br />" +
+		"Combat Level Rec: " + this.cmb_rec + "<br />" +
+		"Free Block: " + this.fblock;
 };
 
-/* For each slayer master, their task details. */
+/* Initialize each master. */
 // https://twitter.com/JagexAsh/status/860859015248711680
 // https://www.reddit.com/r/2007scape/comments/5zya6b/slayer_task_weightings_for_every_master/
 
@@ -370,6 +383,9 @@ var  c_masters = [
 #### ALGORITHM ####
 #################*/
 
+/* A positive integer that defines how precise the algorithm is:
+	the larger the number is, the larger the number of tasks we test
+	to figure out the score of a potential solution. */
 var scale = 10000;
 
 /* Info about the user: */
@@ -377,6 +393,7 @@ var s_lvl;
 var cmb_lvl;
 var num_blocks;
 
+/* A master with the user-input e: whether or not it's enabled in the search algorithm. */
 function UMaster(c, e) {
 	"use strict";
 	this.consts = c;
@@ -385,11 +402,13 @@ function UMaster(c, e) {
 	this.cmb_blocks = [];
 }
 
+/* toString for a UMaster. */
 UMaster.prototype.toString = function um_toS() {
 	"use strict";
 	return (this.enable ? "Enabled" : "Disabled") + "nn" + this.consts.toString();
 };
 
+/* A task with the user inputs po and pr: whether or not a task is possible, and if so, its "preference" */
 function UTask(c, po, pr) {
 	"use strict";
 	this.consts = c;
@@ -397,6 +416,7 @@ function UTask(c, po, pr) {
 	this.pref = pr;
 }
 
+/* toString for a UTask. */
 UTask.prototype.toString = function ut_toS() {
 	"use strict";
 	return this.consts.toString() + "tPossible? " + this.poss + "n" +
@@ -409,14 +429,18 @@ function sortPref(a, b) {
 	return b.pref - a.pref;
 }
 
-
-
-
+/* Gives the score of a set of blocks by doing the following:
+	Starting from the highest rated tasks, does tasks until
+	we have enough points to skip a task, then skips tasks
+	starting from the worst tasks. Finally, returns an average
+	over the done tasks. */
 function score(pts, prefs, poss, blocks) {
 	"use strict";
 	var i, j, k, l,
 		all = prefs.length, num_tasks = 0,
 		max, points = 0, thresh = pt_thresh, sc = 0;
+	
+	/* Finds the maximum preference. */
 	for (i = 0, max = 0; i < all; i++) {
 		if (poss[i]) {
 			max = prefs[i].pref;
@@ -424,51 +448,48 @@ function score(pts, prefs, poss, blocks) {
 		}
 	}
 
+	/* Finds the best task that we can still be assigned. */
 	i = 0;
-	while (!poss[i] || blocks[i]) {
-		i++;
-	}
+	while (!poss[i] || blocks[i]) { i++; }
 	j = 0;
 
+	/* Finds the worst task that we can still be assigned. */
 	k = all - 1;
-	while (!poss[k] || blocks[k]) {
-		k--;
-	}
-	if (prefs[k].pref === max) {
-		return max;
-	}
-
+	while (!poss[k] || blocks[k]) { k--; }
+	
+	/* If the worst task is already at the maximum, we know that we've
+		reached a maximal solution. */
+	if (prefs[k].pref === max) { return max; }
 	l = scale * prefs[k].consts.weight;
 
 	/* Do tasks from the top down, while skipping tasks from the bottom up,
 		until we reach the middle. */
 	while (i < k || (i === k && j < l)) {
+		/* Does the best task available. */
 		j++;
 		num_tasks++;
 		sc += prefs[i].pref;
 		points += pts;
-		if (points >= thresh) {
-			points -= thresh;
-			l--;
-		}
+		
+		/* If we've exhausted the best task, move to the next best task. */
 		if (j === scale * prefs[i].consts.weight) {
 			i++;
-			while (i < k && (!poss[k] || blocks[k])) {
-				i++;
-			}
-
+			while (i < all && (!poss[k] || blocks[k])) { i++; }
 			j = 0;
 		}
-		if (l === 0) {
-			k--;
-			while (!poss[k] || blocks[k]) {
+		
+		/* While we have enough points to skip, skip from the bottom up. */
+		while (points >= thresh) {
+			points -= thresh;
+			l--;
+			
+			/* If we've exhausted the worst task, move to the next worst task. */
+			if (l === 0) {
 				k--;
+				while (k >= 0 && (!poss[k] || blocks[k])) { k--; }
+				if (prefs[k].pref === max) { return max; }
+				l = scale * prefs[k].consts.weight;
 			}
-			if (prefs[k].pref === max) {
-				return max;
-			}
-
-			l = scale * prefs[k].consts.weight;
 		}
 	}
 
@@ -477,91 +498,105 @@ function score(pts, prefs, poss, blocks) {
 		num_tasks++;
 		sc += prefs[i].pref;
 	}
+	
 	return sc / num_tasks;
 }
 
+/* The same as the above function, but instead of calculating the average score
+	of done tasks, calculates how much extra points we have after saturating our
+	solution. If a non-saturated solution is passed in, we return a negative value. */
 function sat_score(pts, prefs, poss, blocks) {
 	"use strict";
 	var i, j, k, l,
 		all = prefs.length, done = 0, num_tasks = 0,
 		max, points = 0, thresh = pt_thresh, sc = 0;
+	
+	/* Finds the maximum preference. */
 	for (i = 0, max = 0; i < all; i++) {
 		if (poss[i]) {
 			max = prefs[i].pref;
 			break;
 		}
 	}
+	
+	/* Finds the best task that we can still be assigned. */
 	i = 0;
-	while (!poss[i] || blocks[i]) {
-		i++;
-	}
-
+	while (!poss[i] || blocks[i]) { i++; }
 	j = 0;
 
+	/* Finds the worst task that we can still be assigned. */
 	k = all - 1;
-	while (!poss[k] || blocks[k]) {
-		k--;
-	}
-
+	while (!poss[k] || blocks[k]) { k--; }
 	l = scale * prefs[k].consts.weight;
+	
 	/* Do tasks from the top down, while skipping tasks from the bottom up,
 		until we reach the middle. */
 	while (i < k || (i === k && j < l)) {
+		/* Does the best task available. */
 		j++;
 		done++;
 		sc += prefs[i].pref;
 		points += pts;
-		if (points >= thresh) {
-			points -= thresh;
-			l--;
-		}
+		
+		/* If we've exhausted the best task, move to the next best task. */
 		if (j === scale * prefs[i].consts.weight) {
 			i++;
-			while (i < k && (!poss[k] || blocks[k])) {
-				i++;
-			}
+			while (i < all && (!poss[k] || blocks[k])) { i++; }
 			j = 0;
 		}
-		if (l === 0) {
-			k--;
-			while (!poss[k] || blocks[k]) {
+		
+		/* While we have enough points to skip, skip from the bottom up. */
+		while (points >= thresh) {
+			points -= thresh;
+			l--;
+			
+			/* If we've exhausted the worst task, move to the next worst task. */
+			if (l === 0) {
 				k--;
+				while (k >= 0 && (!poss[k] || blocks[k])) { k--; }
+				l = scale * prefs[k].consts.weight;
 			}
-			l = scale * prefs[k].consts.weight;
 		}
 	}
+	
 	/* Do the remaining task if there is ambiguity. */
 	if (i === k && j === l) {
 		done++;
 		sc += prefs[i].pref;
 	}
+	
+	/* Find out how many tasks at maximum preference there are. */
 	for (i = 0; i < all; i++) {
-		if (poss[i] && prefs[i].pref === max) {
-			num_tasks += scale * prefs[i].consts.weight;
-		}
+		if (poss[i] && prefs[i].pref === max) { num_tasks += scale * prefs[i].consts.weight; }
 	}
+	
+	/* If we're truly at a saturated solution, return the percent
+		of optimal tasks we can skip, and if not, return -1 to signal
+		that this solution is not saturated. */
 	return sc / done === max ? 1 - done / num_tasks : -1;
 }
 
-function print_sol(m, cmb_app) {
+/* Returns a string representation of the specified solution. */
+function sol_repr(m, cmb_app) {
 	"use strict";
 	var i, all = m.consts.num_tasks,
 		tasks = m.tasks,
 		sol = cmb_app ? m.cmb_sol : m.cla_sol,
 		rv = "";
+	
 	rv = "<br />Master: " + m.consts.name + "<br />";
 	rv += "<br />Saturated solution? " + (sol.sat ? "Yes." : "No.") + "<br />";
 	rv += cmb_app ? "<br />Enable Combat-level appropriate tasks." :
 			"<br />Disable Combat-level appropriate tasks.<br />";
+	
 	if (cmb_app) {
 		rv += "<br />Tasks blocked by combat-appropriate tasking:<br />";
 		rv += "--------------------------------------------<br />";
 		for (i = 0; i < all; i++) {
-			if (m.cmb_blocks[i]) {
-				rv += tasks[i].consts.name + "<br />";
-			}
+			if (m.cmb_blocks[i]) { rv += tasks[i].consts.name + "<br />"; }
 		}
 	}
+	
 	rv += "<br />Unlockables:<br />";
 	rv += "------------<br />";
 	for (i = 0; i < all; i++) {
@@ -569,20 +604,19 @@ function print_sol(m, cmb_app) {
 			rv += tasks[i].consts.name + ":   " + (sol.blocks[i] ? "Disabled" : "Enabled") + "<br />";
 		}
 	}
+	
 	rv += "<br />Blocks:<br />";
 	rv += "-------<br />";
 	for (i = 0; i < all; i++) {
-		if (!tasks[i].consts.fblock && sol.blocks[i]) {
-			rv += tasks[i].consts.name + "<br />";
-		}
+		if (!tasks[i].consts.fblock && sol.blocks[i]) { rv += tasks[i].consts.name + "<br />"; }
 	}
+	
 	rv += "<br />Skips:<br />";
 	rv += "------<br />";
 	for (i = 0; i < all; i++) {
-		if (sol.skips[i]) {
-			rv += tasks[i].consts.name + "<br />";
-		}
+		if (sol.skips[i]) { rv += tasks[i].consts.name + "<br />"; }
 	}
+	
 	if (!sol.sat) {
 		rv += "<br />In addition, you can skip " + sol.skip_perc.toFixed(2) + "% of your " +
 			tasks[sol.borderline].consts.name + " tasks.<br />";
@@ -594,39 +628,32 @@ function print_sol(m, cmb_app) {
 				num_blocks + " of your block slots. Use the remainder however you see fit.<br />";
 		}
 	}
+	
 	rv += "<br />Average Task Quality: " + sol.score.toFixed(2) + "<br />";
+	
 	return rv;
 }
 
 /* Finds the best set of blocks for a master m with a set of possibilities poss, and returns it. */
 function find_best(m, poss) {
 	"use strict";
-	var rv = {},
-		i,
-		j,
-		k,
-		l,
+	var i, j, k, l,
+		rv = {},
 		all = m.consts.num_tasks,
-		change1 = 0,
-		change2 = 0,
-		bans = num_blocks,
-		next_bans = num_blocks,
+		change1 = 0, change2 = 0,
+		bans = num_blocks, next_bans = num_blocks,
 		ismax,
-		sat = false,
-		swap = false,
+		sat = false, swap = false,
 		pts = m.consts.points,
 		thresh = pt_thresh,
-		curr,
-		spec,
-		max,
-		num,
-		done,
-		points,
-		sc,
+		curr, spec, max,
+		num, done,
+		points, sc,
 		tasks = m.tasks,
 		blocks = [],
 		skips = [];
 
+	/* Finds the maximum preference. */
 	for (i = 0, max = 0; i < all; i++) {
 		if (poss[i]) {
 			max = tasks[i].pref;
@@ -634,37 +661,40 @@ function find_best(m, poss) {
 		}
 	}
 
-	/* Find the optimal set of bans for no-restrictions tasks.
+	/* Find the optimal set of blocks:
 	 * Specifically, for each task:
 	 *
-	 *      If it's impossible, then ignore it.
+	 *      If it's impossible or optimal (blocking it won't do anything), then ignore it.
 	 *      If it's blocked, try unblocking it.
 	 *      If it's unblocked, but we can freely block it, try blocking it.
 	 *      If it's unblocked, but we're at block capacity:
 	 *              Try exchanging it with every block we currently have.
 	 *
-	 * Once we've tried something, compare its score with the best set so far, and set it up to change.
+	 * Once we've tried something, check to see if it's better than what we have.
+	 * 
+	 * Once we've tried all of the offspring, switch the current parent to the best offspring and repeat.
 	 *
-	 *      In addition, if we ever achieve a saturated maximal solution, pass it off to the
-	 *              saturated evolutionary algorithm.
+	 * In addition, if we ever achieve a saturated maximal solution, pass it off to the
+	 *      saturated evolutionary algorithm.
 	 */
 
+	/* Sets the first parent to the empty set - no blocks. */
 	curr = score(pts, tasks, poss, blocks);
 	if (curr === max) {
 		sat = true;
 		change1 = -1;
 	}
 
+	/* While we're seeing change... */
 	while (change1 >= 0) {
-		if (sat) {
-			break;
-		}
+		/* If we reached an optimal solution last time, break out. */
+		if (sat) { break; }
 
+		/* For each task: */
 		for (i = 0, change1 = -1; i < all; i++) {
+			
 			/* If it's impossible or optimal, then ignore it. */
-			if (!poss[i] || tasks[i].pref === max) {
-				continue;
-			}
+			if (!poss[i] || tasks[i].pref === max) { continue; }
 
 			/* If it's blocked, try unblocking it. */
 			if (blocks[i]) {
@@ -676,12 +706,16 @@ function find_best(m, poss) {
 					curr = spec;
 					next_bans = tasks[i].consts.fblock ? bans : bans + 1;
 				}
+				
 				blocks[i] = true;
+				
+				/* Check whether the solution we just found is optimal. */
 				if (spec === max) {
 					sat = true;
 					break;
 				}
-				/* If it's unblocked, but we can freely block it, try blocking it. */
+				
+			/* If it's unblocked, but we can freely block it, try blocking it. */
 			} else if (!blocks[i] && (tasks[i].consts.fblock || bans > 0)) {
 				blocks[i] = true;
 				spec = score(pts, tasks, poss, blocks);
@@ -691,12 +725,14 @@ function find_best(m, poss) {
 					curr = spec;
 					next_bans = tasks[i].consts.fblock ? bans : bans - 1;
 				}
+				
 				blocks[i] = false;
 				if (spec === max) {
 					sat = true;
 					break;
 				}
-				/* If it's unblocked, but we're at block capacity: */
+				
+			/* If it's unblocked, but we're at block capacity: */
 			} else if (!blocks[i] && !tasks[i].consts.fblock && bans <= 0) {
 				/* Try exchanging it with every block we currently have. */
 				for (j = 0; j < all; j++) {
@@ -711,6 +747,7 @@ function find_best(m, poss) {
 							curr = spec;
 							next_bans = bans;
 						}
+						
 						blocks[j] = true;
 						blocks[i] = false;
 						if (spec === max) {
@@ -722,14 +759,14 @@ function find_best(m, poss) {
 			}
 		}
 
+		/* If we saw change, update the parent. */
 		if (change1 >= 0) {
 			blocks[change1] = !blocks[change1];
 			bans = next_bans;
-			if (swap) {
-				blocks[change2] = !blocks[change2];
-			}
+			if (swap) { blocks[change2] = !blocks[change2]; }
 		}
 	}
+	
 	/* If we reached a saturated solution, find the best such solution. */
 	if (sat) {
 		/* First, we enable unlockables if they're at the max, and disable them otherwise. */
@@ -739,16 +776,16 @@ function find_best(m, poss) {
 				blocks[i] = !ismax;
 			}
 		}
-		/* Restart the evolutionary algorithm, but instead optimizing for sat_score. */
+		
+		/* Restart the evolutionary algorithm, but instead optimizing for sat_score,
+			and ignoring unlockables, as they've been dealt with. */
 		change1 = 0;
 		curr = sat_score(pts, tasks, poss, blocks);
 		while (change1 >= 0) {
 			for (i = 0, change1 = -1; i < all; i++) {
 
 				/* If it's impossible, optimal, or unlockable, then ignore it. */
-				if (!poss[i] || tasks[i].pref === max || tasks[i].consts.fblock) {
-					continue;
-				}
+				if (!poss[i] || tasks[i].pref === max || tasks[i].consts.fblock) { continue; }
 
 				/* If it's blocked, try unblocking it. */
 				if (blocks[i]) {
@@ -760,8 +797,10 @@ function find_best(m, poss) {
 						curr = spec;
 						next_bans = tasks[i].consts.fblock ? bans : bans + 1;
 					}
+					
 					blocks[i] = true;
-					/* If it's unblocked, but we can freely block it, try blocking it. */
+					
+				/* If it's unblocked, but we can freely block it, try blocking it. */
 				} else if (!blocks[i] && (tasks[i].consts.fblock || bans > 0)) {
 					blocks[i] = true;
 					spec = sat_score(pts, tasks, poss, blocks);
@@ -771,8 +810,10 @@ function find_best(m, poss) {
 						curr = spec;
 						next_bans = tasks[i].consts.fblock ? bans : bans - 1;
 					}
+					
 					blocks[i] = false;
-					/* If it's unblocked, but we're at block capacity: */
+					
+				/* If it's unblocked, but we're at block capacity: */
 				} else if (!blocks[i] && !tasks[i].consts.fblock && bans <= 0) {
 					/* Try exchanging it with every block we currently have. */
 					for (j = 0; j < all; j++) {
@@ -787,77 +828,83 @@ function find_best(m, poss) {
 								curr = spec;
 								next_bans = bans;
 							}
+							
 							blocks[j] = true;
 							blocks[i] = false;
 						}
 					}
 				}
 			}
+			
+			/* If we saw change, update the parent. */
 			if (change1 >= 0) {
 				blocks[change1] = !blocks[change1];
 				bans = next_bans;
-				if (swap) {
-					blocks[change2] = !blocks[change2];
-				}
+				if (swap) { blocks[change2] = !blocks[change2]; }
 			}
 		}
 	}
+	
 	/* Number of optimal tasks. */
 	num = 0;
 	for (i = 0; i < all; i++) {
-		if (poss[i] && tasks[i].pref === max) {
-			num += scale * tasks[i].consts.weight;
-		}
+		if (poss[i] && tasks[i].pref === max) { num += scale * tasks[i].consts.weight; }
 	}
+	
 	/* Generate the list of skips, as well as the final score. */
 	points = 0;
 	done = 0;
 	sc = 0;
+	
 	i = 0;
-	while (!poss[i] || blocks[i]) {
-		i++;
-	}
+	while (!poss[i] || blocks[i]) { i++; }
 	j = 0;
+	
 	k = all - 1;
-	while (!poss[k] || blocks[k]) {
-		k--;
-	}
+	while (!poss[k] || blocks[k]) { k--; }
 	l = scale * tasks[k].consts.weight;
+	
 	/* Do tasks from the top down, and skip tasks from the
 	 * bottom up, until we meet in the middle. */
 	while (i < k || (i === k && j < l)) {
+		/* Does the best task available. */
 		j++;
 		points += pts;
 		done++;
 		sc += tasks[i].pref;
-		if (points >= thresh) {
-			points -= thresh;
-			l--;
-		}
+		
+		/* If we've exhausted the best task, move to the next best task. */
 		if (j === scale * tasks[i].consts.weight) {
 			i++;
-			while (i < k && (!poss[i] || blocks[i])) {
-				i++;
-			}
+			while (i < all && (!poss[i] || blocks[i])) { i++; }
 			j = 0;
 		}
-		if (l === 0) {
-			if (tasks[k].pref < max) {
-				skips[k] = true;
-			}
-			k--;
-			while (!poss[k] || blocks[k]) {
+		
+		/* While we have enough points to skip, skip from the bottom up. */
+		while (points >= thresh) {
+			points -= thresh;
+			l--;
+			
+			/* If we've exhausted the worst task, move to the next worst task. */
+			if (l === 0) {
+				if (tasks[k].pref < max) { skips[k] = true; }
 				k--;
+				while (k >= 0 && (!poss[k] || blocks[k])) { k--; }
+				l = scale * tasks[k].consts.weight;
 			}
-			l = scale * tasks[k].consts.weight;
 		}
+		
+		
 	}
+	
+	/* Do the remaining task if there is ambiguity. */
 	if (i === k && j === l) {
 		done++;
 		sc += tasks[i].pref;
 		j++;
 	}
-	/* Update the solution. */
+	
+	/* Update the solution and return it. */
 	rv.score = sc / done;
 	rv.poss = poss.slice();
 	rv.blocks = blocks;
@@ -866,11 +913,12 @@ function find_best(m, poss) {
 	rv.bans = num_blocks - bans;
 	rv.borderline = i;
 	rv.skip_perc = sat ? 100 * (1 - done / num) :
-
 			100 * (1 - j / scale * tasks[k].consts.weight);
+	
 	return rv;
 }
 
+/* Finds the optimal solutions for both types of tasking for a certain master. */
 function solve(m) {
 	"use strict";
 	var i, min,
@@ -879,18 +927,22 @@ function solve(m) {
 		tasks = m.tasks,
 		poss = [],
 		cmb_blocks = m.cmb_blocks;
-	/* Populate the possibility lists. */
-	for (i = 0; i < all; i++) {
-		poss[i] = s_lvl >= tasks[i].consts.s_reqt && tasks[i].poss;
-	}
+	
+	/* Populate the possibility list for non-combat appropriate. */
+	for (i = 0; i < all; i++) { poss[i] = s_lvl >= tasks[i].consts.s_reqt && tasks[i].poss; }
+	
 	/* Find the best set of blocks, for non-combat appropriate tasks. */
 	m.cla_sol = find_best(m, poss);
+	
+	/* Initialize the combat solution to negative infinity. */
 	min = {};
 	min.score = Number.NEGATIVE_INFINITY;
 	m.cmb_sol = min;
+	
 	/* If we're able to enable combat-level appropriate tasks, try that. */
 	if (m.consts.cmb_app) {
 		change = false;
+		
 		/* Update the possibility list to include combat levels,
 		in the process updating the master's list of combat-blocked tasks. */
 		for (i = 0; i < all; i++) {
@@ -898,43 +950,52 @@ function solve(m) {
 				change = true;
 				cmb_blocks[i] = true;
 			}
-			poss[i] = poss[i] && cmb_lvl >= tasks[i].consts.cmb_rec;
+			poss[i] = poss[i] && !change;
 		}
+		
 		/* If we saw any changes, add in the new solution. */
-		if (change) {
-			m.cmb_sol = find_best(m, poss);
-		}
+		if (change) { m.cmb_sol = find_best(m, poss); }
 	}
 }
 
-function print_optimal(m) {
+/* Returns a string representation of the optimal solution for a master m. */
+function optimal_repr(m) {
 	"use strict";
 	var a = m.cla_sol, b = m.cmb_sol,
 		rv = "";
+	
+	/* If we can't do combat-appropriate tasking, just add the non-appropriate solution. */
 	if (!m.consts.cmb_app) {
-		rv += print_sol(m, false);
+		rv += sol_repr(m, false);
 		return rv;
 	}
+	
+	/* Otherwise, if one is better than the other, add the better solution. */
 	if (a.score !== b.score) {
-		rv += print_sol(m, b.score > a.score) + "<br />";
+		rv += sol_repr(m, b.score > a.score) + "<br />";
+		
+	/* Or if they're tied, add both. */
 	} else {
-		rv += print_sol(m, false) + "<br />";
+		rv += sol_repr(m, false) + "<br />";
 		rv += "<br />~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />";
-		rv += print_sol(m, true) + "<br />";
+		rv += sol_repr(m, true) + "<br />";
 		rv += "<br />~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />";
 		rv += "<br />You lucky dog, both combat-enabled and non-combat enabled " +
 					"have equal scores, and they're different!<br />";
 		rv += "At this point, pick whichever you want, or rerun the algorithm with " +
 					"more specific preferences.<br />";
 	}
+	
 	return rv;
 }
 
+/* Calls the algorithm on user input. */
 function alg() {
 	"use strict";
-	var i, masters = [], rv, wen = false,
+	var i, masters = [], rv,
 
-		/* Extract the form data... */
+		/* First, extract the form data... */
+		
 		/* Regular Tasks */
 		ab_spectres = 0,
 		abyssal_dems = 0,
@@ -1064,7 +1125,13 @@ function alg() {
 		w_scorpions = 0,
 		w_skeletons = 0,
 		w_spiders = 0,
-		w_spirituals = 0;
+		w_spirituals = 0,
+		
+		wen = false;
+	
+	s_lvl = 87;
+	cmb_lvl = 112;
+	num_blocks = 6;
 
 	/* If the wildy is the same as normal. */
 	if (wen) {
@@ -1087,32 +1154,32 @@ function alg() {
 		w_spiders = spiders;
 		w_spirituals = spirituals;
 	}
-
-	/*
-	   ##################
-	   ### USER INPUT ###
-	   ##################
-	*/
-	s_lvl = 87;
-	cmb_lvl = 112;
-	num_blocks = 6;
+	
+	/* Initialize the masters. */
 
 	/* Krystilia */
 	masters[0] = new UMaster(c_masters[0], true);
+	
 	/* Turael */
 	masters[1] = new UMaster(c_masters[1], true);
+	
 	/* Mazchna */
 	masters[2] = new UMaster(c_masters[2], true);
+	
 	/* Vannaka */
 	masters[3] = new UMaster(c_masters[3], true);
+	
 	/* Chaeldar */
 	masters[4] = new UMaster(c_masters[4], true);
+	
 	/* Nieve */
 	masters[5] = new UMaster(c_masters[5], true);
+	
 	/* Duradel */
 	masters[6] = new UMaster(c_masters[6], true);
 
 	/* Assign the preferences to the tasks. */
+	
 	/* Aberrant Spectres */
 	masters[3].tasks[0] = new UTask(masters[3].consts.tasks[0], true, ab_spectres);    //Vannaka
 	masters[4].tasks[0] = new UTask(masters[4].consts.tasks[0], true, ab_spectres);    //Chaeldar
@@ -1339,46 +1406,59 @@ function alg() {
 	masters[4].tasks[23] = new UTask(masters[4].consts.tasks[23], true, great_dems);   //Chaeldar
 	masters[5].tasks[20] = new UTask(masters[5].consts.tasks[20], true, great_dems);   //Nieve
 	masters[6].tasks[19] = new UTask(masters[6].consts.tasks[19], true, great_dems);   //Duradel
+	
 	/* Green Dragons */
 	masters[0].tasks[13] = new UTask(masters[0].consts.tasks[13], true, w_green_drags);  //Krystilia
 	masters[3].tasks[24] = new UTask(masters[3].consts.tasks[24], true, green_drags);   //Vannaka
+	
 	/* Harpie Bug Swarms */
 	masters[3].tasks[25] = new UTask(masters[3].consts.tasks[25], true, harpie_bugs);   //Vannaka
 	masters[4].tasks[24] = new UTask(masters[4].consts.tasks[24], true, harpie_bugs);   //Chaeldar
+	
 	/* Hellhounds */
 	masters[0].tasks[14] = new UTask(masters[0].consts.tasks[14], true, w_hellhounds);  //Krystilia
 	masters[3].tasks[26] = new UTask(masters[3].consts.tasks[26], true, hellhounds);   //Vannaka
 	masters[4].tasks[25] = new UTask(masters[4].consts.tasks[25], true, hellhounds);   //Chaeldar
 	masters[5].tasks[21] = new UTask(masters[5].consts.tasks[21], true, hellhounds);   //Nieve
 	masters[6].tasks[20] = new UTask(masters[6].consts.tasks[20], true, hellhounds);   //Duradel
+	
 	/* Hill Giants */
 	masters[2].tasks[15] = new UTask(masters[2].consts.tasks[15], true, hill_giants);   //Mazchna
 	masters[3].tasks[27] = new UTask(masters[3].consts.tasks[27], true, hill_giants);   //Vannaka
+	
 	/* Hobgoblins */
 	masters[2].tasks[16] = new UTask(masters[2].consts.tasks[16], true, hobgoblins);   //Mazchna
 	masters[3].tasks[28] = new UTask(masters[3].consts.tasks[28], true, hobgoblins);   //Vannaka
+	
 	/* Ice Giants */
 	masters[0].tasks[15] = new UTask(masters[0].consts.tasks[15], true, w_ice_giants);  //Krystilia
 	masters[3].tasks[29] = new UTask(masters[3].consts.tasks[29], true, ice_giants);   //Vannaka
+	
 	/* Ice Warriors */
 	masters[0].tasks[16] = new UTask(masters[0].consts.tasks[16], true, w_ice_warrs);  //Krystilia
 	masters[2].tasks[17] = new UTask(masters[2].consts.tasks[17], true, ice_warrs);   //Mazchna
 	masters[3].tasks[30] = new UTask(masters[3].consts.tasks[30], true, ice_warrs);   //Vannaka
+	
 	/* Icefiends */
 	masters[1].tasks[14] = new UTask(masters[1].consts.tasks[14], true, icefiends);    //Turael
+	
 	/* Infernal Mages */
 	masters[3].tasks[31] = new UTask(masters[3].consts.tasks[31], true, infernal_mages);   //Vannaka
 	masters[4].tasks[26] = new UTask(masters[4].consts.tasks[26], true, infernal_mages);   //Chaeldar
+	
 	/* Iron Dragons */
 	masters[4].tasks[27] = new UTask(masters[4].consts.tasks[27], true, iron_drags);   //Chaeldar
 	masters[5].tasks[22] = new UTask(masters[5].consts.tasks[22], true, iron_drags);   //Nieve
 	masters[6].tasks[21] = new UTask(masters[6].consts.tasks[21], true, iron_drags);   //Duradel
+	
 	/* Jellies */
 	masters[3].tasks[32] = new UTask(masters[3].consts.tasks[32], true, jellies);   //Vannaka
 	masters[4].tasks[28] = new UTask(masters[4].consts.tasks[28], true, jellies);   //Chaeldar
+	
 	/* Jungle Horrors */
 	masters[3].tasks[33] = new UTask(masters[3].consts.tasks[33], true, jungle_horrs);   //Vannaka
 	masters[4].tasks[29] = new UTask(masters[4].consts.tasks[29], true, jungle_horrs);   //Chaeldar
+	
 	/* Kalphites */
 	masters[1].tasks[15] = new UTask(masters[1].consts.tasks[15], true, kalphites);   //Turael
 	masters[2].tasks[18] = new UTask(masters[2].consts.tasks[18], true, kalphites);   //Mazchna
@@ -1386,164 +1466,214 @@ function alg() {
 	masters[4].tasks[30] = new UTask(masters[4].consts.tasks[30], true, kalphites);   //Chaeldar
 	masters[5].tasks[23] = new UTask(masters[5].consts.tasks[23], true, kalphites);   //Nieve
 	masters[6].tasks[22] = new UTask(masters[6].consts.tasks[22], true, kalphites);   //Duradel
+	
 	/* Killerwatts */
 	masters[2].tasks[19] = new UTask(masters[2].consts.tasks[19], true, killerwatts);   //Mazchna
 	masters[3].tasks[35] = new UTask(masters[3].consts.tasks[35], true, killerwatts);   //Vannaka
+	
 	/* Kurasks */
 	masters[3].tasks[36] = new UTask(masters[3].consts.tasks[36], true, kurasks);   //Vannaka
 	masters[4].tasks[31] = new UTask(masters[4].consts.tasks[31], true, kurasks);   //Chaeldar
 	masters[5].tasks[24] = new UTask(masters[5].consts.tasks[24], true, kurasks);   //Nieve
 	masters[6].tasks[23] = new UTask(masters[6].consts.tasks[23], true, kurasks);   //Duradel
+	
 	/* Lava Dragons */
 	masters[0].tasks[17] = new UTask(masters[0].consts.tasks[17], true, w_lava_drags);  //Krystilia
+	
 	/* Lesser Demons */
 	masters[0].tasks[18] = new UTask(masters[0].consts.tasks[18], true, w_less_dems);  //Krystilia
 	masters[3].tasks[37] = new UTask(masters[3].consts.tasks[37], true, less_dems);   //Vannaka
 	masters[4].tasks[32] = new UTask(masters[4].consts.tasks[32], true, less_dems);   //Chaeldar
+	
 	/* Lizardmen */
 	masters[4].tasks[33] = new UTask(masters[4].consts.tasks[33], true, lizardmen);   //Chaeldar
 	masters[5].tasks[25] = new UTask(masters[5].consts.tasks[25], true, lizardmen);   //Nieve
 	masters[6].tasks[24] = new UTask(masters[6].consts.tasks[24], true, lizardmen);   //Duradel
+	
 	/* Magic Axes */
 	masters[0].tasks[19] = new UTask(masters[0].consts.tasks[19], true, w_mag_axes);  //Krystilia
+	
 	/* Mammoths */
 	masters[0].tasks[20] = new UTask(masters[0].consts.tasks[20], true, w_mammoths);  //Krystilia
+	
 	/* Minotaurs */
 	masters[1].tasks[16] = new UTask(masters[1].consts.tasks[16], true, minotaurs);    //Turael
+	
 	/* Mithril Dragons */
 	masters[5].tasks[26] = new UTask(masters[5].consts.tasks[26], true, mithril_drags);   //Nieve
 	masters[6].tasks[25] = new UTask(masters[6].consts.tasks[25], true, mithril_drags);   //Duradel
+	
 	/* Mogres */
 	masters[2].tasks[20] = new UTask(masters[2].consts.tasks[20], true, mogres);   //Mazchna
 	masters[3].tasks[39] = new UTask(masters[3].consts.tasks[39], true, mogres);   //Vannaka
 	masters[4].tasks[34] = new UTask(masters[4].consts.tasks[34], true, mogres);   //Chaeldar
+	
 	/* Molanisks */
 	masters[3].tasks[40] = new UTask(masters[3].consts.tasks[40], true, molanisks);   //Vannaka
 	masters[4].tasks[35] = new UTask(masters[4].consts.tasks[35], true, molanisks);   //Chaeldar
+	
 	/* Monkeys */
 	masters[1].tasks[17] = new UTask(masters[1].consts.tasks[17], true, monkeys);    //Turael
+	
 	/* Moss Giants */
 	masters[3].tasks[41] = new UTask(masters[3].consts.tasks[41], true, moss_giants);   //Vannaka
+	
 	/* Mutated Zygomites */
 	masters[4].tasks[36] = new UTask(masters[4].consts.tasks[36], true, mutated_zygs);   //Chaeldar
 	masters[5].tasks[27] = new UTask(masters[5].consts.tasks[27], true, mutated_zygs);   //Nieve
 	masters[6].tasks[26] = new UTask(masters[6].consts.tasks[26], true, mutated_zygs);   //Duradel
+	
 	/* Nechryael */
 	masters[3].tasks[42] = new UTask(masters[3].consts.tasks[42], true, nechryael);   //Vannaka
 	masters[4].tasks[37] = new UTask(masters[4].consts.tasks[37], true, nechryael);   //Chaeldar
 	masters[5].tasks[28] = new UTask(masters[5].consts.tasks[28], true, nechryael);   //Nieve
 	masters[6].tasks[27] = new UTask(masters[6].consts.tasks[27], true, nechryael);   //Duradel
+	
 	/* Ogres */
 	masters[3].tasks[43] = new UTask(masters[3].consts.tasks[43], true, ogres);   //Vannaka
+	
 	/* Otherworldly Beings */
 	masters[3].tasks[44] = new UTask(masters[3].consts.tasks[44], true, otherworldly_beings);   //Vannaka
+	
 	/* Pyrefiends */
 	masters[2].tasks[21] = new UTask(masters[2].consts.tasks[21], true, pyrefiends);   //Mazchna
 	masters[3].tasks[45] = new UTask(masters[3].consts.tasks[45], true, pyrefiends);   //Vannaka
 	masters[4].tasks[38] = new UTask(masters[4].consts.tasks[38], true, pyrefiends);   //Chaeldar
+	
 	/* Rats */
 	masters[1].tasks[18] = new UTask(masters[1].consts.tasks[18], true, rats);    //Turael
+	
 	/* Red Dragons */
 	masters[5].tasks[29] = new UTask(masters[5].consts.tasks[29], true, red_drags);   //Nieve
 	masters[6].tasks[28] = new UTask(masters[6].consts.tasks[28], true, red_drags);   //Duradel
+	
 	/* Revenants */
 	masters[0].tasks[21] = new UTask(masters[0].consts.tasks[21], true, w_revenants);  //Krystilia
+	
 	/* Rockslugs */
 	masters[2].tasks[22] = new UTask(masters[2].consts.tasks[22], true, rockslugs);   //Mazchna
 	masters[3].tasks[46] = new UTask(masters[3].consts.tasks[46], true, rockslugs);   //Vannaka
 	masters[4].tasks[39] = new UTask(masters[4].consts.tasks[39], true, rockslugs);   //Chaeldar
+	
 	/* Rogues */
 	masters[0].tasks[22] = new UTask(masters[0].consts.tasks[22], true, w_rogues);  //Krystilia
+	
 	/* Rune Dragons */
 	masters[5].tasks[30] = new UTask(masters[5].consts.tasks[30], true, rune_drags);   //Nieve
 	masters[6].tasks[29] = new UTask(masters[6].consts.tasks[29], true, rune_drags);   //Duradel
+	
 	/* Scabarites */
 	masters[5].tasks[31] = new UTask(masters[5].consts.tasks[31], true, scabarites);   //Nieve
+	
 	/* Scorpions */
 	masters[0].tasks[23] = new UTask(masters[0].consts.tasks[23], true, w_scorpions);   //Krystilia
 	masters[1].tasks[19] = new UTask(masters[1].consts.tasks[19], true, scorpions);    //Turael
 	masters[2].tasks[23] = new UTask(masters[2].consts.tasks[23], true, scorpions);    //Mazchna
+	
 	/* Sea Snakes */
 	masters[3].tasks[47] = new UTask(masters[3].consts.tasks[47], true, sea_snakes);   //Vannaka
+	
 	/* Shades */
 	masters[2].tasks[24] = new UTask(masters[2].consts.tasks[24], true, shades);   //Mazchna
 	masters[3].tasks[38] = new UTask(masters[3].consts.tasks[38], true, shades);   //Vannaka
+	
 	/* Shadow Warriors */
 	masters[3].tasks[48] = new UTask(masters[3].consts.tasks[48], true, shadow_warrs);   //Vannaka
 	masters[4].tasks[40] = new UTask(masters[4].consts.tasks[40], true, shadow_warrs);   //Chaeldar
+	
 	/* Skeletal Wyverns */
 	masters[4].tasks[41] = new UTask(masters[4].consts.tasks[41], true, skeletal_wyvs);   //Chaeldar
 	masters[5].tasks[32] = new UTask(masters[5].consts.tasks[32], true, skeletal_wyvs);   //Nieve
 	masters[6].tasks[30] = new UTask(masters[6].consts.tasks[30], true, skeletal_wyvs);   //Duradel
+	
 	/* Skeletons */
 	masters[0].tasks[24] = new UTask(masters[0].consts.tasks[24], true, w_skeletons);  //Krystilia
 	masters[1].tasks[20] = new UTask(masters[1].consts.tasks[20], true, skeletons);   //Turael
 	masters[2].tasks[25] = new UTask(masters[2].consts.tasks[25], true, skeletons);   //Mazchna
+	
 	/* Smoke Devils */
 	masters[5].tasks[33] = new UTask(masters[5].consts.tasks[33], true, smoke_devils);   //Nieve
 	masters[6].tasks[31] = new UTask(masters[6].consts.tasks[31], true, smoke_devils);   //Duradel
+	
 	/* Spiders */
 	masters[0].tasks[25] = new UTask(masters[0].consts.tasks[25], true, w_spiders);   //Krystilia
 	masters[1].tasks[21] = new UTask(masters[1].consts.tasks[21], true, spiders);    //Turael
+	
 	/* Spiritual Creatures */
 	masters[0].tasks[26] = new UTask(masters[0].consts.tasks[26], true, w_spirituals);  //Krystilia
 	masters[3].tasks[49] = new UTask(masters[3].consts.tasks[49], true, spirituals);   //Vannaka
 	masters[4].tasks[42] = new UTask(masters[4].consts.tasks[42], true, spirituals);   //Chaeldar
 	masters[5].tasks[34] = new UTask(masters[5].consts.tasks[34], true, spirituals);   //Nieve
 	masters[6].tasks[32] = new UTask(masters[6].consts.tasks[32], true, spirituals);   //Duradel
+	
 	/* Steel Dragons */
 	masters[4].tasks[43] = new UTask(masters[4].consts.tasks[43], true, steel_drags);   //Chaeldar
 	masters[5].tasks[35] = new UTask(masters[5].consts.tasks[35], true, steel_drags);   //Nieve
 	masters[6].tasks[33] = new UTask(masters[6].consts.tasks[33], true, steel_drags);   //Duradel
+	
 	/* Suqahs */
 	masters[5].tasks[36] = new UTask(masters[5].consts.tasks[36], true, suqahs);   //Nieve
 	masters[6].tasks[34] = new UTask(masters[6].consts.tasks[34], true, suqahs);   //Duradel
+	
 	/* Terror Dogs */
 	masters[3].tasks[50] = new UTask(masters[3].consts.tasks[50], true, terror_dogs);   //Vannaka
+	
 	/* Trolls */
 	masters[3].tasks[51] = new UTask(masters[3].consts.tasks[51], true, trolls);   //Vannaka
 	masters[4].tasks[44] = new UTask(masters[4].consts.tasks[44], true, trolls);   //Chaeldar
 	masters[5].tasks[37] = new UTask(masters[5].consts.tasks[37], true, trolls);   //Nieve
 	masters[6].tasks[35] = new UTask(masters[6].consts.tasks[35], true, trolls);   //Duradel
+	
 	/* Turoth */
 	masters[3].tasks[52] = new UTask(masters[3].consts.tasks[52], true, turoth);   //Vannaka
 	masters[4].tasks[45] = new UTask(masters[4].consts.tasks[45], true, turoth);   //Chaeldar
 	masters[5].tasks[38] = new UTask(masters[5].consts.tasks[38], true, turoth);   //Nieve
+	
 	/* TzHaar */
 	masters[4].tasks[46] = new UTask(masters[4].consts.tasks[46], true, tzhaar);   //Chaeldar
 	masters[5].tasks[39] = new UTask(masters[5].consts.tasks[39], true, tzhaar);   //Nieve
 	masters[6].tasks[36] = new UTask(masters[6].consts.tasks[36], true, tzhaar);   //Duradel
+	
 	/* Vampyres */
 	masters[2].tasks[26] = new UTask(masters[2].consts.tasks[26], true, vampyres);   //Mazchna
 	masters[3].tasks[53] = new UTask(masters[3].consts.tasks[53], true, vampyres);   //Vannaka
+	
 	/* Wall Beasts */
 	masters[2].tasks[27] = new UTask(masters[2].consts.tasks[27], true, wall_beasts);   //Mazchna
 	masters[3].tasks[54] = new UTask(masters[3].consts.tasks[54], true, wall_beasts);   //Vannaka
 	masters[4].tasks[47] = new UTask(masters[4].consts.tasks[47], true, wall_beasts);   //Chaeldar
+	
 	/* Waterfiends */
 	masters[6].tasks[37] = new UTask(masters[6].consts.tasks[37], true, waterfiends);   //Duradel
+	
 	/* Werewolves */
 	masters[3].tasks[55] = new UTask(masters[3].consts.tasks[55], true, werewolves);   //Vannaka
+	
 	/* Wolves */
 	masters[1].tasks[22] = new UTask(masters[1].consts.tasks[22], true, wolves);   //Turael
 	masters[2].tasks[28] = new UTask(masters[2].consts.tasks[28], true, wolves);   //Mazchna
+	
 	/* Zombies */
 	masters[1].tasks[23] = new UTask(masters[1].consts.tasks[23], true, zombies);   //Turael
 	masters[2].tasks[29] = new UTask(masters[2].consts.tasks[29], true, zombies);   //Mazchna
 
+	/* Prepares the output. */
 	rv = "<br />Scale: " + scale + "<br />";
 	rv += "<br />~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" +
 			"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" +
 			"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />";
+	
+	/* For each enabled master, add its optimal solution to the return value. */
 	for (i = 0; i < num_masters; i++) {
 		if (masters[i].enable) {
 			masters[i].tasks.sort(sortPref);
 			solve(masters[i]);
-			rv += print_optimal(masters[i]);
+			rv += optimal_repr(masters[i]);
 			rv += "<br />~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" +
 				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" +
 				"~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~<br />";
 		}
 	}
+	
 	return rv;
 }
