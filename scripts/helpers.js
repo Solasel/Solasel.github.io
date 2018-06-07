@@ -5,7 +5,7 @@ function output() {
 		'<html>' +
 
 		'<head>' +
-			'<title>Slayer Tool Tips</title>' +
+			'<title>Results</title>' +
 			'<link rel="stylesheet" type="text/css" href="../styles/main.css">' +
 			'<meta charset="UTF-8">' +
 			'<meta name="description" content="Your Output!">' +
