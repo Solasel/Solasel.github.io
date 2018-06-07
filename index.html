@@ -1,53 +1,22 @@
 <!DOCTYPE html>
 <html>
-    
-<head>
-    <title>Slayer Layout</title>
-    <link rel="stylesheet" type="text/css" href="./styles/main.css">
-    <meta charset="UTF-8">
-    <meta name="description" content="Slayer Website">
-    <meta name="author" content="William Walker">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="./scripts/main_alg.js"></script>
-    <script type="text/javascript" src="./scripts/helpers.js"></script>
-    <script>
-        function display_results() {
-			document.getElementById("generate").style.display = "none";
-            document.getElementById("output").innerHTML = alg();
-			document.getElementById("output").style.display = "block";
-			document.getElementById("top_hider").style.display = "inline";
-			document.getElementById("bottom_hider").style.display = "inline";
-        }
-		function toggle_results() {
-			var a = document.getElementById("output");
-			var b = a.style.display === "block";
-			
-			a.style.display = b ? "none" : "block";
-			document.getElementById("top_hider").style.display = b ? "none" : "inline";
-			document.getElementById("bottom_hider").value = b ? "Show Results" : "Hide Results"
-		}
-    </script>
-</head>
-    
-<body>
-    <div id="menu">
-        <a href="./index.html" class="menu-button">
-            Home
-        </a>
+	<head>
+		<title>Slayer Tool Tips</title>
+    	<link rel="stylesheet" type="text/css" href="./styles/main.css">
+		<meta charset="UTF-8">
+    	<meta name="description" content="Information about the tool.">
+    	<meta name="author" content="William Walker">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	</head>
+	<body>
+		
+	<div id="menu">
         
-        <a href="http://oldschoolrunescape.wikia.com/wiki/Duradel" class="menu-button">
-            Duradel
+        <a href="./pages/tool.html" class="menu-button">
+            The Tool
         </a>
-
-        <a href="http://oldschoolrunescape.wikia.com/wiki/Nieve" class="menu-button">
-            Nieve
-        </a>
-        
-        <a href="http://oldschoolrunescape.wikia.com/wiki/Krystilia" class="menu-button">
-            Krystilia
-        </a>
-        
-        <div class="menu-button dropdown">
+		
+		<div class="menu-button dropdown">
             <span>gloooooooooooooooooooooooooria</span>
             <div class="dropdown-content">
                 <span>in excelsis deo</span>
@@ -55,93 +24,16 @@
         </div>
         
     </div>
-    
-    <div id="content">
-        
-        <h1>Example Data Entry:</h1>
-        
-        <div id="input">
-        <form name="tasks">
-        <div id="data">
-            
-        <div class="task">
-            <p><u>Aberrant Spectres:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
-        </div>
-        
-        <div class="task">
-            <p><u>Abyssal Demons:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
-        </div>
-            
-        <div class="task">
-            <p><u>Adamant Dragons:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
-        </div>
-            
-        <div class="task">
-            <p><u>Ankou:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
-        </div>
-            
-        <div class="task">
-            <p><u>Aviansie:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
-        </div>
-            
-        <div class="task">
-            <p><u>Plebs (Sam):</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" checked="checked" name="plebs" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="100" /> 
-        </div>
-            
-        </div>
-        </form>
-        
-        <div class="submission">
-            <input id="generate" type="button" onclick="display_results();" value="Submit Data" /> <br />
-			<input id="top_hider" style="display: none" type="button" onclick="toggle_results();" value="Hide Results" /> <br />
-            <p id="output" style="display: none"></p>
-			<input id="bottom_hider" style="display: none" type="button" onclick="toggle_results();" value="Hide Results" />
-        </div>
-			
-		
-        
-        </div>
-        
-<hr style="clear: both; margin: 5vh 2vw; border-color: gray;"/>
-        
-        <div id="information">
+	<div id="content">
+
+<div id="information">
             
 <h1>Information</h1>
     
 <h4>Slayer Tasks</h4>
             
     <a href="https://www.youtube.com/watch?v=Jt0mg8Z09SY">
-        <img src="images/map.png" alt="A map of the fight caves" height="50%" width="50%" style="margin: 3%; float: right; max-height: 500px; max-width: 400px;" />
+        <img src="./images/map.png" alt="A map of the fight caves" height="50%" width="50%" style="margin: 3%; float: right; max-height: 500px; max-width: 400px;" />
     </a>
 
     <p>
@@ -253,7 +145,7 @@
 <h4>How to approach Slayer</h4>
 
     <a href="https://www.youtube.com/watch?v=YUpeb_deG2w">
-        <img src="images/slooer.jpg" alt="an laughter image" height="30%" width="20%" style="margin: 3%; float: right; max-height: 900px; max-width: 300px;" />
+        <img src="./images/slooer.jpg" alt="an laughter image" height="30%" width="20%" style="margin: 3%; float: right; max-height: 900px; max-width: 300px;" />
     </a>
             
     <p>
@@ -362,11 +254,11 @@
     <h3>If you want to actually do this, pm me on discord @Solasel#4280</h3>
     
     </div>
-    </div>
-    <a href="https://www.youtube.com/watch?v=Y9-MLgHxQGs">
+	</div>
+		
+	<a href="https://www.youtube.com/watch?v=Y9-MLgHxQGs">
     <img src="./images/walking_polar_bear.gif" height="10%", width="10%" class="buddy" />
     </a>
-    
-</body>
-
+		
+	</body>
 </html>

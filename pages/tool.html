@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Slayer Tool</title>
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <meta charset="UTF-8">
+    <meta name="description" content="A tool for finding the optimal blocks and skips for Slayer.">
+    <meta name="author" content="William Walker">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="../scripts/main_alg.js"></script>
+    <script type="text/javascript" src="../scripts/helpers.js"></script>
+</head>
+    
+<body>
+    <div id="menu">
+        <a href="../index.html" class="menu-button">
+            Home
+        </a>
+        
+        <a href="http://oldschoolrunescape.wikia.com/wiki/Duradel" class="menu-button">
+            Duradel
+        </a>
+
+        <a href="http://oldschoolrunescape.wikia.com/wiki/Nieve" class="menu-button">
+            Nieve
+        </a>
+        
+        <a href="http://oldschoolrunescape.wikia.com/wiki/Krystilia" class="menu-button">
+            Krystilia
+		</a>
+    </div>
+    
+    <div id="content">
+        
+        <h1>Example Data Entry:</h1>
+        
+        <div id="input">
+        <form name="tasks">
+        <div id="data">
+            
+        <div class="task">
+            <p><u>Aberrant Spectres:</u></p>
+            <span class="label">Possible?</span>
+            <input class="entry" type="checkbox" />
+            <br /><br />
+            <span class="label">Preference:</span>
+            <input class="entry" type="range" min="0" max="100" value="0" /> 
+        </div>
+        
+        <div class="task">
+            <p><u>Abyssal Demons:</u></p>
+            <span class="label">Possible?</span>
+            <input class="entry" type="checkbox" />
+            <br /><br />
+            <span class="label">Preference:</span>
+            <input class="entry" type="range" min="0" max="100" value="0" /> 
+        </div>
+            
+        <div class="task">
+            <p><u>Adamant Dragons:</u></p>
+            <span class="label">Possible?</span>
+            <input class="entry" type="checkbox" />
+            <br /><br />
+            <span class="label">Preference:</span>
+            <input class="entry" type="range" min="0" max="100" value="0" /> 
+        </div>
+            
+        <div class="task">
+            <p><u>Ankou:</u></p>
+            <span class="label">Possible?</span>
+            <input class="entry" type="checkbox" />
+            <br /><br />
+            <span class="label">Preference:</span>
+            <input class="entry" type="range" min="0" max="100" value="0" /> 
+        </div>
+            
+        <div class="task">
+            <p><u>Aviansie:</u></p>
+            <span class="label">Possible?</span>
+            <input class="entry" type="checkbox" />
+            <br /><br />
+            <span class="label">Preference:</span>
+            <input class="entry" type="range" min="0" max="100" value="0" /> 
+        </div>
+            
+        <div class="task">
+            <p><u>Plebs (Sam):</u></p>
+            <span class="label">Possible?</span>
+            <input class="entry" type="checkbox" checked="checked" name="plebs" />
+            <br /><br />
+            <span class="label">Preference:</span>
+            <input class="entry" type="range" min="0" max="100" value="100" /> 
+        </div>
+            
+        </div>
+        </form>
+        
+        <div class="submission">
+            <input id="generate" type="button" onclick="output();" value="Submit Data" /> <br />	
+        </div>
+			
+		
+        
+		</div>
+    </div>
+    
+</body>
+
+</html>
