@@ -8,6 +8,25 @@
     <meta name="description" content="Slayer Website">
     <meta name="author" content="William Walker">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="./scripts/main_alg.js"></script>
+    <script type="text/javascript" src="./scripts/helpers.js"></script>
+    <script>
+        function display_results() {
+			document.getElementById("generate").style.display = "none";
+            document.getElementById("output").innerHTML = alg();
+			document.getElementById("output").style.display = "block";
+			document.getElementById("top_hider").style.display = "inline";
+			document.getElementById("bottom_hider").style.display = "inline";
+        }
+		function toggle_results() {
+			var a = document.getElementById("output");
+			var b = a.style.display === "block";
+			
+			a.style.display = b ? "none" : "block";
+			document.getElementById("top_hider").style.display = b ? "none" : "inline";
+			document.getElementById("bottom_hider").value = b ? "Show Results" : "Hide Results"
+		}
+    </script>
 </head>
     
 <body>
@@ -42,6 +61,7 @@
         <h1>Example Data Entry:</h1>
         
         <div id="input">
+        <form name="tasks">
         <div id="data">
             
         <div class="task">
@@ -92,19 +112,23 @@
         <div class="task">
             <p><u>Plebs (Sam):</u></p>
             <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" checked="checked"/>
+            <input class="entry" type="checkbox" checked="checked" name="plebs" />
             <br /><br />
             <span class="label">Preference:</span>
             <input class="entry" type="range" min="0" max="100" value="100" /> 
         </div>
             
         </div>
+        </form>
         
         <div class="submission">
-            <a href="https://www.youtube.com/watch?v=oyFQVZ2h0V8">
-                <input type="submit" value="Submit Data" />
-            </a>    
+            <input id="generate" type="button" onclick="display_results();" value="Submit Data" /> <br />
+			<input id="top_hider" style="display: none" type="button" onclick="toggle_results();" value="Hide Results" /> <br />
+            <p id="output" style="display: none"></p>
+			<input id="bottom_hider" style="display: none" type="button" onclick="toggle_results();" value="Hide Results" />
         </div>
+			
+		
         
         </div>
         
