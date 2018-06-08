@@ -14,7 +14,7 @@ function output() {
 		'</head>' +
 
 		'<body style="padding: 1vh 1vw;">' +
-			'<span>' + alg() + '</span>' +
+			'<p>' + alg() + '</p>' +
 		'</body>' +
 
 		'</html>');
