@@ -11,7 +11,7 @@ function output() {
 			'<meta name="author" content="William Walker">' +
 		'</head>' +
 
-		'<body style="padding: 1vh 1vw; overflow: scroll">' +
+		'<body style="padding: 1vh 1vw; overflow: scroll; font-family: sans-serif;">' +
 			'<span>' + alg() + '</span>' +
 		'</body>' +
 
