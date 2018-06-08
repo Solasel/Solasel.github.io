@@ -56,20 +56,21 @@ input::-webkit-inner-spin-button {
 }
 
 .dropdown {
-    width: 18em;
     position: relative;
+	text-decoration: underline;
+	text-decoration-style: dashed;
 }
 
 .dropdown-content {
     display: none;
-    width: 7em;
-    height: auto;
     position: absolute;
     background: white;
+	width: 8em;
     
-    padding: 1px;
+    padding: 2px;
 
-    color: gray;
+    color: black;
+	font-size: 0.7em;
     top: 100%;
     
     border: solid 1px black;
@@ -167,7 +168,7 @@ input::-webkit-inner-spin-button {
 	float: left;
 	display: block;
 	width: 40%;
-	margin: 0.5em 10% 0.5em 0px;
+	margin: 0.5em 9% 0.5em 0px;
 	text-align: left;
 }
 
@@ -179,7 +180,7 @@ input::-webkit-inner-spin-button {
 	float: right;
 	display: block;
 	width: 50%;
-	margin: 0.75em 0px 0.4em 0px;
+	margin: 0.75em 1% 0.4em 0px;
 }
 
 .lit_pref {
