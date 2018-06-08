@@ -5,7 +5,10 @@ function output() {
 		'<html>' +
 
 		'<head>' +
-			
+			'<title>Results</title>' +
+			'<meta charset="UTF-8">' +
+			'<meta name="description" content="Your Output!">' +
+			'<meta name="author" content="William Walker">' +
 		'</head>' +
 
 		'<body style="padding: 1vh 1vw; overflow: scroll">' +
