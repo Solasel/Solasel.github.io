@@ -1,0 +1,235 @@
+* {
+    font-family: sans-serif;
+}
+
+body {
+    background: #419F6C;
+    padding: 2vh 1vw;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+#menu {
+    width: 100%;
+    font-size: 1.25em;
+    max-height: 53px;
+}
+
+.menu-button {
+    display: block;
+    float: left;
+    background: darkgreen;
+    color: white;
+    
+    width: 6em;
+    height: 1em;
+    
+    border: solid black 0.5px;
+    border-left: solid black 2px;
+    border-bottom: solid black 2px;
+    border-radius: 10px;
+    
+    margin-right: 3px;
+    margin-bottom: 3px;
+    padding: 0.25em 0.35em 0.35em;
+    
+    font-size: 0.7em;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu-button:last-child {
+    margin-bottom: 3vh;
+}
+
+.menu-button:hover {
+    background: lightgreen;
+    color: black;
+}
+
+.menu-button:active {
+    background: lightblue;
+}
+
+.dropdown {
+    width: 18em;
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    width: 7em;
+    height: auto;
+    position: absolute;
+    background: white;
+    
+    padding: 1px;
+
+    color: gray;
+    top: 100%;
+    
+    border: solid 1px black;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#content {
+    clear: left;
+}
+
+.simple_label {
+	float: left;
+}
+
+.simple_data {
+	float: right;
+}
+
+#levels {
+	margin: 3vh;
+	text-align: center;
+}
+
+.player_info {
+	display: inline-block;
+	width: 11em;
+	
+	margin-right: 0.25em;
+	margin-bottom: 0.25em;
+	border: solid black 1px;
+	padding: 0.5em;
+}
+
+#masters {
+	margin: 3vh;
+	text-align: center;
+}
+
+.master {
+	display: inline-block;
+	width: 6em;
+	
+	margin-right: 0.25em;
+	margin-bottom: 0.25em;
+	border: solid black 1px;
+	padding: 0.5em;
+}
+
+#tasks {
+	margin: 5vh;
+    text-align: center;
+}
+
+.task {
+    display: inline-block;
+	overflow: auto;
+	
+	padding: 0.75em;
+    margin-right: 0.25em;
+    margin-bottom: 0.25em;
+	
+    border: solid black 1px;
+}
+
+.thumbnail {
+	float: left;
+
+	height: 7.5em;
+	width: 7.5em;
+	margin-right: 0.3em;
+}
+
+.prompt {
+	float: right;
+}
+
+.elem {
+	display: block;
+	height: 2em;
+	
+	padding: 0.2em;
+	margin-bottom: 0.1em;
+	
+	vertical-align: middle;
+}
+
+.elem:last-child {
+	margin-bottom: 0px;
+}
+
+.label {
+	float: left;
+	display: block;
+	width: 40%;
+	margin: 0.5em 10% 0.5em 0px;
+	text-align: left;
+}
+
+.task_name {
+	color: black;
+}
+
+.poss {
+	float: right;
+	display: block;
+	width: 50%;
+	margin: 0.75em 0px 0.4em 0px;
+}
+
+.lit_pref {
+	float: right;
+	display: none;
+	width: 45%;
+	
+	padding: 1%;
+	margin: 0.4em 0px 0.4em 0px;
+	
+	text-align: left;
+}
+
+.range_pref {
+	float: right;
+	display: block;
+	width: 50%;
+	
+	margin: 0px;
+}
+
+.pref_slider {
+	float: right;
+	width: 100%;
+}
+
+.extr {
+	clear: right;
+	position: relative;
+	bottom: 2px;
+	margin: 0px;
+	font-size: 0.7em;
+}
+
+.bad {
+	float: left;
+}
+
+.good {
+	float: right;
+}
+
+.submission {
+    clear: left;
+    text-align: center;
+	margin-top: 5vh;
+}
+
+h1 {
+    font-size: 2em;
+    text-decoration: underline;
+	margin: 0px;
+}

@@ -699,6 +699,22 @@ function alg() {
 
 		/* First, extract the form data... */
 		
+		/* Player Details */
+		slayer = 87,
+		cmb = 112,
+		blocks = 6,
+		
+		/* Slayer Master Info */
+		k_enable = true,
+		t_enable = true,
+		m_enable = true,
+		v_enable = true,
+		c_enable = true,
+		n_enable = true,
+		d_enable = true,
+		
+		wphard = false,
+		
 		/* Regular Tasks */
 		ab_spectres = 0,
 		abyssal_dems = 0,
@@ -830,12 +846,7 @@ function alg() {
 		w_spiders = 0,
 		w_spirituals = 0,
 		
-		wphard = true,
 		wen = false;
-	
-	s_lvl = 87;
-	cmb_lvl = 112;
-	num_blocks = 6;
 
 	/* If the wildy is the same as normal. */
 	if (wen) {
@@ -858,6 +869,11 @@ function alg() {
 		w_spiders = spiders;
 		w_spirituals = spirituals;
 	}
+	
+	/* Initialize player data. */
+	s_lvl = slayer;
+	cmb_lvl = cmb;
+	num_blocks = blocks;
 	
 	/* Initialize the masters. */
 	// https://twitter.com/JagexAsh/status/860859015248711680
@@ -1161,7 +1177,6 @@ function alg() {
 	];
 	duradel = new Master("Duradel", _duradel_tasks, 26.625, true);
 
-	/* Finally, compile the list of information for user input. */
 	c_masters = [
 		krystilia,
 		turael,
@@ -1173,25 +1188,26 @@ function alg() {
 	];
 
 	/* Krystilia */
-	masters[0] = new UMaster(c_masters[0], true);
+	masters[0] = new UMaster(c_masters[0], k_enable);
 	
 	/* Turael */
-	masters[1] = new UMaster(c_masters[1], true);
+	masters[1] = new UMaster(c_masters[1], t_enable);
 	
 	/* Mazchna */
-	masters[2] = new UMaster(c_masters[2], true);
+	masters[2] = new UMaster(c_masters[2], m_enable);
 	
 	/* Vannaka */
-	masters[3] = new UMaster(c_masters[3], true);
+	masters[3] = new UMaster(c_masters[3], v_enable);
 	
 	/* Chaeldar */
-	masters[4] = new UMaster(c_masters[4], true);
+	masters[4] = new UMaster(c_masters[4], c_enable);
 	
 	/* Nieve */
-	masters[5] = new UMaster(c_masters[5], true);
+	masters[5] = new UMaster(c_masters[5], n_enable);
 	
 	/* Duradel */
-	masters[6] = new UMaster(c_masters[6], true);
+	masters[6] = new UMaster(c_masters[6], d_enable);
+	
 
 	/* Assign the preferences to the tasks. */
 	

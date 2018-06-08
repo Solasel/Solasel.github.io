@@ -3,7 +3,7 @@
     
 <head>
     <title>Slayer Tool</title>
-    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../styles/tool.css">
     <meta charset="UTF-8">
     <meta name="description" content="A tool for finding the optimal blocks and skips for Slayer.">
     <meta name="author" content="William Walker">
@@ -32,66 +32,156 @@
     </div>
     
     <div id="content">
-        
-        <h1>Example Data Entry:</h1>
-        
-        <div id="input">
-        <form name="tasks">
-        <div id="data">
-            
-        <div class="task">
-            <p><u>Aberrant Spectres:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
+        <form name="user_in">
+			
+		<h1>Player Info:</h1>
+		<div id="levels">
+			<div class="player_info">
+				<span class="simple_label">Slayer Level:&nbsp;&nbsp;&nbsp;</span>
+				<input class="simple_data" style="text-align: center; width: 1.4em;" type="number" min="1" max="99" />
+			</div>
+			
+			<div class="player_info">
+				<span class="simple_label">Combat Level:&nbsp;&nbsp;&nbsp;</span>
+				<input class="simple_data" style="text-align: center; width: 2.1em;" type="number" min="1" max="126" />
+			</div>
+			
+			<div class="player_info">
+				<span class="simple_label">Block Slots:&nbsp;&nbsp;&nbsp;</span>
+				<select class="simple_data">
+					<option value="-1">--</option>
+					<option value="0">0</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select>
+			</div>
+			
+		</div>
+			
+		<h1>Slayer Masters:</h1>
+		<div id="masters">
+			
+			<div class="master">
+				<label>
+					<span class="simple_label">Krystilia:</span>
+					<input class="simple_data" type="checkbox">
+				</label>
+			</div>
+			
+			<div class="master">
+				<label>
+					<span class="simple_label">Turael:</span>
+					<input class="simple_data" type="checkbox">
+				</label>
+			</div>
+			
+			<div class="master">
+				<label>
+					<span class="simple_label">Mazchna:</span>
+					<input class="simple_data" type="checkbox">
+				</label>
+			</div>
+			
+			<div class="master">
+				<label>
+					<span class="simple_label">Vannaka:</span>
+					<input class="simple_data" type="checkbox">
+				</label>
+			</div>
+			
+			<div class="master">
+				<label>
+					<span class="simple_label">Chaeldar:</span>
+					<input class="simple_data" type="checkbox">
+				</label>
+			</div>
+			
+			<div class="master">
+				<label>
+					<span class="simple_label">Nieve:</span>
+					<input class="simple_data" type="checkbox">
+				</label>
+			</div>
+			
+			<div class="master">
+				<label>
+					<span class="simple_label">Duradel:</span>
+					<input class="simple_data" type="checkbox">
+				</label>
+			</div>
+		</div>	
+		
+		<h1>Tasks:</h1>
+        <div id="tasks">
+			
+		<div class="task">
+			
+            <div class="thumbnail">
+				<a href="http://oldschoolrunescape.wikia.com/wiki/Aberrant_spectre" target="_blank">
+				<img src="../images/tasks/Aberrant_spectre.png" style="height:100%; width: auto; max-width: 100%;" />
+				</a>
+			</div>
+			
+			<div class="prompt">
+				<div class="header elem">
+					<a class="task_name" href="http://oldschoolrunescape.wikia.com/wiki/Aberrant_spectre"  target="_blank">Aberrant Spectres</a>
+				</div>
+				
+				<label class="elem">
+					<span class="label">Possible:</span>
+					<input class="poss" type="checkbox" />
+				</label>
+				
+				<div class="elem">
+					<span class="label">Preference:</span>
+					<div class="range_pref">
+						<input class="pref_slider" type="range" />
+						<p class="extr bad">Bad</p>
+						<p class="extr good">Good</p>
+					</div>
+					<input class="lit_pref" type="number" />
+				</div>
+			</div>
+			
         </div>
-        
-        <div class="task">
-            <p><u>Abyssal Demons:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
+			
+		
+		<div class="task">
+			
+            <div class="thumbnail">
+				<a href="http://oldschoolrunescape.wikia.com/wiki/Steel_dragon" target="_blank">
+				<img src="../images/tasks/Steel_dragon.png" style="height:100%; width: auto; max-width: 100%;" />
+				</a>
+			</div>
+			
+			<div class="prompt">
+				<div class="header elem">
+					<a class="task_name" href="http://oldschoolrunescape.wikia.com/wiki/Steel_dragon"  target="_blank">Steel Dragons</a>
+				</div>
+				
+				<label class="elem">
+					<span class="label">Possible:</span>
+					<input class="poss" type="checkbox" />
+				</label>
+				
+				<div class="elem">
+					<span class="label">Preference:</span>
+					<div class="range_pref">
+						<input class="pref_slider" type="range" />
+						<p class="extr bad">Bad</p>
+						<p class="extr good">Good</p>
+					</div>
+					<input class="lit_pref" type="number" />
+				</div>
+			</div>
+			
         </div>
-            
-        <div class="task">
-            <p><u>Adamant Dragons:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
-        </div>
-            
-        <div class="task">
-            <p><u>Ankou:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
-        </div>
-            
-        <div class="task">
-            <p><u>Aviansie:</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="0" /> 
-        </div>
-            
-        <div class="task">
-            <p><u>Plebs (Sam):</u></p>
-            <span class="label">Possible?</span>
-            <input class="entry" type="checkbox" checked="checked" name="plebs" />
-            <br /><br />
-            <span class="label">Preference:</span>
-            <input class="entry" type="range" min="0" max="100" value="100" /> 
-        </div>
+		
+			
             
         </div>
         </form>
@@ -99,10 +189,7 @@
         <div class="submission">
             <input id="generate" type="button" onclick="output();" value="Submit Data" /> <br />	
         </div>
-			
-		
-        
-		</div>
+	
     </div>
     
 </body>

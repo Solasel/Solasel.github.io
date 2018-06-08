@@ -77,41 +77,6 @@ body {
     clear: left;
 }
 
-#data {
-    text-align: center;
-}
-
-.task {
-    text-align: left;
-    display: inline-block;
-    padding: 1em;
-    padding-top: 0.2em;
-    width: 10%;
-    min-width: 17em;
-    margin-right: 5px;
-    
-    margin-bottom: 5px;
-    border: solid black 1px;
-}
-
-.task:last-child {
-    margin-bottom: 5vh;
-}
-
-.label {
-    float: left;
-    margin-right: 2em;
-}
-
-.entry {
-    float: right;
-}
-
-.submission {
-    clear: left;
-    text-align: center;
-}
-
 h1 {
     font-size: 2em;
     text-decoration: underline;
