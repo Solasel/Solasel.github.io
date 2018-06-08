@@ -1,7 +1,4 @@
-/*exported alg */
-/*jslint plusplus: true */
-/*jslint nomen: true*/
-/*jslint continue: true*/
+"use strict";
 
 /*#####################
 #### CONSTANT DATA ####
@@ -16,8 +13,6 @@ var pt_thresh = 30;
 
 /* Contains information about a given slayer master. */
 function Master(n, t, p, c) {
-	"use strict";
-	
 	this.name = n;
 	this.tasks = t;
 	this.num_tasks = t.length;
@@ -27,9 +22,8 @@ function Master(n, t, p, c) {
 
 /* toString for a Master. */
 Master.prototype.toString = function m_toS() {
-	"use strict";
-	var i, rv = this.name + "<br /><br />List of Tasks:";
 	
+	var i, rv = this.name + "<br /><br />List of Tasks:";
 	for (i = 0; i < this.tasks.length; i++) {
 		rv += "<br /><br />";
 		rv += this.tasks[i].toString();
@@ -40,8 +34,7 @@ Master.prototype.toString = function m_toS() {
 
 /* Contains info about a particular task from a particular master. */
 function Task(n, s, c, f, m, w) {
-	"use strict";
-	
+		
 	/* Intrinsic values. */
 	this.name = n;
 	this.s_reqt = s;
@@ -55,8 +48,7 @@ function Task(n, s, c, f, m, w) {
 
 /* toString for a Task */
 Task.prototype.toString = function t_toS() {
-	"use strict";
-	
+		
 	return "Task: " + this.name + " from " + this.master + ":<br />" +
 		"Slayer Level Req: " + this.s_reqt + "<br />" +
 		"Combat Level Rec: " + this.cmb_rec + "<br />" +
@@ -83,7 +75,6 @@ var num_blocks;
 /* A master with the user-input e: whether or not
 	it's enabled in the search algorithm. */
 function UMaster(c, e) {
-	"use strict";
 	this.consts = c;
 	this.tasks = [];
 	this.enable = e;
@@ -92,14 +83,12 @@ function UMaster(c, e) {
 
 /* toString for a UMaster. */
 UMaster.prototype.toString = function um_toS() {
-	"use strict";
 	return (this.enable ? "Enabled" : "Disabled") + "nn" + this.consts.toString();
 };
 
 /* A task with the user inputs po and pr: whether or not
 	a task is possible, and if so, its "preference" */
 function UTask(c, po, pr) {
-	"use strict";
 	this.consts = c;
 	this.poss = po;
 	this.pref = pr;
@@ -107,14 +96,12 @@ function UTask(c, po, pr) {
 
 /* toString for a UTask. */
 UTask.prototype.toString = function ut_toS() {
-	"use strict";
 	return this.consts.toString() + "tPossible? " + this.poss + "n" +
 		"tPreference: " + this.pref;
 };
 
 /* Compares two tasks, returning positive if a < b. */
 function sortPref(a, b) {
-	"use strict";
 	return b.pref - a.pref;
 }
 
@@ -124,7 +111,6 @@ function sortPref(a, b) {
 	starting from the worst tasks. Finally, returns an average
 	over the done tasks. */
 function score(pts, prefs, poss, blocks) {
-	"use strict";
 	var i, j, k, l,
 		all = prefs.length, num_tasks = 0,
 		max, points = 0, thresh = pt_thresh, sc = 0;
@@ -195,7 +181,6 @@ function score(pts, prefs, poss, blocks) {
 	of done tasks, calculates how much extra points we have after saturating our
 	solution. If a non-saturated solution is passed in, we return a negative value. */
 function sat_score(pts, prefs, poss, blocks) {
-	"use strict";
 	var i, j, k, l,
 		all = prefs.length, done = 0, num_tasks = 0,
 		max, points = 0, thresh = pt_thresh, sc = 0;
@@ -267,7 +252,6 @@ function sat_score(pts, prefs, poss, blocks) {
 
 /* Returns a string representation of the specified solution. */
 function sol_repr(m, cmb_app) {
-	"use strict";
 	var i, all = m.consts.num_tasks,
 		tasks = m.tasks,
 		sol = cmb_app ? m.cmb_sol : m.cla_sol,
@@ -326,7 +310,6 @@ function sol_repr(m, cmb_app) {
 /* Finds the best set of blocks for a master m
 	with a set of possibilities poss, and returns it. */
 function find_best(m, poss) {
-	"use strict";
 	var i, j, k, l,
 		rv = {},
 		all = m.consts.num_tasks,
@@ -610,7 +593,6 @@ function find_best(m, poss) {
 
 /* Finds the optimal solutions for both types of tasking for a certain master. */
 function solve(m) {
-	"use strict";
 	var i, min,
 		all = m.consts.num_tasks,
 		change,
@@ -650,7 +632,6 @@ function solve(m) {
 
 /* Returns a string representation of the optimal solution for a master m. */
 function optimal_repr(m) {
-	"use strict";
 	var a = m.cla_sol, b = m.cmb_sol,
 		rv = "";
 	
@@ -685,7 +666,6 @@ function optimal_repr(m) {
 
 /* Calls the algorithm on user input. */
 function alg() {
-	"use strict";
 	var i, masters = [], rv,
 		num_masters = 7,
 		_krystilia_tasks, krystilia,
@@ -713,7 +693,7 @@ function alg() {
 		n_enable = true,
 		d_enable = true,
 		
-		wphard = false,
+		wpelite = false,
 		
 		/* Regular Tasks */
 		ab_spectres = 0,
@@ -742,7 +722,7 @@ function alg() {
 		cockatrice = 0,
 		cows = 0,
 		crawling_hands = 0,
-		crocodile = 0,
+		crocodiles = 0,
 		dagannoth = 0,
 		dark_beasts = 0,
 		desert_liz = 0,
@@ -991,7 +971,7 @@ function alg() {
 		new Task("Cave Slimes",         17,     15,     false,  "Vannaka",      7),
 		new Task("Cockatrice",          25,     25,     false,  "Vannaka",      8),
 		new Task("Crawling Hands",      5,      0,      false,  "Vannaka",      6),
-		new Task("Crocodile",           1,      50,     false,  "Vannaka",      6),
+		new Task("Crocodiles",           1,      50,     false,  "Vannaka",      6),
 		new Task("Dagannoth",           1,      75,     false,  "Vannaka",      7),
 		new Task("Desert Lizards",      22,     15,     false,  "Vannaka",      7),
 		new Task("Dust Devils",         65,     70,     false,  "Vannaka",      8),
@@ -1132,7 +1112,7 @@ function alg() {
 		new Task("Turoth",              55,     60,     false,  "Nieve",        3),
 		new Task("TzHaar",              1,      0,      true,   "Nieve",        10)
 	];
-	nieve = new Master("Nieve", _nieve_tasks, wphard ? 26.625 : 21.3, true);
+	nieve = new Master("Nieve", _nieve_tasks, wpelite ? 26.625 : 21.3, true);
 
 	/* DURADEL */
 	_duradel_tasks = [
@@ -1347,8 +1327,8 @@ function alg() {
 	masters[2].tasks[8] = new UTask(masters[2].consts.tasks[8], true, crawling_hands);     //Mazchna
 	masters[3].tasks[13] = new UTask(masters[3].consts.tasks[13], true, crawling_hands);   //Vannaka
 
-	/* Crocodile */
-	masters[3].tasks[14] = new UTask(masters[3].consts.tasks[14], true, crocodile);   //Vannaka
+	/* Crocodiles */
+	masters[3].tasks[14] = new UTask(masters[3].consts.tasks[14], true, crocodiles);   //Vannaka
 
 	/* Dagannoth */
 	masters[3].tasks[15] = new UTask(masters[3].consts.tasks[15], true, dagannoth);   //Vannaka

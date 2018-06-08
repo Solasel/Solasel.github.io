@@ -9,7 +9,7 @@
     <meta name="author" content="William Walker">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="../scripts/main_alg.js"></script>
-    <script type="text/javascript" src="../scripts/helpers.js"></script>
+    <script type="text/javascript" src="../scripts/tool_form.js"></script>
 </head>
     
 <body>
@@ -37,18 +37,36 @@
 		<h1>Player Info:</h1>
 		<div id="levels">
 			<div class="player_info">
-				<span class="simple_label">Slayer Level:&nbsp;&nbsp;&nbsp;</span>
-				<input class="simple_data" style="text-align: center; width: 1.4em;" type="number" min="1" max="99" />
+				<span class="simple_label">Slayer Level:</span>
+				<div id="s_lvl_in_drop" class="simple_data">
+					<input id="s_lvl_in" name="s_lvl" style="text-align: center; width: 2em;" type="number" oninput="upd_s_lvl(this.value);" />
+					<div class="dropdown-content">
+						<p>Please enter a value between 1 and 99.</p>
+					</div>
+				</div>
 			</div>
 			
 			<div class="player_info">
-				<span class="simple_label">Combat Level:&nbsp;&nbsp;&nbsp;</span>
-				<input class="simple_data" style="text-align: center; width: 2.1em;" type="number" min="1" max="126" />
+				<span class="simple_label">Combat Level:</span>
+				<div id="cmb_lvl_in_drop" class="simple_data">
+					<input id="cmb_lvl_in" name="cmb_lvl" style="text-align: center; width: 3em;" type="number" oninput="upd_cmb_lvl(this.value);" />
+					<div class="dropdown-content">
+						<p>Please enter a value between 3 and 126.</p>
+					</div>
+				</div>
+				
 			</div>
 			
 			<div class="player_info">
-				<span class="simple_label">Block Slots:&nbsp;&nbsp;&nbsp;</span>
-				<select class="simple_data">
+				<span class="simple_label dropdown">
+					Block Slots:
+					<div class="dropdown-content">
+						<p>One block per 50 quest points, up to 5.</p>
+						<p>And one extra for Lumbridge &amp; Draynor Elite.</p>
+						<p>You can also check by going to any slayer master and asking them about rewards->tasks.</p>
+					</div>
+				</span>
+				<select class="simple_data" name="num_blocks" oninput="upd_num_blocks(this.value);">
 					<option value="-1">--</option>
 					<option value="0">0</option>
 					<option value="1">1</option>
@@ -68,42 +86,42 @@
 			<div class="master">
 				<label>
 					<span class="simple_label">Krystilia:</span>
-					<input class="simple_data" type="checkbox">
+					<input id="krystilia" class="simple_data" name="k_en" type="checkbox" oninput="upd_masters(this.checked, 0);" />
 				</label>
 			</div>
 			
 			<div class="master">
 				<label>
 					<span class="simple_label">Turael:</span>
-					<input class="simple_data" type="checkbox">
+					<input id="turael" class="simple_data" name="t_en" type="checkbox" oninput="upd_masters(this.checked, 1);" />
 				</label>
 			</div>
 			
 			<div class="master">
 				<label>
 					<span class="simple_label">Mazchna:</span>
-					<input class="simple_data" type="checkbox">
+					<input id="mazchna" class="simple_data" name="m_en" type="checkbox" oninput="upd_masters(this.checked, 2);" />
 				</label>
 			</div>
 			
 			<div class="master">
 				<label>
 					<span class="simple_label">Vannaka:</span>
-					<input class="simple_data" type="checkbox">
+					<input id="vannaka" class="simple_data" name="v_en" type="checkbox" oninput="upd_masters(this.checked, 3);" />
 				</label>
 			</div>
 			
 			<div class="master">
 				<label>
 					<span class="simple_label">Chaeldar:</span>
-					<input class="simple_data" type="checkbox">
+					<input id="chaeldar" class="simple_data" name="c_en" type="checkbox" oninput="upd_masters(this.checked, 4);" />
 				</label>
 			</div>
 			
 			<div class="master">
 				<label>
 					<span class="simple_label">Nieve:</span>
-					<input class="simple_data" type="checkbox">
+					<input id="nieve" class="simple_data" name="n_en" type="checkbox" oninput="upd_masters(this.checked, 5); upd_wpelite(this.checked);" />
 				</label>
 			</div>
 			
@@ -112,13 +130,25 @@
 					<span class="simple_label dropdown">
 						Duradel:
 						<div class="dropdown-content">
-							<span>Required Quest: Shilo Village</span>
+							<p>Required Quest: Shilo Village</p>
 						</div>
 					</span>
-					<input class="simple_data" type="checkbox">
+					<input id="duradel" class="simple_data" name="d_en" type="checkbox" oninput="upd_masters(this.checked, 6);" />
 				</label>
 			</div>
-		</div>	
+		</div>
+			
+		<div id="wpelite">
+			<label>
+				<span class="simple_label dropdown">
+						Western Provinces Elite:
+						<div class="dropdown-content">
+							<p>Completing this gives extra points per task for Nieve.</p>
+						</div>
+					</span>
+				<input class="simple_data" name="wpelite" type="checkbox" />
+			</label>
+		</div>
 		
 		<h1>Tasks:</h1>
         <div id="tasks">
@@ -186,16 +216,23 @@
 			
         </div>
 		
-			
-            
         </div>
         </form>
         
         <div class="submission">
-            <input id="generate" type="button" onclick="output();" value="Submit Data" /> <br />	
+            <input id="generate" type="button" onclick="validate();" value="Submit Data" />
         </div>
 	
     </div>
+	<p>
+		TODO:<br /><br />
+		make proper error handler - popup on center of screen. Also format the names better.<br />
+		add verbose input.<br />
+		figure out how best to display validation info for task. <br />
+		figure out how to link non-wildy and wildy tasks.<br />
+		LAST: add all of the tasks.<br />
+		FINALLY: link the form data to the algorithm.
+	</p>
     
 </body>
 
