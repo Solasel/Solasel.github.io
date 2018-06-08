@@ -13,8 +13,8 @@ function output() {
 			'<meta name="viewport" content="width=device-width, initial-scale=1.0">' +
 		'</head>' +
 
-		'<body style="padding: 1vh 1vw;">' +
-			'<p>' + alg() + '</p>' +
+		'<body style="padding: 1vh 1vw; overflow: scroll">' +
+			'<span>' + alg() + '</span>' +
 		'</body>' +
 
 		'</html>');
