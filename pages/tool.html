@@ -15,19 +15,7 @@
 <body>
     <div id="menu">
         <a href="../index.html" class="menu-button">
-            Home
-        </a>
-        
-        <a href="http://oldschoolrunescape.wikia.com/wiki/Duradel" class="menu-button">
-            Duradel
-        </a>
-
-        <a href="http://oldschoolrunescape.wikia.com/wiki/Nieve" class="menu-button">
-            Nieve
-        </a>
-        
-        <a href="http://oldschoolrunescape.wikia.com/wiki/Krystilia" class="menu-button">
-            Krystilia
+            Info
 		</a>
     </div>
     
@@ -83,58 +71,74 @@
 		<h1>Slayer Masters:</h1>
 		<div id="masters">
 			
-			<div class="master">
+			<div id="krystilia" class="master">
 				<label>
 					<span class="simple_label">Krystilia:</span>
-					<input id="krystilia" class="simple_data" name="k_en" type="checkbox" oninput="upd_masters(this.checked, 0);" />
+					<input id="krystilia_entry" class="simple_data" name="k_en" type="checkbox" oninput="upd_masters(this.checked, 0);" />
 				</label>
 			</div>
 			
-			<div class="master">
+			<div id="turael" class="master">
 				<label>
 					<span class="simple_label">Turael:</span>
-					<input id="turael" class="simple_data" name="t_en" type="checkbox" oninput="upd_masters(this.checked, 1);" />
+					<input id="turael_entry" class="simple_data" name="t_en" type="checkbox" oninput="upd_masters(this.checked, 1);" />
 				</label>
 			</div>
 			
-			<div class="master">
+			<div id="mazchna" class="master">
 				<label>
 					<span class="simple_label">Mazchna:</span>
-					<input id="mazchna" class="simple_data" name="m_en" type="checkbox" oninput="upd_masters(this.checked, 2);" />
+					<input id="mazchna_entry" class="simple_data" name="m_en" type="checkbox" oninput="upd_masters(this.checked, 2);" />
+					<div class="dropdown-content">
+						<p>Requires: 20 combat.</p>
+					</div>
 				</label>
 			</div>
 			
-			<div class="master">
+			<div id="vannaka" class="master">
 				<label>
 					<span class="simple_label">Vannaka:</span>
-					<input id="vannaka" class="simple_data" name="v_en" type="checkbox" oninput="upd_masters(this.checked, 3);" />
+					<input id="vannaka_entry" class="simple_data" name="v_en" type="checkbox" oninput="upd_masters(this.checked, 3);" />
+					<div class="dropdown-content">
+						<p>Requires: 40 combat.</p>
+					</div>
 				</label>
 			</div>
 			
-			<div class="master">
+			<div id="chaeldar" class="master">
 				<label>
 					<span class="simple_label">Chaeldar:</span>
-					<input id="chaeldar" class="simple_data" name="c_en" type="checkbox" oninput="upd_masters(this.checked, 4);" />
+					<input id="chaeldar_entry" class="simple_data" name="c_en" type="checkbox" oninput="upd_masters(this.checked, 4);" />
+					<div class="dropdown-content">
+						<p>Requires: 70 combat.</p>
+					</div>
 				</label>
 			</div>
 			
-			<div class="master">
+			<div id="nieve" class="master">
 				<label>
 					<span class="simple_label">Nieve:</span>
-					<input id="nieve" class="simple_data" name="n_en" type="checkbox" oninput="upd_masters(this.checked, 5); upd_wpelite(this.checked);" />
+					<input id="nieve_entry" class="simple_data" name="n_en" type="checkbox" oninput="upd_masters(this.checked, 5); upd_wpelite(this.checked);" />
+					<div class="dropdown-content">
+						<p>Requires: 85 combat.</p>
+					</div>
 				</label>
 			</div>
 			
-			<div class="master">
+			<div id="duradel" class="master">
 				<label>
-					<span class="simple_label dropdown">
+					<span id="dura_tt" class="simple_label dropdown">
 						Duradel:
 						<div class="dropdown-content">
-							<p>Required Quest: Shilo Village</p>
+							<p>Additionally requires completion of Shilo Village</p>
 						</div>
 					</span>
-					<input id="duradel" class="simple_data" name="d_en" type="checkbox" oninput="upd_masters(this.checked, 6);" />
+					<input  id="duradel_entry" class="simple_data" name="d_en" type="checkbox" oninput="upd_masters(this.checked, 6);" />
 				</label>
+				<div class="dropdown-content">
+						<p>Requires: 100 combat and 50 slayer.</p>
+						<p>Additionally requires completion of Shilo Village</p>
+				</div>
 			</div>
 		</div>
 			
@@ -226,7 +230,6 @@
     </div>
 	<p>
 		TODO:<br /><br />
-		black out slayer masters if your slayer/combat level aren't high enough<br />
 		make proper error handler - popup on center of screen. Also format the names better.<br />
 		add verbose input.<br />
 		figure out how best to display validation info for each task. <br />

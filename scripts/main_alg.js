@@ -96,8 +96,8 @@ function UTask(c, po, pr) {
 
 /* toString for a UTask. */
 UTask.prototype.toString = function ut_toS() {
-	return this.consts.toString() + "tPossible? " + this.poss + "n" +
-		"tPreference: " + this.pref;
+	return this.consts.toString() + "Possible? " + this.poss + "n" +
+		"Preference: " + this.pref;
 };
 
 /* Compares two tasks, returning positive if a < b. */

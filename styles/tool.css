@@ -55,6 +55,10 @@ input::-webkit-inner-spin-button {
     background: lightblue;
 }
 
+.dropdown_master {
+	position: relative;
+}
+
 .dropdown {
     position: relative;
 	border-bottom: dotted black 1px;
@@ -72,15 +76,22 @@ input::-webkit-inner-spin-button {
     color: black;
 	font-size: 0.7em;
 	text-align: left;
-    top: 100%;
+    top: 95%;
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
+	z-index: 10;
+}
+
+.dropdown_master:hover > .dropdown-content {
+	display: block;
+	z-index: 10;
 }
 
 #content {
     clear: left;
+	text-align: center;
 }
 
 .simple_label {
@@ -114,6 +125,7 @@ input::-webkit-inner-spin-button {
 
 .master {
 	display: inline-block;
+	position: relative;
 	width: 6em;
 	
 	margin-right: 0.25em;
@@ -126,7 +138,7 @@ input::-webkit-inner-spin-button {
 	display: none;
 	width: 13em;
 	
-	margin: 2vh;
+	margin: 3vh;
 	border: solid black 1px;
 	padding: 0.5em;
 }

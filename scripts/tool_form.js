@@ -1252,7 +1252,14 @@ function upd_s_lvl(s) {
 	if (v_s_lvl) {
 		document.getElementById("s_lvl_in_drop").className = "simple_data";
 		document.getElementById("s_lvl_in").style.background = "white";
-		for (i = 0; i < all_tasks.length; i++) { upd_task_disp(task, s); }
+		// for (i = 0; i < all_tasks.length; i++) { upd_task_disp(all_tasks[i], s); }
+		if (s < 50 || document.getElementById("cmb_lvl_in").value < 100) {
+			disable_master("duradel");
+			document.getElementById("dura_tt").className = "simple_label";
+		} else {
+			enable_master("duradel");
+			document.getElementById("dura_tt").className = "simple_label dropdown";
+		}
 	} else {
 		document.getElementById("s_lvl_in_drop").className = "simple_data dropdown";
 		document.getElementById("s_lvl_in").style.background = "#ffa8a8";
@@ -1260,15 +1267,72 @@ function upd_s_lvl(s) {
 }
 
 /* Verifies the player's combat level. */
-function upd_cmb_lvl(x) {
-	v_cmb_lvl = !(isNaN(x) || x < 3 || 126 < x);
+function upd_cmb_lvl(c) {
+	v_cmb_lvl = !(isNaN(c) || c < 3 || 126 < c);
 	if (v_cmb_lvl) {
 		document.getElementById("cmb_lvl_in_drop").className = "simple_data";
 		document.getElementById("cmb_lvl_in").style.background = "white";
+		if (c < 20) {
+			disable_master("mazchna");
+		} else {
+			enable_master("mazchna");
+		}
+		
+		if (c < 40) {
+			disable_master("vannaka");
+		} else {
+			enable_master("vannaka");
+		}
+		
+		if (c < 70) {
+			disable_master("chaeldar");
+		} else {
+			enable_master("chaeldar");
+		}
+		
+		if (c < 85) {
+			disable_master("nieve");
+		} else {
+			enable_master("nieve");
+		}
+		
+		if (c < 100 || !v_s_lvl || document.getElementById("s_lvl_in").value < 50) {
+			disable_master("duradel");
+			document.getElementById("dura_tt").className = "simple_label";
+		} else {
+			enable_master("duradel");
+			document.getElementById("dura_tt").className = "simple_label dropdown";
+		}
+		
 	} else {
 		document.getElementById("cmb_lvl_in_drop").className = "simple_data dropdown";
 		document.getElementById("cmb_lvl_in").style.background = "#ffa8a8";
 	}
+}
+
+/* Disables a master. */
+function disable_master(m) {
+	var parent = document.getElementById(m),
+		checkbox = document.getElementById(m + "_entry");
+	
+	parent.style.background = "#f73d3d";
+	parent.className = "master dropdown_master";
+	
+	checkbox.className = "simple_data dropdown_check";
+	checkbox.disabled = "disabled";
+	checkbox.checked = "";
+}
+
+/* Enables a master. */
+function enable_master(m) {
+	var parent = document.getElementById(m),
+		checkbox = document.getElementById(m + "_entry");
+	
+	parent.style.background = "";
+	parent.className = "master";
+	
+	checkbox.className = "simple_data";
+	checkbox.disabled = "";
 }
 
 /* Verifies a player's number of block slots. */
@@ -1289,6 +1353,7 @@ function upd_masters(x, m) {
 	num_masters += (x ? 1 : -1);
 	en_masters[m] = x;
 	
+	/*
 	for (i = 0; i < all_tasks.length; i++) {
 		task = all_tasks[i];
 		if (task.masters[m]) {
@@ -1296,6 +1361,7 @@ function upd_masters(x, m) {
 			if (v_s_lvl) { upd_task_disp(task, s); }
 		}
 	}
+	*/
 }
 
 /* Sets a task to valid. */
