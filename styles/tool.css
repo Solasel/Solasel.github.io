@@ -96,6 +96,12 @@ input::-webkit-inner-spin-button {
 	text-align: center;
 }
 
+h1 {
+    font-size: 2em;
+    text-decoration: underline;
+	margin: 1vhpx;
+}
+
 .flow_block {
 	display: inline-block;
 	margin-right: 0.25em;
@@ -157,14 +163,8 @@ input::-webkit-inner-spin-button {
 	padding: 0.5em;
 }
 
-#tasks {
-	margin: 3vh;
-    text-align: center;
-}
-
-#verbose {
+.head_prompt {
 	display: inline-block;
-	width: 13em;
 	
 	margin: 1vh;
 	border: solid black 1px;
@@ -175,6 +175,10 @@ input::-webkit-inner-spin-button {
 	overflow: auto;
 	padding: 0.75em;
     border: solid black 1px;
+}
+
+.task:first-child {
+	margin-top: 3vh;
 }
 
 .thumbnail {
@@ -263,16 +267,14 @@ input::-webkit-inner-spin-button {
 	float: right;
 }
 
+#wildy {
+	display: none;
+}
+
 .submission {
     clear: left;
     text-align: center;
 	margin-top: 5vh;
-}
-
-h1 {
-    font-size: 2em;
-    text-decoration: underline;
-	margin: 1vhpx;
 }
 
 #error_popup {

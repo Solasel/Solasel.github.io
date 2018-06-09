@@ -665,7 +665,7 @@ function optimal_repr(m) {
 ##########*/
 
 /* Calls the algorithm on user input. */
-function alg() {
+function alg(user_in) {
 	var i, masters = [], rv,
 		num_masters = 7,
 		_krystilia_tasks, krystilia,
