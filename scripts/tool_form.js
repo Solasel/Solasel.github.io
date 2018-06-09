@@ -1372,7 +1372,7 @@ function supp_task(id) {
 
 /* Returns whether a given task is valid. */
 function v_task(task, verb) {
-	if (task.style.display === "none") {
+	if (document.getElementById(task.id).style.display === "none") {
 		return true;
 	}
 	
