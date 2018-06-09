@@ -54,7 +54,7 @@
 						<p>You can also check by going to any slayer master and asking them about rewards->tasks.</p>
 					</div>
 				</span>
-				<select class="simple_data" name="num_blocks" oninput="upd_num_blocks(this.value);">
+				<select id="num_blocks_in" class="simple_data" name="num_blocks">
 					<option value="-1">--</option>
 					<option value="0">0</option>
 					<option value="1">1</option>
@@ -180,13 +180,15 @@
 				Verbose Input:
 				<div class="dropdown-content">
 					<p>Allows you to enter specific numbers for preferences, instead of a slider.</p>
+					<p>Reminder: Larger numbers mean more preferred tasks.</p>
 				</div>
 			</span>
-			<input class="simple_data" name="verb" type="checkbox" oninput="upd_verbosity(this.checked);" />
+			<input id="verb_entry" class="simple_data" name="verb" type="checkbox" oninput="upd_verbosity(this.checked);" />
 		</label>
-        <div id="tasks">
 			
-		<div id="ab_spectres" class="task">
+        <div id="tasks">
+		
+		<div id="ab_spectres" class="flow_block task">
 			
             <div class="thumbnail">
 				<a href="http://oldschoolrunescape.wikia.com/wiki/Aberrant_spectre" target="_blank">
@@ -201,24 +203,24 @@
 				
 				<label class="elem">
 					<span class="label">Possible:</span>
-					<input class="poss" type="checkbox" />
+					<input class="poss" type="checkbox" oninput="upd_task('ab_spectres');" />
 				</label>
 				
 				<div class="elem">
 					<span class="label">Preference:</span>
 					<div class="range_pref">
-						<input class="pref_slider" type="range" />
+						<input class="pref_slider" type="range" oninput="upd_task('ab_spectres');" />
 						<p class="extr bad">Bad</p>
 						<p class="extr good">Good</p>
 					</div>
-					<input class="lit_pref" type="number" />
+					<input class="lit_pref" type="number" oninput="upd_task('ab_spectres');" />
 				</div>
 			</div>
 			
         </div>
 			
 		
-		<div id="steel_drags" class="task">
+		<div id="steel_drags" class="flow_block task">
 			
             <div class="thumbnail">
 				<a href="http://oldschoolrunescape.wikia.com/wiki/Steel_dragon" target="_blank">
@@ -265,7 +267,6 @@
 	</div>
 	<p id="TODO">
 		TODO:<br /><br />
-		figure out how best to display validation info for each task. <br />
 		figure out how to link non-wildy and wildy tasks.<br />
 		figure out how to 'disable' tasks that are certainly doable<br />
 		LAST: add all of the tasks.<br />

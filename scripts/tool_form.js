@@ -1,7 +1,6 @@
 "use strict";
 var v_s_lvl = false;
 var v_cmb_lvl = false;
-var v_num_blocks = false;
 
 /* The number of slayer masters selected. */
 var num_masters = 0;
@@ -24,7 +23,8 @@ function task_form(i, n, r, m) {
 	this.reqt = r;
 	this.masters = m;
 	this.count = 0;
-	this.valid = false;
+	this.r_valid = false;
+	this.l_valid = false;
 }
 
 /* A list of all the tasks. */
@@ -1245,16 +1245,6 @@ function enable_master(m) {
 	checkbox.disabled = "";
 }
 
-/* Verifies a player's number of block slots. */
-function upd_num_blocks(x) {
-	v_num_blocks = (x > 0);
-}
-
-/* Shows the prompt for wpelite if nieve is selected. */
-function upd_wpelite(x) {
-	document.getElementById("wpelite").style.display = x ? "inline-block" : "none";
-}
-
 /* Updates a master. */
 function upd_masters(x, m) {
 	var i, task,
@@ -1272,9 +1262,21 @@ function upd_masters(x, m) {
 	}
 }
 
-/* Sets a task to valid. */
-function set_task(x) {
-	all_tasks[x].valid = true;
+/* Shows the prompt for wpelite if nieve is selected. */
+function upd_wpelite(x) {
+	document.getElementById("wpelite").style.display = x ? "inline-block" : "none";
+}
+
+/* Sets one of a task's attributes to valid. */
+function set_task(x, v) {
+	var task = all_tasks[x];
+	supp_task(task.id);
+	
+	if (v) {
+		task.l_valid = true;
+	} else {
+		task.r_valid = true;
+	}
 }
 
 /* Updates the display of a task based on the slayer level. */
@@ -1284,10 +1286,16 @@ function upd_task_disp(task, s) {
 	document.getElementById(task.id).style.display = valid ? "inline-block" : "none";
 }
 
+/* Updates the preference inputs to be verbose or not. */
 function upd_verbosity(v) {
-	var ranges = document.getElementsByClassName("range_pref"),
+	var tasks = document.getElementsByClassName("task"),
+		ranges = document.getElementsByClassName("range_pref"),
 		lits = document.getElementsByClassName("lit_pref"),
 		i;
+	
+	for (i = 0; i < tasks.length; i++) {
+		supp_task(tasks[i].id);
+	}
 	
 	for (i = 0; i < ranges.length; i++) {
 		ranges[i].style.display = v ? "none" : "block";
@@ -1298,9 +1306,19 @@ function upd_verbosity(v) {
 	}
 }
 
+/* Makes a task pop-out. Used when a user submits an underfilled form. */
+function signal_task(id) {
+	document.getElementById(id).style.background = "#f73d3d";
+}
+
+/* Suppresses a task, returning its background to none. */
+function supp_task(id) {
+	document.getElementById(id).style.background = "none";
+}
+
 /* Validates the form, and gives the output if it's valid. */
 function validate() {
-	var i, task, rv = true, msg = "";
+	var i, task, rv = true, msg = "", verb = document.getElementById("verb_entry").checked;
 	
 	if (!v_s_lvl) {
 		document.getElementById("s_lvl_in_drop").className = "simple_data dropdown";
@@ -1316,8 +1334,8 @@ function validate() {
 		rv = false;
 	}
 	
-	if (!v_num_blocks) {
-		msg += "Please enter the number of block slots you have.<br />";
+	if (document.getElementById("num_blocks_in").value >= 0) {
+		msg += "Please enter your available block slots.<br />";
 		rv = false;
 	}
 	
@@ -1329,10 +1347,11 @@ function validate() {
 	} else {
 		for (i = 0; i < all_tasks.length; i++) {
 			task = all_tasks[i];
-			if (task.count > 0 && !task.valid) {
+			if (task.count > 0 && (verb ? task.l_valid : task.r_valid)) {
 				msg += "Please fill in info for " + task.name + ".<br /><br />";
 				rv = false;
 			}
+			signal_task(task.id);
 		}
 	}
 	
