@@ -4,6 +4,7 @@
 
 body {
     background: #419F6C;
+	overflow-y: scroll;
     padding: 2vh 1vw;
 }
 
@@ -94,6 +95,32 @@ input::-webkit-inner-spin-button {
 	text-align: center;
 }
 
+.flow_block {
+	display: inline-block;
+	margin-right: 0.25em;
+	margin-bottom: 0.25em;
+	padding: 0px;
+}
+
+.master {
+	display: block;
+	position: relative;
+	width: 6em;
+	height: 1.1em;
+	
+	border: solid black 1px;
+	padding: 0.5em;
+}
+
+.master_link {
+	text-align: left;
+}
+
+.master_link a {
+	text-decoration: underline;
+	color: black;
+}
+
 .simple_label {
 	float: left;
 }
@@ -108,12 +135,9 @@ input::-webkit-inner-spin-button {
 }
 
 .player_info {
-	display: inline-block;
 	width: 11em;
 	height: 1.2em;
 	
-	margin-right: 0.25em;
-	margin-bottom: 0.25em;
 	border: solid black 1px;
 	padding: 0.5em;
 }
@@ -121,17 +145,6 @@ input::-webkit-inner-spin-button {
 #masters {
 	margin: 3vh;
 	text-align: center;
-}
-
-.master {
-	display: inline-block;
-	position: relative;
-	width: 6em;
-	
-	margin-right: 0.25em;
-	margin-bottom: 0.25em;
-	border: solid black 1px;
-	padding: 0.5em;
 }
 
 #wpelite {
@@ -144,8 +157,17 @@ input::-webkit-inner-spin-button {
 }
 
 #tasks {
-	margin: 5vh;
+	margin: 3vh;
     text-align: center;
+}
+
+#verbose {
+	display: inline-block;
+	width: 13em;
+	
+	margin: 1vh;
+	border: solid black 1px;
+	padding: 0.5em;
 }
 
 .task {
@@ -174,6 +196,7 @@ input::-webkit-inner-spin-button {
 .elem {
 	display: block;
 	height: 2em;
+	width: 12em;
 	
 	padding: 0.2em;
 	margin-bottom: 0.1em;
@@ -188,8 +211,8 @@ input::-webkit-inner-spin-button {
 .label {
 	float: left;
 	display: block;
-	width: 40%;
-	margin: 0.5em 9% 0.5em 0px;
+	width: 5em;
+	margin: 0.5em 1em 0.5em 0px;
 	text-align: left;
 }
 
@@ -200,14 +223,14 @@ input::-webkit-inner-spin-button {
 .poss {
 	float: right;
 	display: block;
-	width: 50%;
+	width: 7em;
 	margin: 0.75em 1% 0.4em 0px;
 }
 
 .lit_pref {
 	float: right;
 	display: none;
-	width: 45%;
+	width: 6em;
 	
 	padding: 1%;
 	margin: 0.4em 0px 0.4em 0px;
@@ -218,7 +241,7 @@ input::-webkit-inner-spin-button {
 .range_pref {
 	float: right;
 	display: block;
-	width: 50%;
+	width: 6em;
 	
 	margin: 0px;
 }
@@ -253,5 +276,40 @@ input::-webkit-inner-spin-button {
 h1 {
     font-size: 2em;
     text-decoration: underline;
-	margin: 0px;
+	margin: 1vhpx;
 }
+
+#error_popup {
+	display: none;
+	position: fixed;
+	overflow: auto;
+	left: 50%;
+	top: 5%;
+	
+	width: 80%;
+	max-width: 35em;
+	height: 80%;
+	
+	margin-left: -40%;
+	border: solid black 3px;
+	padding: 0.5%;
+	
+	background: #f73d3d;
+	text-align: center;
+}
+
+#error_popup p {
+	overflow: auto;
+	height: 90%;
+	margin: 0px;
+	margin-bottom: 1%;
+	border: solid 1px black;
+	text-align: left;
+	
+	font-size: 0.75em;
+}
+
+#close_err {
+	margin-top: 1%;
+}
+
