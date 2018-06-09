@@ -1178,7 +1178,7 @@ function upd_s_lvl(s) {
 	if (v_s_lvl) {
 		document.getElementById("s_lvl_in_drop").className = "simple_data";
 		document.getElementById("s_lvl_in").style.background = "white";
-		// for (i = 0; i < all_tasks.length; i++) { upd_task_disp(all_tasks[i]); }
+		for (i = 0; i < all_tasks.length; i++) { upd_task_disp(all_tasks[i]); }
 		
 		if (s < 50 || document.getElementById("cmb_lvl_in").value < 100) {
 			disable_master("duradel");
@@ -1281,7 +1281,7 @@ function upd_masters(x, m) {
 		task = all_tasks[i];
 		if (task.masters[m]) {
 			task.count += (x ? 1 : -1);
-			// if (v_s_lvl) { upd_task_disp(task); }
+			if (v_s_lvl) { upd_task_disp(task); }
 		}
 	}
 }
