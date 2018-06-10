@@ -1245,9 +1245,8 @@ function disable_master(m) {
 		checkbox = document.getElementById(m + "_entry");
 	
 	parent.style.background = "#f73d3d";
-	parent.className = "master dropdown_master";
+	parent.className = "master dropdown";
 	
-	checkbox.className = "simple_data dropdown_check";
 	checkbox.disabled = "disabled";
 }
 
@@ -1259,7 +1258,6 @@ function enable_master(m) {
 	parent.style.background = "";
 	parent.className = "master";
 	
-	checkbox.className = "simple_data";
 	checkbox.disabled = "";
 }
 

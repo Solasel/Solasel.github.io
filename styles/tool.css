@@ -6,7 +6,7 @@ body {
     background: #419F6C;
 	overflow-x: auto;
 	overflow-y: scroll;
-    padding: 2vh 1vw;
+    padding: 1vh 1vw;
 }
 
 input::-webkit-outer-spin-button,
@@ -15,51 +15,6 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-#menu {
-    width: 100%;
-    font-size: 1.25em;
-    max-height: 53px;
-}
-
-.menu-button {
-    display: block;
-    float: left;
-    background: darkgreen;
-    color: white;
-    
-    width: 6em;
-    height: 1em;
-    
-    border: solid black 0.5px;
-    border-left: solid black 2px;
-    border-bottom: solid black 2px;
-    border-radius: 10px;
-    
-    margin-right: 3px;
-    margin-bottom: 3px;
-    padding: 0.25em 0.35em 0.35em;
-    
-    font-size: 0.7em;
-    text-decoration: none;
-    text-align: center;
-}
-
-.menu-button:last-child {
-    margin-bottom: 3vh;
-}
-
-.menu-button:hover {
-    background: lightgreen;
-    color: black;
-}
-
-.menu-button:active {
-    background: lightblue;
-}
-
-.dropdown_master {
-	position: relative;
-}
 
 .dropdown {
     position: relative;
@@ -86,13 +41,43 @@ input::-webkit-inner-spin-button {
 	z-index: 10;
 }
 
-.dropdown_master:hover > .dropdown-content {
-	display: block;
-	z-index: 10;
+.menu-button {
+    display: inline-block;
+    background: darkgreen;
+    color: white;
+    
+    width: 6em;
+    height: 1em;
+    
+    border: solid black 0.5px;
+    border-left: solid black 2px;
+    border-bottom: solid black 2px;
+    border-radius: 10px;
+    
+    margin-right: 0.25em;
+    margin-bottom: 0.25em;
+    padding: 0.25em 0.35em 0.35em;
+    
+    font-size: 0.875em;
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu-button:last-child {
+    margin-bottom: 3vh;
+}
+
+.menu-button:hover {
+    background: lightgreen;
+    color: black;
+}
+
+.menu-button:active {
+    background: lightblue;
 }
 
 #content {
-    clear: left;
+	clear: left;
 	text-align: center;
 }
 
@@ -109,27 +94,9 @@ h1 {
 	padding: 0px;
 }
 
-.master {
-	display: block;
-	position: relative;
-	width: 6em;
-	height: 1.1em;
-	
-	border: solid black 1px;
-	padding: 0.5em;
-}
-
-.master_link {
-	text-align: left;
-}
-
-.master_link a {
-	text-decoration: underline;
-	color: black;
-}
-
 .simple_label {
 	float: left;
+	margin-right: 1em;
 }
 
 .simple_data {
@@ -143,22 +110,42 @@ h1 {
 
 .player_info {
 	width: 11em;
-	height: 1.2em;
+	height: 1.1em;
 	
 	border: solid black 1px;
 	padding: 0.5em;
 }
 
 #masters {
-	margin: 3vh;
+	margin: 3vh 1vw;
 	text-align: center;
+}
+
+.master {
+	display: block;
+	height: 1.1em;
+	width: 6.6em;
+	
+	border: solid black 1px;
+	padding: 0.5em;
+}
+
+.master_link {
+	position: relative;
+	bottom: 0.2em;
+	text-align: left;
+}
+
+.master_link a {
+	font-size: 0.7em;
+	text-decoration: underline;
+	color: black;
 }
 
 #wpelite {
 	display: none;
-	width: 13em;
+	width: 14em;
 	
-	margin: 3vh;
 	border: solid black 1px;
 	padding: 0.5em;
 }
@@ -166,7 +153,6 @@ h1 {
 .head_prompt {
 	display: inline-block;
 	
-	margin: 1vh;
 	border: solid black 1px;
 	padding: 0.5em;
 }
@@ -181,21 +167,14 @@ h1 {
 }
 
 .thumbnail {
-	float: left;
-
 	height: 7.5em;
-	width: 7.5em;
-	margin-right: 0.75em;
+	width: 16em;
+	margin-bottom: 0.75em;
 }
 
 .thumb_img {
 	height:100%;
-	width: auto;
 	max-width: 100%;
-}
-
-.prompt {
-	float: right;
 }
 
 .elem {

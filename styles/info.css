@@ -7,12 +7,6 @@ body {
     padding: 2vh 1vw;
 }
 
-#menu {
-    width: 100%;
-    font-size: 1.25em;
-    max-height: 53px;
-}
-
 .menu-button {
     display: block;
     float: left;
@@ -31,7 +25,7 @@ body {
     margin-bottom: 3px;
     padding: 0.25em 0.35em 0.35em;
     
-    font-size: 0.7em;
+    font-size: 0.875em;
     text-decoration: none;
     text-align: center;
 }

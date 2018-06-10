@@ -42,8 +42,10 @@
 	</div>
 </div>
 
+OVERALL: Set ID
 
 Thumbnail:
+	Set Thumbnail Class
 	Set link
 	Set src
 	Set alt text
@@ -54,7 +56,7 @@ Prompt:
 		Set monster name
 	Poss:
 		Fill in requirements
-		Set form name
+		Set poss form name
 		Set whether or not disabled
 	Pref:
 		Set slider form name
