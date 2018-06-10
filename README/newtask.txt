@@ -1,0 +1,63 @@
+<div id="NYI" class="flow_block task">
+
+	<div class="thumbnail">
+		<a href="" target="_blank">
+			<img class="thumb_img" src="" alt="SET THUMB" />
+		</a>
+	</div>
+
+	<div class="prompt">
+		<div class="header elem">
+			<a class="task_name" href=""  target="_blank">TASK NAME</a>
+		</div>
+
+		<label class="elem">
+			<div class="label">
+				<span class="dropdown">
+					Possible:
+					<div class="dropdown_content">
+						<p>REQUIREMENTS</p>
+					</div>
+				</span>
+			</div>
+			<input class="poss" type="checkbox" name="_b" disabled="disabled" checked="checked" />
+		</label>
+
+		<div class="elem">
+			<div class="label">
+				<span>Preference:</span>
+			</div>
+			<div class="range_pref">
+				<input class="pref_slider" type="range" name="_p_r" oninput="set_r();" />
+				<p class="extr bad">Bad</p>
+				<p class="extr good">Good</p>
+			</div>
+			<div class="lit_pref">
+				<input type="number" name="_p_l" oninput="valid_lit(, this);" />
+				<div  class="dropdown_content">
+					<p>Please enter a number.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+Thumbnail:
+	Set link
+	Set src
+	Set alt text
+
+Prompt:
+	Header:
+		Set link
+		Set monster name
+	Poss:
+		Fill in requirements
+		Set form name
+		Set whether or not disabled
+	Pref:
+		Set slider form name
+		Set slider oninput task update index
+		Set literal form name
+		Set literal oninput task update index

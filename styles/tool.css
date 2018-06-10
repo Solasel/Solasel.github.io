@@ -66,11 +66,11 @@ input::-webkit-inner-spin-button {
 	border-bottom: dotted black 1px;
 }
 
-.dropdown-content {
+.dropdown_content {
     display: none;
     position: absolute;
     background: white;
-	width: 8em;
+	width: 11em;
 	
     border: solid 1px black;
     padding: 2px;
@@ -81,7 +81,7 @@ input::-webkit-inner-spin-button {
     top: 95%;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown_content {
     display: block;
 	z-index: 10;
 }
@@ -172,7 +172,6 @@ h1 {
 }
 
 .task {
-	overflow: auto;
 	padding: 0.75em;
     border: solid black 1px;
 }
@@ -186,7 +185,13 @@ h1 {
 
 	height: 7.5em;
 	width: 7.5em;
-	margin-right: 0.3em;
+	margin-right: 0.75em;
+}
+
+.thumb_img {
+	height:100%;
+	width: auto;
+	max-width: 100%;
 }
 
 .prompt {
@@ -196,7 +201,6 @@ h1 {
 .elem {
 	display: block;
 	height: 2em;
-	width: 12em;
 	
 	padding: 0.2em;
 	margin-bottom: 0.1em;
@@ -223,25 +227,27 @@ h1 {
 .poss {
 	float: right;
 	display: block;
-	width: 7em;
-	margin: 0.75em 1% 0.4em 0px;
+	margin-top: 0.75em;
+	margin-right: 5em;
 }
 
 .lit_pref {
 	float: right;
 	display: none;
-	width: 6em;
 	
-	padding: 1%;
-	margin: 0.4em 0px 0.4em 0px;
-	
+	margin: 0px;
+	margin-top: 0.4em;
+}
+
+.lit_pref input {
+	width: 11em;
 	text-align: left;
 }
 
 .range_pref {
 	float: right;
 	display: block;
-	width: 6em;
+	width: 9em;
 	
 	margin: 0px;
 }
@@ -272,7 +278,6 @@ h1 {
 }
 
 .submission {
-    clear: left;
     text-align: center;
 	margin-top: 5vh;
 }
@@ -307,5 +312,9 @@ h1 {
 
 #close_err {
 	margin-top: 1%;
+}
+
+#NYI {
+	background: red;
 }
 

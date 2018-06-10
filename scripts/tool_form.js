@@ -1264,42 +1264,49 @@ function enable_master(m) {
 }
 
 /* Updates a master. */
-function upd_masters(x, m) {
+function upd_masters(e, m) {
 	var i, task;
 	
 	upd_s_lvl(s_lvl);
 	upd_cmb_lvl(document.getElementById("cmb_lvl_in").value);
 	
-	num_masters += (x ? 1 : -1);
-	en_masters[m] = x;
-	
-	if (m == 0) {
-		document.getElementById("wildy").style.display = x ? "block" : "none";
-	}
+	num_masters += (e ? 1 : -1);
+	en_masters[m] = e;
 	
 	for (i = 0; i < all_tasks.length; i++) {
 		task = all_tasks[i];
 		if (task.masters[m]) {
-			task.count += (x ? 1 : -1);
+			task.count += (e ? 1 : -1);
 			if (v_s_lvl) { upd_task_disp(task); }
 		}
 	}
 }
 
-/* Shows the prompt for wpelite if nieve is selected. */
-function upd_wpelite(x) {
-	document.getElementById("wpelite").style.display = x ? "inline-block" : "none";
+/* Shows the prompt for wpelite if Nieve is selected. */
+function upd_wpelite(e) {
+	document.getElementById("wpelite").style.display = e ? "inline-block" : "none";
 }
 
-/* Sets one of a task's attributes to valid. */
-function set_task(x, f) {
-	var task = all_tasks[x];
-	supp_task(task.id);
-	
-	if (f) {
-		task.r_valid = true;
+/* Shows the wilderness section if Krystilia is selected. */
+function upd_wildy(e) {
+	document.getElementById("wildy").style.display = e ? "block" : "none";
+}
+
+/* Validates the range pref value for a task. */
+function set_r(x) {
+	all_tasks[x].r_valid = true;
+}
+
+/* Validates the value of a verbose input box, and validates the task if it is. */
+function valid_lit(x, elem) {
+	if (elem.value === "" || isNaN(elem.value)) {
+		elem.parentElement.className = "lit_pref dropdown";
+		elem.style.background = "#ffa8a8";
+		all_tasks[x].l_valid = false;
 	} else {
-		task.l_valid = true;
+		elem.parentElement.className = "lit_pref";
+		elem.style.background = "white";
+		all_tasks[x].l_valid = true;
 	}
 }
 
