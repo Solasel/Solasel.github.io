@@ -90,7 +90,7 @@ h1 {
 .flow_block {
 	display: inline-block;
 	margin-right: 0.25em;
-	margin-bottom: 0.25em;
+	margin-bottom: 1em;
 	padding: 0px;
 }
 
