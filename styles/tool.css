@@ -117,14 +117,14 @@ h1 {
 }
 
 #masters {
-	margin: 3vh 1vw;
+	margin: 3vh 0px;
 	text-align: center;
 }
 
 .master {
 	display: block;
 	height: 1.1em;
-	width: 6.75em;
+	width: 6.9em;
 	
 	border: solid black 1px;
 	padding: 0.5em;
