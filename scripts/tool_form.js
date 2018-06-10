@@ -979,7 +979,7 @@ var all_tasks = [
 				   false,	// Nieve
 				   false]),	// Duradel
 	
-	new task_form("w_bosses", "Bosses (Wilderness)", 1, true, 14,
+	new task_form("w_bosses", "Bosses (Wilderness)", 1, false, -1,
 				  [true,	// Krystilia
 				   false,	// Turael
 				   false,	// Mazchna
@@ -1132,7 +1132,7 @@ var all_tasks = [
 				   false,	// Nieve
 				   false]),	// Duradel
 	
-	new task_form("w_scorpions", "Scorpions (Wilderness)", 1, true, 78,
+	new task_form("w_scorpions", "Scorpions (Wilderness)", 1, true, 77,
 				  [true,	// Krystilia
 				   false,	// Turael
 				   false,	// Mazchna
@@ -1141,7 +1141,7 @@ var all_tasks = [
 				   false,	// Nieve
 				   false]),	// Duradel
 	
-	new task_form("w_skeletons", "Skeletons (Wilderness)", 1, true, 83,
+	new task_form("w_skeletons", "Skeletons (Wilderness)", 1, true, 82,
 				  [true,	// Krystilia
 				   false,	// Turael
 				   false,	// Mazchna
@@ -1150,7 +1150,7 @@ var all_tasks = [
 				   false,	// Nieve
 				   false]),	// Duradel
 	
-	new task_form("w_spiders", "Spiders (Wilderness)", 1, true, 85,
+	new task_form("w_spiders", "Spiders (Wilderness)", 1, true, 84,
 				  [true,	// Krystilia
 				   false,	// Turael
 				   false,	// Mazchna
@@ -1159,7 +1159,7 @@ var all_tasks = [
 				   false,	// Nieve
 				   false]),	// Duradel
 	
-	new task_form("w_spirituals", "Spiritual Creatures (Wilderness)", 63, true, 86,
+	new task_form("w_spirituals", "Spiritual Creatures (Wilderness)", 63, true, 85,
 				  [true,	// Krystilia
 				   false,	// Turael
 				   false,	// Mazchna
@@ -1275,8 +1275,8 @@ function upd_masters(e, m) {
 		task = all_tasks[i];
 		if (task.masters[m]) {
 			task.count += (e ? 1 : -1);
-			if (v_s_lvl) { upd_task_disp(task); }
 		}
+		if (v_s_lvl) { upd_task_disp(task); }
 	}
 }
 
@@ -1292,19 +1292,23 @@ function upd_wildy(e) {
 
 /* Validates the range pref value for a task. */
 function set_r(x) {
-	all_tasks[x].r_valid = true;
+	var task = all_tasks[x];
+	task.r_valid = true;
+	supp_task(task.id);
 }
 
 /* Validates the value of a verbose input box, and validates the task if it is. */
 function valid_lit(x, elem) {
+	var task = all_tasks[x];
 	if (elem.value === "" || isNaN(elem.value)) {
 		elem.parentElement.className = "lit_pref dropdown";
 		elem.style.background = "#ffa8a8";
-		all_tasks[x].l_valid = false;
+		task.l_valid = false;
 	} else {
 		elem.parentElement.className = "lit_pref";
 		elem.style.background = "white";
-		all_tasks[x].l_valid = true;
+		task.l_valid = true;
+		supp_task(task.id);
 	}
 }
 
@@ -1313,7 +1317,7 @@ function upd_wen(x) {
 	var i, task;
 	
 	wen = x;
-	for (i = 0; i < all_tasks.length; i++) {
+	for (i = 98; i < all_tasks.length; i++) {
 		task = all_tasks[i];
 		if (task.has_parent) {
 			upd_task_disp(task);
@@ -1337,7 +1341,7 @@ function upd_task_disp(task) {
 		return;
 	}
 	
-	if (document.getElementById(all_tasks[task.parent].id) === "none") {
+	if (document.getElementById(all_tasks[task.parent].id).style.display === "none") {
 		elem.style.display = "inline-block";
 		return;
 	}
@@ -1415,11 +1419,11 @@ function validate() {
 	} else {
 		for (i = 0; i < all_tasks.length; i++) {
 			task = all_tasks[i];
-			if (v_task(task, verb)) {
+			if (!v_task(task, verb)) {
 				msg += "Please fill in info for " + task.name + ".<br /><br />";
 				rv = false;
+				signal_task(task.id);
 			}
-			signal_task(task.id);
 		}
 	}
 	
