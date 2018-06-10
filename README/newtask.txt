@@ -45,7 +45,6 @@
 OVERALL: Set ID
 
 Thumbnail:
-	Set Thumbnail Class
 	Set link
 	Set src
 	Set alt text
