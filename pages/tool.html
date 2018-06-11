@@ -45,7 +45,7 @@
 					<div class="player_info flow_block">
 						<span class="simple_label">Slayer Level:</span>
 						<div id="s_lvl_in_drop" class="simple_data">
-							<input id="s_lvl_in" name="s_lvl" style="text-align: center; width: 2em;" type="number" onchange="upd_s_lvl(this.value);" />
+							<input id="s_lvl_in" name="s_lvl" style="text-align: center; width: 2em;" type="number" onblur="upd_s_lvl(this.value);" />
 							<div class="dropdown_content">
 								<p>Please enter a value between 1 and 99.</p>
 							</div>
@@ -55,7 +55,7 @@
 					<div class="player_info flow_block">
 						<span class="simple_label">Combat Level:</span>
 						<div id="cmb_lvl_in_drop" class="simple_data">
-							<input id="cmb_lvl_in" name="cmb_lvl" style="text-align: center; width: 3em;" type="number" onchange="upd_cmb_lvl(this.value);" />
+							<input id="cmb_lvl_in" name="cmb_lvl" style="text-align: center; width: 3em;" type="number" onblur="upd_cmb_lvl(this.value);" />
 							<div class="dropdown_content">
 								<p>Please enter a value between 3 and 126.</p>
 							</div>
@@ -243,7 +243,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ab_spectres_pr_l" onchange="valid_lit(0, this);" />
+										<input type="number" name="ab_spectres_pr_l" onblur="valid_lit(0, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -287,7 +287,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="abyssal_dems_pr_l" onchange="valid_lit(1, this);" />
+										<input type="number" name="abyssal_dems_pr_l" onblur="valid_lit(1, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -318,20 +318,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="adamant_drags_po" />
+									<input class="poss" type="checkbox" name="adamant_drags_po" onchange="upd_poss(2, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="adamant_drags_pr_r" onchange="set_r(2);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="adamant_drags_pr_r" onchange="set_r(2);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="adamant_drags_pr_l" onchange="valid_lit(2, this);" />
+										<input class="dis" type="number" name="adamant_drags_pr_l" onblur="valid_lit(2, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -375,7 +375,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ankou_pr_l" onchange="valid_lit(3, this);" />
+										<input type="number" name="ankou_pr_l" onblur="valid_lit(3, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -419,7 +419,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="aviansies_pr_l" onchange="valid_lit(4, this);" />
+										<input type="number" name="aviansies_pr_l" onblur="valid_lit(4, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -463,7 +463,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="banshees_pr_l" onchange="valid_lit(5, this);" />
+										<input type="number" name="banshees_pr_l" onblur="valid_lit(5, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -507,7 +507,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="basilisks_pr_l" onchange="valid_lit(6, this);" />
+										<input type="number" name="basilisks_pr_l" onblur="valid_lit(6, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -551,7 +551,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bats_pr_l" onchange="valid_lit(7, this);" />
+										<input type="number" name="bats_pr_l" onblur="valid_lit(7, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -595,7 +595,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bears_pr_l" onchange="valid_lit(8, this);" />
+										<input type="number" name="bears_pr_l" onblur="valid_lit(8, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -639,7 +639,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="birds_pr_l" onchange="valid_lit(9, this);" />
+										<input type="number" name="birds_pr_l" onblur="valid_lit(9, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -685,7 +685,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="black_dems_pr_l" onchange="valid_lit(10, this);" />
+										<input type="number" name="black_dems_pr_l" onblur="valid_lit(10, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -729,7 +729,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="black_drags_pr_l" onchange="valid_lit(11, this);" />
+										<input type="number" name="black_drags_pr_l" onblur="valid_lit(11, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -773,7 +773,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bloodveld_pr_l" onchange="valid_lit(12, this);" />
+										<input type="number" name="bloodveld_pr_l" onblur="valid_lit(12, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -817,7 +817,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="blue_drags_pr_l" onchange="valid_lit(13, this);" />
+										<input type="number" name="blue_drags_pr_l" onblur="valid_lit(13, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -861,7 +861,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bosses_pr_l" onchange="valid_lit(14, this);" />
+										<input type="number" name="bosses_pr_l" onblur="valid_lit(14, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -892,20 +892,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="brine_rats_po" />
+									<input class="poss" type="checkbox" name="brine_rats_po" onchange="upd_poss(15, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="brine_rats_pr_r" onchange="set_r(15);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="brine_rats_pr_r" onchange="set_r(15);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="brine_rats_pr_l" onchange="valid_lit(15, this);" />
+										<input class="dis" type="number" name="brine_rats_pr_l" onblur="valid_lit(15, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -949,7 +949,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bronze_drags_pr_l" onchange="valid_lit(16, this);" />
+										<input type="number" name="bronze_drags_pr_l" onblur="valid_lit(16, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -993,7 +993,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="catablepons_pr_l" onchange="valid_lit(17, this);" />
+										<input type="number" name="catablepons_pr_l" onblur="valid_lit(17, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1037,7 +1037,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_bugs_pr_l" onchange="valid_lit(18, this);" />
+										<input type="number" name="cave_bugs_pr_l" onblur="valid_lit(18, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1081,7 +1081,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_crawlers_pr_l" onchange="valid_lit(19, this);" />
+										<input type="number" name="cave_crawlers_pr_l" onblur="valid_lit(19, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1114,20 +1114,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="cave_horrors_po" />
+									<input class="poss" type="checkbox" name="cave_horrors_po" onchange="upd_poss(20, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cave_horrors_pr_r" onchange="set_r(20);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="cave_horrors_pr_r" onchange="set_r(20);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_horrors_pr_l" onchange="valid_lit(20, this);" />
+										<input class="dis" type="number" name="cave_horrors_pr_l" onblur="valid_lit(20, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1158,20 +1158,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="cave_kraken_po" />
+									<input class="poss" type="checkbox" name="cave_kraken_po" onchange="upd_poss(21, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cave_kraken_pr_r" onchange="set_r(21);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="cave_kraken_pr_r" onchange="set_r(21);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_kraken_pr_l" onchange="valid_lit(21, this);" />
+										<input class="dis" type="number" name="cave_kraken_pr_l" onblur="valid_lit(21, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1215,7 +1215,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_slimes_pr_l" onchange="valid_lit(22, this);" />
+										<input type="number" name="cave_slimes_pr_l" onblur="valid_lit(22, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1246,20 +1246,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="cockatrice_po" />
+									<input class="poss" type="checkbox" name="cockatrice_po" onchange="upd_poss(23, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cockatrice_pr_r" onchange="set_r(23);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="cockatrice_pr_r" onchange="set_r(23);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cockatrice_pr_l" onchange="valid_lit(23, this);" />
+										<input class="dis" type="number" name="cockatrice_pr_l" onblur="valid_lit(23, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1303,7 +1303,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cows_pr_l" onchange="valid_lit(24, this);" />
+										<input type="number" name="cows_pr_l" onblur="valid_lit(24, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1334,20 +1334,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="crawling_hands_po" />
+									<input class="poss" type="checkbox" name="crawling_hands_po" onchange="upd_poss(25, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="crawling_hands_pr_r" onchange="set_r(25);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="crawling_hands_pr_r" onchange="set_r(25);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="crawling_hands_pr_l" onchange="valid_lit(25, this);" />
+										<input class="dis" type="number" name="crawling_hands_pr_l" onblur="valid_lit(25, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1391,7 +1391,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="crocodiles_pr_l" onchange="valid_lit(26, this);" />
+										<input type="number" name="crocodiles_pr_l" onblur="valid_lit(26, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1422,20 +1422,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="dagannoth_po" />
+									<input class="poss" type="checkbox" name="dagannoth_po" onchange="upd_poss(27, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="dagannoth_pr_r" onchange="set_r(27);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="dagannoth_pr_r" onchange="set_r(27);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dagannoth_pr_l" onchange="valid_lit(27, this);" />
+										<input class="dis" type="number" name="dagannoth_pr_l" onblur="valid_lit(27, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1466,20 +1466,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="dark_beasts_po" />
+									<input class="poss" type="checkbox" name="dark_beasts_po" onchange="upd_poss(28, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="dark_beasts_pr_r" onchange="set_r(28);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="dark_beasts_pr_r" onchange="set_r(28);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dark_beasts_pr_l" onchange="valid_lit(28, this);" />
+										<input class="dis" type="number" name="dark_beasts_pr_l" onblur="valid_lit(28, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1523,7 +1523,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="desert_liz_pr_l" onchange="valid_lit(29, this);" />
+										<input type="number" name="desert_liz_pr_l" onblur="valid_lit(29, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1569,7 +1569,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dogs_pr_l" onchange="valid_lit(30, this);" />
+										<input type="number" name="dogs_pr_l" onblur="valid_lit(30, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1600,20 +1600,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="dust_devils_po" />
+									<input class="poss" type="checkbox" name="dust_devils_po" onchange="upd_poss(31, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="dust_devils_pr_r" onchange="set_r(31);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="dust_devils_pr_r" onchange="set_r(31);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dust_devils_pr_l" onchange="valid_lit(31, this);" />
+										<input class="dis" type="number" name="dust_devils_pr_l" onblur="valid_lit(31, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1657,7 +1657,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dwarves_pr_l" onchange="valid_lit(32, this);" />
+										<input type="number" name="dwarves_pr_l" onblur="valid_lit(32, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1688,20 +1688,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="earth_warrs_po" />
+									<input class="poss" type="checkbox" name="earth_warrs_po" onchange="upd_poss(33, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="earth_warrs_pr_r" onchange="set_r(33);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="earth_warrs_pr_r" onchange="set_r(33);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="earth_warrs_pr_l" onchange="valid_lit(33, this);" />
+										<input class="dis" type="number" name="earth_warrs_pr_l" onblur="valid_lit(33, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1732,20 +1732,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="elves_po" />
+									<input class="poss" type="checkbox" name="elves_po" onchange="upd_poss(34, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="elves_pr_r" onchange="set_r(34);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="elves_pr_r" onchange="set_r(34);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="elves_pr_l" onchange="valid_lit(34, this);" />
+										<input class="dis" type="number" name="elves_pr_l" onblur="valid_lit(34, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1776,20 +1776,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="fever_spiders_po" />
+									<input class="poss" type="checkbox" name="fever_spiders_po" onchange="upd_poss(35, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="fever_spiders_pr_r" onchange="set_r(35);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="fever_spiders_pr_r" onchange="set_r(35);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="fever_spiders_pr_l" onchange="valid_lit(35, this);" />
+										<input class="dis" type="number" name="fever_spiders_pr_l" onblur="valid_lit(35, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1833,7 +1833,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="fire_giants_pr_l" onchange="valid_lit(36, this);" />
+										<input type="number" name="fire_giants_pr_l" onblur="valid_lit(36, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1877,7 +1877,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="flesh_crawlers_pr_l" onchange="valid_lit(37, this);" />
+										<input type="number" name="flesh_crawlers_pr_l" onblur="valid_lit(37, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1908,20 +1908,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="fossil_wyvs_po" />
+									<input class="poss" type="checkbox" name="fossil_wyvs_po" onchange="upd_poss(38, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="fossil_wyvs_pr_r" onchange="set_r(38);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="fossil_wyvs_pr_r" onchange="set_r(38);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="fossil_wyvs_pr_l" onchange="valid_lit(38, this);" />
+										<input class="dis" type="number" name="fossil_wyvs_pr_l" onblur="valid_lit(38, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1952,20 +1952,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="gargoyles_po" />
+									<input class="poss" type="checkbox" name="gargoyles_po" onchange="upd_poss(39, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="gargoyles_pr_r" onchange="set_r(39);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="gargoyles_pr_r" onchange="set_r(39);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="gargoyles_pr_l" onchange="valid_lit(39, this);" />
+										<input class="dis" type="number" name="gargoyles_pr_l" onblur="valid_lit(39, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2011,7 +2011,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ghosts_pr_l" onchange="valid_lit(40, this);" />
+										<input type="number" name="ghosts_pr_l" onblur="valid_lit(40, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2042,20 +2042,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="ghouls_po" />
+									<input class="poss" type="checkbox" name="ghouls_po" onchange="upd_poss(41, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="ghouls_pr_r" onchange="set_r(41);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="ghouls_pr_r" onchange="set_r(41);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ghouls_pr_l" onchange="valid_lit(41, this);" />
+										<input class="dis" type="number" name="ghouls_pr_l" onblur="valid_lit(41, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2099,7 +2099,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="goblins_pr_l" onchange="valid_lit(42, this);" />
+										<input type="number" name="goblins_pr_l" onblur="valid_lit(42, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2143,7 +2143,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="great_dems_pr_l" onchange="valid_lit(43, this);" />
+										<input type="number" name="great_dems_pr_l" onblur="valid_lit(43, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2187,7 +2187,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="green_drags_pr_l" onchange="valid_lit(44, this);" />
+										<input type="number" name="green_drags_pr_l" onblur="valid_lit(44, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2218,20 +2218,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="harpie_bugs_po" />
+									<input class="poss" type="checkbox" name="harpie_bugs_po" onchange="upd_poss(45, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="harpie_bugs_pr_r" onchange="set_r(45);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="harpie_bugs_pr_r" onchange="set_r(45);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="harpie_bugs_pr_l" onchange="valid_lit(45, this);" />
+										<input class="dis" type="number" name="harpie_bugs_pr_l" onblur="valid_lit(45, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2275,7 +2275,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="hellhounds_pr_l" onchange="valid_lit(46, this);" />
+										<input type="number" name="hellhounds_pr_l" onblur="valid_lit(46, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2322,7 +2322,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="hill_giants_pr_l" onchange="valid_lit(47, this);" />
+										<input type="number" name="hill_giants_pr_l" onblur="valid_lit(47, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2366,7 +2366,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="hobgoblins_pr_l" onchange="valid_lit(48, this);" />
+										<input type="number" name="hobgoblins_pr_l" onblur="valid_lit(48, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2410,7 +2410,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ice_giants_pr_l" onchange="valid_lit(49, this);" />
+										<input type="number" name="ice_giants_pr_l" onblur="valid_lit(49, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2456,7 +2456,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ice_warrs_pr_l" onchange="valid_lit(50, this);" />
+										<input type="number" name="ice_warrs_pr_l" onblur="valid_lit(50, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2500,7 +2500,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="icefiends_pr_l" onchange="valid_lit(51, this);" />
+										<input type="number" name="icefiends_pr_l" onblur="valid_lit(51, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2531,20 +2531,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="infernal_mages_po" />
+									<input class="poss" type="checkbox" name="infernal_mages_po" onchange="upd_poss(52, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="infernal_mages_pr_r" onchange="set_r(52);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="infernal_mages_pr_r" onchange="set_r(52);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="infernal_mages_pr_l" onchange="valid_lit(52, this);" />
+										<input class="dis" type="number" name="infernal_mages_pr_l" onblur="valid_lit(52, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2588,7 +2588,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="iron_drags_pr_l" onchange="valid_lit(53, this);" />
+										<input type="number" name="iron_drags_pr_l" onblur="valid_lit(53, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2632,7 +2632,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="jellies_pr_l" onchange="valid_lit(54, this);" />
+										<input type="number" name="jellies_pr_l" onblur="valid_lit(54, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2663,20 +2663,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="jungle_horrs_po" />
+									<input class="poss" type="checkbox" name="jungle_horrs_po" onchange="upd_poss(55, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="jungle_horrs_pr_r" onchange="set_r(55);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="jungle_horrs_pr_r" onchange="set_r(55);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="jungle_horrs_pr_l" onchange="valid_lit(55, this);" />
+										<input class="dis" type="number" name="jungle_horrs_pr_l" onblur="valid_lit(55, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2720,7 +2720,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="kalphites_pr_l" onchange="valid_lit(56, this);" />
+										<input type="number" name="kalphites_pr_l" onblur="valid_lit(56, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2751,20 +2751,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="killerwatts_po" />
+									<input class="poss" type="checkbox" name="killerwatts_po" onchange="upd_poss(57, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="killerwatts_pr_r" onchange="set_r(57);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="killerwatts_pr_r" onchange="set_r(57);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="killerwatts_pr_l" onchange="valid_lit(57, this);" />
+										<input class="dis" type="number" name="killerwatts_pr_l" onblur="valid_lit(57, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2808,7 +2808,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="kurasks_pr_l" onchange="valid_lit(58, this);" />
+										<input type="number" name="kurasks_pr_l" onblur="valid_lit(58, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2852,7 +2852,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="less_dems_pr_l" onchange="valid_lit(59, this);" />
+										<input type="number" name="less_dems_pr_l" onblur="valid_lit(59, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2898,7 +2898,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="lizardmen_pr_l" onchange="valid_lit(60, this);" />
+										<input type="number" name="lizardmen_pr_l" onblur="valid_lit(60, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2942,7 +2942,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="minotaurs_pr_l" onchange="valid_lit(61, this);" />
+										<input type="number" name="minotaurs_pr_l" onblur="valid_lit(61, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2986,7 +2986,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="mithril_drags_pr_l" onchange="valid_lit(62, this);" />
+										<input type="number" name="mithril_drags_pr_l" onblur="valid_lit(62, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3017,20 +3017,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="mogres_po" />
+									<input class="poss" type="checkbox" name="mogres_po" onchange="upd_poss(63, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="mogres_pr_r" onchange="set_r(63);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="mogres_pr_r" onchange="set_r(63);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="mogres_pr_l" onchange="valid_lit(63, this);" />
+										<input class="dis" type="number" name="mogres_pr_l" onblur="valid_lit(63, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3061,20 +3061,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="molanisks_po" />
+									<input class="poss" type="checkbox" name="molanisks_po" onchange="upd_poss(64, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="molanisks_pr_r" onchange="set_r(64);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="molanisks_pr_r" onchange="set_r(64);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="molanisks_pr_l" onchange="valid_lit(64, this);" />
+										<input class="dis" type="number" name="molanisks_pr_l" onblur="valid_lit(64, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3118,7 +3118,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="monkeys_pr_l" onchange="valid_lit(65, this);" />
+										<input type="number" name="monkeys_pr_l" onblur="valid_lit(65, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3162,7 +3162,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="moss_giants_pr_l" onchange="valid_lit(66, this);" />
+										<input type="number" name="moss_giants_pr_l" onblur="valid_lit(66, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3193,20 +3193,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="mutated_zygs_po" />
+									<input class="poss" type="checkbox" name="mutated_zygs_po" onchange="upd_poss(67, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="mutated_zygs_pr_r" onchange="set_r(67);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="mutated_zygs_pr_r" onchange="set_r(67);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="mutated_zygs_pr_l" onchange="valid_lit(67, this);" />
+										<input class="dis" type="number" name="mutated_zygs_pr_l" onblur="valid_lit(67, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3250,7 +3250,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="nechryael_pr_l" onchange="valid_lit(68, this);" />
+										<input type="number" name="nechryael_pr_l" onblur="valid_lit(68, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3294,7 +3294,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ogres_pr_l" onchange="valid_lit(69, this);" />
+										<input type="number" name="ogres_pr_l" onblur="valid_lit(69, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3327,20 +3327,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="otherworldly_beings_po" />
+									<input class="poss" type="checkbox" name="otherworldly_beings_po" onchange="upd_poss(70, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="otherworldly_beings_pr_r" onchange="set_r(70);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="otherworldly_beings_pr_r" onchange="set_r(70);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="otherworldly_beings_pr_l" onchange="valid_lit(70, this);" />
+										<input class="dis" type="number" name="otherworldly_beings_pr_l" onblur="valid_lit(70, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3384,7 +3384,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="pyrefiends_pr_l" onchange="valid_lit(71, this);" />
+										<input type="number" name="pyrefiends_pr_l" onblur="valid_lit(71, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3428,7 +3428,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="rats_pr_l" onchange="valid_lit(72, this);" />
+										<input type="number" name="rats_pr_l" onblur="valid_lit(72, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3472,7 +3472,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="red_drags_pr_l" onchange="valid_lit(73, this);" />
+										<input type="number" name="red_drags_pr_l" onblur="valid_lit(73, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3516,7 +3516,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="rockslugs_pr_l" onchange="valid_lit(74, this);" />
+										<input type="number" name="rockslugs_pr_l" onblur="valid_lit(74, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3547,20 +3547,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="rune_drags_po" />
+									<input class="poss" type="checkbox" name="rune_drags_po" onchange="upd_poss(75, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="rune_drags_pr_r" onchange="set_r(75);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="rune_drags_pr_r" onchange="set_r(75);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="rune_drags_pr_l" onchange="valid_lit(75, this);" />
+										<input class="dis" type="number" name="rune_drags_pr_l" onblur="valid_lit(75, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3591,20 +3591,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="scabarites_po" />
+									<input class="poss" type="checkbox" name="scabarites_po" onchange="upd_poss(76, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="scabarites_pr_r" onchange="set_r(76);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="scabarites_pr_r" onchange="set_r(76);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="scabarites_pr_l" onchange="valid_lit(76, this);" />
+										<input class="dis" type="number" name="scabarites_pr_l" onblur="valid_lit(76, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3648,7 +3648,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="scorpions_pr_l" onchange="valid_lit(77, this);" />
+										<input type="number" name="scorpions_pr_l" onblur="valid_lit(77, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3679,20 +3679,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="sea_snakes_po" />
+									<input class="poss" type="checkbox" name="sea_snakes_po" onchange="upd_poss(78, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="sea_snakes_pr_r" onchange="set_r(78);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="sea_snakes_pr_r" onchange="set_r(78);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="sea_snakes_pr_l" onchange="valid_lit(78, this);" />
+										<input class="dis" type="number" name="sea_snakes_pr_l" onblur="valid_lit(78, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3736,7 +3736,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="shades_pr_l" onchange="valid_lit(79, this);" />
+										<input type="number" name="shades_pr_l" onblur="valid_lit(79, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3769,20 +3769,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="shadow_warrs_po" />
+									<input class="poss" type="checkbox" name="shadow_warrs_po" onchange="upd_poss(80, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="shadow_warrs_pr_r" onchange="set_r(80);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="shadow_warrs_pr_r" onchange="set_r(80);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="shadow_warrs_pr_l" onchange="valid_lit(80, this);" />
+										<input class="dis" type="number" name="shadow_warrs_pr_l" onblur="valid_lit(80, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3826,7 +3826,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="skeletal_wyvs_pr_l" onchange="valid_lit(81, this);" />
+										<input type="number" name="skeletal_wyvs_pr_l" onblur="valid_lit(81, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3870,7 +3870,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="skeletons_pr_l" onchange="valid_lit(82, this);" />
+										<input type="number" name="skeletons_pr_l" onblur="valid_lit(82, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3914,7 +3914,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="smoke_devils_pr_l" onchange="valid_lit(83, this);" />
+										<input type="number" name="smoke_devils_pr_l" onblur="valid_lit(83, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3958,7 +3958,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="spiders_pr_l" onchange="valid_lit(84, this);" />
+										<input type="number" name="spiders_pr_l" onblur="valid_lit(84, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3989,20 +3989,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="spirituals_po" />
+									<input class="poss" type="checkbox" name="spirituals_po" onchange="upd_poss(85, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="spirituals_pr_r" onchange="set_r(85);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="spirituals_pr_r" onchange="set_r(85);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="spirituals_pr_l" onchange="valid_lit(85, this);" />
+										<input class="dis" type="number" name="spirituals_pr_l" onblur="valid_lit(85, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4046,7 +4046,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="steel_drags_pr_l" onchange="valid_lit(86, this);" />
+										<input type="number" name="steel_drags_pr_l" onblur="valid_lit(86, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4077,20 +4077,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="suqahs_po" />
+									<input class="poss" type="checkbox" name="suqahs_po" onchange="upd_poss(87, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="suqahs_pr_r" onchange="set_r(87);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="suqahs_pr_r" onchange="set_r(87);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="suqahs_pr_l" onchange="valid_lit(87, this);" />
+										<input class="dis" type="number" name="suqahs_pr_l" onblur="valid_lit(87, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4121,20 +4121,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="terror_dogs_po" />
+									<input class="poss" type="checkbox" name="terror_dogs_po" onchange="upd_poss(88, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="terror_dogs_pr_r" onchange="set_r(88);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="terror_dogs_pr_r" onchange="set_r(88);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="terror_dogs_pr_l" onchange="valid_lit(88, this);" />
+										<input class="dis" type="number" name="terror_dogs_pr_l" onblur="valid_lit(88, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4178,7 +4178,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="trolls_pr_l" onchange="valid_lit(89, this);" />
+										<input type="number" name="trolls_pr_l" onblur="valid_lit(89, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4224,7 +4224,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="turoth_pr_l" onchange="valid_lit(90, this);" />
+										<input type="number" name="turoth_pr_l" onblur="valid_lit(90, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4268,7 +4268,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="tzhaar_pr_l" onchange="valid_lit(91, this);" />
+										<input type="number" name="tzhaar_pr_l" onblur="valid_lit(91, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4299,20 +4299,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="vampyres_po" />
+									<input class="poss" type="checkbox" name="vampyres_po" onchange="upd_poss(92, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="vampyres_pr_r" onchange="set_r(92);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="vampyres_pr_r" onchange="set_r(92);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="vampyres_pr_l" onchange="valid_lit(92, this);" />
+										<input class="dis" type="number" name="vampyres_pr_l" onblur="valid_lit(92, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4343,20 +4343,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="wall_beasts_po" />
+									<input class="poss" type="checkbox" name="wall_beasts_po" onchange="upd_poss(93, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="wall_beasts_pr_r" onchange="set_r(93);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="wall_beasts_pr_r" onchange="set_r(93);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="wall_beasts_pr_l" onchange="valid_lit(93, this);" />
+										<input class="dis" type="number" name="wall_beasts_pr_l" onblur="valid_lit(93, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4387,20 +4387,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="waterfiends_po" />
+									<input class="poss" type="checkbox" name="waterfiends_po" onchange="upd_poss(94, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="waterfiends_pr_r" onchange="set_r(94);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="waterfiends_pr_r" onchange="set_r(94);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="waterfiends_pr_l" onchange="valid_lit(94, this);" />
+										<input class="dis" type="number" name="waterfiends_pr_l" onblur="valid_lit(94, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4431,20 +4431,20 @@
 											</div>
 										</span>
 									</div>
-									<input class="poss" type="checkbox" name="werewolves_po" />
+									<input class="poss" type="checkbox" name="werewolves_po" onchange="upd_poss(95, this.checked)" />
 								</label>
 
 								<div class="elem">
 									<div class="label">
 										<span>Preference:</span>
 									</div>
-									<div class="range_pref">
-										<input class="pref_slider" type="range" name="werewolves_pr_r" onchange="set_r(95);" />
+									<div class="range_pref dis">
+										<input class="pref_slider" type="range" name="werewolves_pr_r" onchange="set_r(95);" disabled="disabled" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="werewolves_pr_l" onchange="valid_lit(95, this);" />
+										<input class="dis" type="number" name="werewolves_pr_l" onblur="valid_lit(95, this);" disabled="disabled" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4488,7 +4488,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="wolves_pr_l" onchange="valid_lit(96, this);" />
+										<input type="number" name="wolves_pr_l" onblur="valid_lit(96, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4532,7 +4532,7 @@
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="zombies_pr_l" onchange="valid_lit(97, this);" />
+										<input type="number" name="zombies_pr_l" onblur="valid_lit(97, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4596,7 +4596,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_ankou_pr_l" onchange="valid_lit(98, this);" />
+											<input type="number" name="w_ankou_pr_l" onblur="valid_lit(98, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4640,7 +4640,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_aviansies_pr_l" onchange="valid_lit(99, this);" />
+											<input type="number" name="w_aviansies_pr_l" onblur="valid_lit(99, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4686,7 +4686,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_bandits_pr_l" onchange="valid_lit(100, this);" />
+											<input type="number" name="w_bandits_pr_l" onblur="valid_lit(100, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4730,7 +4730,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_bears_pr_l" onchange="valid_lit(101, this);" />
+											<input type="number" name="w_bears_pr_l" onblur="valid_lit(101, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4774,7 +4774,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_black_dems_pr_l" onchange="valid_lit(102, this);" />
+											<input type="number" name="w_black_dems_pr_l" onblur="valid_lit(102, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4818,7 +4818,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_black_drags_pr_l" onchange="valid_lit(103, this);" />
+											<input type="number" name="w_black_drags_pr_l" onblur="valid_lit(103, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4862,7 +4862,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_bosses_pr_l" onchange="valid_lit(104, this);" />
+											<input type="number" name="w_bosses_pr_l" onblur="valid_lit(104, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4906,7 +4906,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_chaos_druids_pr_l" onchange="valid_lit(105, this);" />
+											<input type="number" name="w_chaos_druids_pr_l" onblur="valid_lit(105, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4950,7 +4950,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_dark_warrs_pr_l" onchange="valid_lit(106, this);" />
+											<input type="number" name="w_dark_warrs_pr_l" onblur="valid_lit(106, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4981,20 +4981,20 @@
 												</div>
 											</span>
 										</div>
-										<input class="poss" type="checkbox" name="w_earth_warrs_po" />
+										<input class="poss" type="checkbox" name="w_earth_warrs_po" onchange="upd_poss(107, this.checked)" />
 									</label>
 
 									<div class="elem">
 										<div class="label">
 											<span>Preference:</span>
 										</div>
-										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_earth_warrs_pr_r" onchange="set_r(107);" />
+										<div class="range_pref dis">
+											<input class="pref_slider" type="range" name="w_earth_warrs_pr_r" onchange="set_r(107);" disabled="disabled" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_earth_warrs_pr_l" onchange="valid_lit(107, this);" />
+											<input class="dis" type="number" name="w_earth_warrs_pr_l" onblur="valid_lit(107, this);" disabled="disabled" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5038,7 +5038,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_ents_pr_l" onchange="valid_lit(108, this);" />
+											<input type="number" name="w_ents_pr_l" onblur="valid_lit(108, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5082,7 +5082,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_fire_giants_pr_l" onchange="valid_lit(109, this);" />
+											<input type="number" name="w_fire_giants_pr_l" onblur="valid_lit(109, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5128,7 +5128,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_great_dems_pr_l" onchange="valid_lit(110, this);" />
+											<input type="number" name="w_great_dems_pr_l" onblur="valid_lit(110, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5172,7 +5172,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_green_drags_pr_l" onchange="valid_lit(111, this);" />
+											<input type="number" name="w_green_drags_pr_l" onblur="valid_lit(111, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5216,7 +5216,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_hellhounds_pr_l" onchange="valid_lit(112, this);" />
+											<input type="number" name="w_hellhounds_pr_l" onblur="valid_lit(112, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5260,7 +5260,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_ice_giants_pr_l" onchange="valid_lit(113, this);" />
+											<input type="number" name="w_ice_giants_pr_l" onblur="valid_lit(113, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5304,7 +5304,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_ice_warrs_pr_l" onchange="valid_lit(114, this);" />
+											<input type="number" name="w_ice_warrs_pr_l" onblur="valid_lit(114, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5348,7 +5348,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_lava_drags_pr_l" onchange="valid_lit(115, this);" />
+											<input type="number" name="w_lava_drags_pr_l" onblur="valid_lit(115, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5392,7 +5392,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_less_dems_pr_l" onchange="valid_lit(116, this);" />
+											<input type="number" name="w_less_dems_pr_l" onblur="valid_lit(116, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5436,7 +5436,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_mag_axes_pr_l" onchange="valid_lit(117, this);" />
+											<input type="number" name="w_mag_axes_pr_l" onblur="valid_lit(117, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5480,7 +5480,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_mammoths_pr_l" onchange="valid_lit(118, this);" />
+											<input type="number" name="w_mammoths_pr_l" onblur="valid_lit(118, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5524,7 +5524,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_revenants_pr_l" onchange="valid_lit(119, this);" />
+											<input type="number" name="w_revenants_pr_l" onblur="valid_lit(119, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5570,7 +5570,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_rogues_pr_l" onchange="valid_lit(120, this);" />
+											<input type="number" name="w_rogues_pr_l" onblur="valid_lit(120, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5614,7 +5614,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_scorpions_pr_l" onchange="valid_lit(121, this);" />
+											<input type="number" name="w_scorpions_pr_l" onblur="valid_lit(121, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5658,7 +5658,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_skeletons_pr_l" onchange="valid_lit(122, this);" />
+											<input type="number" name="w_skeletons_pr_l" onblur="valid_lit(122, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5702,7 +5702,7 @@
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_spiders_pr_l" onchange="valid_lit(123, this);" />
+											<input type="number" name="w_spiders_pr_l" onblur="valid_lit(123, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5733,20 +5733,20 @@
 												</div>
 											</span>
 										</div>
-										<input class="poss" type="checkbox" name="w_spirituals_po" />
+										<input class="poss" type="checkbox" name="w_spirituals_po" onchange="upd_poss(124, this.checked)" />
 									</label>
 
 									<div class="elem">
 										<div class="label">
 											<span>Preference:</span>
 										</div>
-										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_spirituals_pr_r" onchange="set_r(124);" />
+										<div class="range_pref dis">
+											<input class="pref_slider" type="range" name="w_spirituals_pr_r" onchange="set_r(124);" disabled="disabled" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_spirituals_pr_l" onchange="valid_lit(124, this);" />
+											<input class="dis" type="number" name="w_spirituals_pr_l" onblur="valid_lit(124, this);" disabled="disabled" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5781,10 +5781,13 @@
 		<p id="quickquide">
 			Here is a quick guide for those of you who don't quite know what's going on here.<br /><br />
 			First, enter your slayer level, combat level, and block slots, then pick the masters that you want to test.<br />You don't have to select them all - obviously if you're high combat, you don't want to test Turael.<br /><br />
-
-			For each task, enter whether or not it's possible, and if it is, put in a preference value. I'm working on turning off the preference input for tasks that aren't possible, but for now just ignore the sliders.<br /><br />
-
+			
 			If you pick Nieve, please enter whether or not you've done western provinces elite.<br /><br />
+
+			For each task, enter whether or not it's possible, and if it is, put in a preference value.<br />
+			<strong>NOTE THAT YOUR BANS DO NOT COUNT TOWARDS WHETHER OR NOT A TASK IS POSSIBLE!!!</strong> The tool will determine your best set of bans. If you have a task that you ban because you hate it, just turn down the preference for it.<br /><br />
+			
+			If you wish, you can turn on the "verbose input" option, to put in values on your own personal scale. Any scale is fine, as long as larger numbers mean more preferred tasks. You can use negative numbers and decimals.<br /><br />
 
 			If you pick Krystilia, you can substitute in the preference values you've already entered for the wilderness versions, but beware that some tasks are significantly different (e.g., no baby black dragons in the wilderness).<br /><br />
 
@@ -5796,9 +5799,7 @@
 		<p id="TODO">
 			This is my personal todo list for the website, you can ignore this.<br /><br />
 			TODO:<br /><br />
-			Make impossible tasks be valid.<br />
-			Make impossible tasks turn off pref input.<br />
-			Add import/export.
+			Nothing at the moment!
 		</p>
 
 		<p>

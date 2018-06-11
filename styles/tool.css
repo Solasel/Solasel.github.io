@@ -15,12 +15,11 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 
-input[type=number] {
-    -moz-appearance:textfield;
-}
-
 .dropdown {
     position: relative;
+}
+
+span.dropdown {
 	border-bottom: dotted black 1px;
 }
 
@@ -243,6 +242,10 @@ h1 {
 .pref_slider {
 	float: right;
 	width: 100%;
+}
+
+.dis {
+	opacity: 0.5;
 }
 
 .extr {

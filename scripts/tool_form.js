@@ -1303,6 +1303,15 @@ function upd_wildy(e) {
 	document.getElementById("wildy").style.display = e ? "block" : "none";
 }
 
+/* Changes the possibility settings for a task. */
+function upd_poss(x, po) {
+	var id = all_tasks[x].id;
+	document.forms.user_in[id + "_pr_r"].disabled = po ? "" : "disabled";
+	document.forms.user_in[id + "_pr_r"].parentElement.className = po ? "range_pref" : "range_pref dis";
+	document.forms.user_in[id + "_pr_l"].disabled = po ? "" : "disabled";
+	document.forms.user_in[id + "_pr_l"].className = po ? "" : "dis";
+}
+
 /* Validates the range pref value for a task. */
 function set_r(x) {
 	var task = all_tasks[x];
@@ -1394,7 +1403,8 @@ function supp_task(id) {
 
 /* Returns whether a given task is valid. */
 function v_task(task, verb) {
-	if (document.getElementById(task.id).style.display === "none") {
+	if (document.getElementById(task.id).style.display === "none" ||
+	   	!document.forms.user_in[task.id + "_po"].checked) {
 		return true;
 	}
 
