@@ -1080,24 +1080,24 @@ function alg(user_in) {
 
 	/* If the wildy is the same as normal. */
 	if (wen) {
-		w_bears = bears;
-		w_aviansies = aviansies;
-		w_ankou = ankou;
-		w_black_dems = black_dems;
-		w_black_drags = black_drags;
-		w_bosses = bosses;
-		w_earth_warrs = earth_warrs;
-		w_fire_giants = fire_giants;
-		w_great_dems = great_dems;
-		w_green_drags = green_drags;
-		w_hellhounds = hellhounds;
-		w_ice_giants = ice_giants;
-		w_ice_warrs = ice_warrs;
-		w_less_dems = less_dems;
-		w_scorpions = scorpions;
-		w_skeletons = skeletons;
-		w_spiders = spiders;
-		w_spirituals = spirituals;
+		w_bears_pr = bears_pr;
+		w_aviansies_pr = aviansies_pr;
+		w_ankou_pr = ankou_pr;
+		w_black_dems_pr = black_dems_pr;
+		w_black_drags_pr = black_drags_pr;
+		w_bosses_pr = bosses;
+		w_earth_warrs_pr = earth_warrs_pr;
+		w_fire_giants_pr = fire_giants_pr;
+		w_great_dems_pr = great_dems_pr;
+		w_green_drags_pr = green_drags_pr;
+		w_hellhounds_pr = hellhounds_pr;
+		w_ice_giants_pr = ice_giants_pr;
+		w_ice_warrs_pr = ice_warrs_pr;
+		w_less_dems_pr = less_dems_pr;
+		w_scorpions_pr = scorpions_pr;
+		w_skeletons_pr = skeletons_pr;
+		w_spiders_pr = spiders_pr;
+		w_spirituals_pr = spirituals_pr;
 	}
 
 	/* Initialize player data. */
