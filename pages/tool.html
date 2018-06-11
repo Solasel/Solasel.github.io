@@ -94,7 +94,7 @@
 						<div class="flow_block">
 							<label id="krystilia" class="master">
 								<span class="simple_label">Krystilia:</span>
-								<input id="krystilia_entry" class="simple_data" name="k_en" type="checkbox" oninput="upd_masters(this.checked, 0); upd_wildy(this.checked);" />
+								<input id="krystilia_entry" class="simple_data" name="k_en" type="checkbox" onchange="upd_masters(this.checked, 0); upd_wildy(this.checked);" />
 							</label>
 							<div class="master_link">
 								<a href="http://oldschoolrunescape.wikia.com/wiki/Krystilia" target="_blank">wiki</a>
@@ -104,7 +104,7 @@
 						<div class="flow_block">
 							<label id="turael" class="master">
 								<span class="simple_label">Turael:</span>
-								<input id="turael_entry" class="simple_data" name="t_en" type="checkbox" oninput="upd_masters(this.checked, 1);" />
+								<input id="turael_entry" class="simple_data" name="t_en" type="checkbox" onchange="upd_masters(this.checked, 1);" />
 							</label>
 							<div class="master_link">
 								<a href="http://oldschoolrunescape.wikia.com/wiki/Turael" target="_blank">wiki</a>
@@ -114,7 +114,7 @@
 						<div class="flow_block">
 							<label id="mazchna" class="master">
 								<span class="simple_label">Mazchna:</span>
-								<input id="mazchna_entry" class="simple_data" name="m_en" type="checkbox" oninput="upd_masters(this.checked, 2);" />
+								<input id="mazchna_entry" class="simple_data" name="m_en" type="checkbox" onchange="upd_masters(this.checked, 2);" />
 								<div class="dropdown_content">
 									<p>Requires: 20 combat.</p>
 								</div>
@@ -127,7 +127,7 @@
 						<div class="flow_block">
 							<label id="vannaka" class="master">
 								<span class="simple_label">Vannaka:</span>
-								<input id="vannaka_entry" class="simple_data" name="v_en" type="checkbox" oninput="upd_masters(this.checked, 3);" />
+								<input id="vannaka_entry" class="simple_data" name="v_en" type="checkbox" onchange="upd_masters(this.checked, 3);" />
 								<div class="dropdown_content">
 									<p>Requires: 40 combat.</p>
 								</div>
@@ -140,7 +140,7 @@
 						<div class="flow_block">
 							<label id="chaeldar" class="master">
 								<span class="simple_label">Chaeldar:</span>
-								<input id="chaeldar_entry" class="simple_data" name="c_en" type="checkbox" oninput="upd_masters(this.checked, 4);" />
+								<input id="chaeldar_entry" class="simple_data" name="c_en" type="checkbox" onchange="upd_masters(this.checked, 4);" />
 								<div class="dropdown_content">
 									<p>Requires: 70 combat.</p>
 								</div>
@@ -153,7 +153,7 @@
 						<div class="flow_block">
 							<label id="nieve" class="master">
 								<span class="simple_label">Nieve:</span>
-								<input id="nieve_entry" class="simple_data" name="n_en" type="checkbox" oninput="upd_masters(this.checked, 5); upd_wpelite(this.checked);" />
+								<input id="nieve_entry" class="simple_data" name="n_en" type="checkbox" onchange="upd_masters(this.checked, 5); upd_wpelite(this.checked);" />
 								<div class="dropdown_content">
 									<p>Requires: 85 combat.</p>
 								</div>
@@ -171,7 +171,7 @@
 										<p>Additionally requires completion of Shilo Village</p>
 									</div>
 								</span>
-								<input  id="duradel_entry" class="simple_data" name="d_en" type="checkbox" oninput="upd_masters(this.checked, 6);" />
+								<input  id="duradel_entry" class="simple_data" name="d_en" type="checkbox" onchange="upd_masters(this.checked, 6);" />
 								<div class="dropdown_content">
 									<p>Requires: 100 combat and 50 slayer.</p>
 									<p>Additionally requires completion of Shilo Village.</p>
@@ -203,7 +203,7 @@
 								<p>Reminder: Larger numbers mean more preferred tasks.</p>
 							</div>
 						</span>
-						<input id="verb_entry" class="simple_data" name="verb" type="checkbox" oninput="upd_verbosity(this.checked);" />
+						<input id="verb_entry" class="simple_data" name="verb" type="checkbox" onchange="upd_verbosity(this.checked);" />
 					</label>
 
 					<div id="tasks">
@@ -238,12 +238,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="ab_spectres_pr_r" oninput="set_r(0);" />
+										<input class="pref_slider" type="range" name="ab_spectres_pr_r" onchange="set_r(0);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ab_spectres_pr_l" oninput="valid_lit(0, this);" />
+										<input type="number" name="ab_spectres_pr_l" onchange="valid_lit(0, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -282,12 +282,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="abyssal_dems_pr_r" oninput="set_r(1);" />
+										<input class="pref_slider" type="range" name="abyssal_dems_pr_r" onchange="set_r(1);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="abyssal_dems_pr_l" oninput="valid_lit(1, this);" />
+										<input type="number" name="abyssal_dems_pr_l" onchange="valid_lit(1, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -326,12 +326,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="adamant_drags_pr_r" oninput="set_r(2);" />
+										<input class="pref_slider" type="range" name="adamant_drags_pr_r" onchange="set_r(2);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="adamant_drags_pr_l" oninput="valid_lit(2, this);" />
+										<input type="number" name="adamant_drags_pr_l" onchange="valid_lit(2, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -370,12 +370,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="ankou_pr_r" oninput="set_r(3);" />
+										<input class="pref_slider" type="range" name="ankou_pr_r" onchange="set_r(3);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ankou_pr_l" oninput="valid_lit(3, this);" />
+										<input type="number" name="ankou_pr_l" onchange="valid_lit(3, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -414,12 +414,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="aviansies_pr_r" oninput="set_r(4);" />
+										<input class="pref_slider" type="range" name="aviansies_pr_r" onchange="set_r(4);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="aviansies_pr_l" oninput="valid_lit(4, this);" />
+										<input type="number" name="aviansies_pr_l" onchange="valid_lit(4, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -458,12 +458,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="banshees_pr_r" oninput="set_r(5);" />
+										<input class="pref_slider" type="range" name="banshees_pr_r" onchange="set_r(5);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="banshees_pr_l" oninput="valid_lit(5, this);" />
+										<input type="number" name="banshees_pr_l" onchange="valid_lit(5, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -502,12 +502,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="basilisks_pr_r" oninput="set_r(6);" />
+										<input class="pref_slider" type="range" name="basilisks_pr_r" onchange="set_r(6);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="basilisks_pr_l" oninput="valid_lit(6, this);" />
+										<input type="number" name="basilisks_pr_l" onchange="valid_lit(6, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -546,12 +546,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="bats_pr_r" oninput="set_r(7);" />
+										<input class="pref_slider" type="range" name="bats_pr_r" onchange="set_r(7);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bats_pr_l" oninput="valid_lit(7, this);" />
+										<input type="number" name="bats_pr_l" onchange="valid_lit(7, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -590,12 +590,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="bears_pr_r" oninput="set_r(8);" />
+										<input class="pref_slider" type="range" name="bears_pr_r" onchange="set_r(8);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bears_pr_l" oninput="valid_lit(8, this);" />
+										<input type="number" name="bears_pr_l" onchange="valid_lit(8, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -634,12 +634,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="birds_pr_r" oninput="set_r(9);" />
+										<input class="pref_slider" type="range" name="birds_pr_r" onchange="set_r(9);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="birds_pr_l" oninput="valid_lit(9, this);" />
+										<input type="number" name="birds_pr_l" onchange="valid_lit(9, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -680,12 +680,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="black_dems_pr_r" oninput="set_r(10);" />
+										<input class="pref_slider" type="range" name="black_dems_pr_r" onchange="set_r(10);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="black_dems_pr_l" oninput="valid_lit(10, this);" />
+										<input type="number" name="black_dems_pr_l" onchange="valid_lit(10, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -724,12 +724,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="black_drags_pr_r" oninput="set_r(11);" />
+										<input class="pref_slider" type="range" name="black_drags_pr_r" onchange="set_r(11);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="black_drags_pr_l" oninput="valid_lit(11, this);" />
+										<input type="number" name="black_drags_pr_l" onchange="valid_lit(11, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -768,12 +768,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="bloodveld_pr_r" oninput="set_r(12);" />
+										<input class="pref_slider" type="range" name="bloodveld_pr_r" onchange="set_r(12);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bloodveld_pr_l" oninput="valid_lit(12, this);" />
+										<input type="number" name="bloodveld_pr_l" onchange="valid_lit(12, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -812,12 +812,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="blue_drags_pr_r" oninput="set_r(13);" />
+										<input class="pref_slider" type="range" name="blue_drags_pr_r" onchange="set_r(13);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="blue_drags_pr_l" oninput="valid_lit(13, this);" />
+										<input type="number" name="blue_drags_pr_l" onchange="valid_lit(13, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -856,12 +856,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="bosses_pr_r" oninput="set_r(14);" />
+										<input class="pref_slider" type="range" name="bosses_pr_r" onchange="set_r(14);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bosses_pr_l" oninput="valid_lit(14, this);" />
+										<input type="number" name="bosses_pr_l" onchange="valid_lit(14, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -900,12 +900,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="brine_rats_pr_r" oninput="set_r(15);" />
+										<input class="pref_slider" type="range" name="brine_rats_pr_r" onchange="set_r(15);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="brine_rats_pr_l" oninput="valid_lit(15, this);" />
+										<input type="number" name="brine_rats_pr_l" onchange="valid_lit(15, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -944,12 +944,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="bronze_drags_pr_r" oninput="set_r(16);" />
+										<input class="pref_slider" type="range" name="bronze_drags_pr_r" onchange="set_r(16);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="bronze_drags_pr_l" oninput="valid_lit(16, this);" />
+										<input type="number" name="bronze_drags_pr_l" onchange="valid_lit(16, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -988,12 +988,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="catablepons_pr_r" oninput="set_r(17);" />
+										<input class="pref_slider" type="range" name="catablepons_pr_r" onchange="set_r(17);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="catablepons_pr_l" oninput="valid_lit(17, this);" />
+										<input type="number" name="catablepons_pr_l" onchange="valid_lit(17, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1032,12 +1032,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cave_bugs_pr_r" oninput="set_r(18);" />
+										<input class="pref_slider" type="range" name="cave_bugs_pr_r" onchange="set_r(18);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_bugs_pr_l" oninput="valid_lit(18, this);" />
+										<input type="number" name="cave_bugs_pr_l" onchange="valid_lit(18, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1076,12 +1076,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cave_crawlers_pr_r" oninput="set_r(19);" />
+										<input class="pref_slider" type="range" name="cave_crawlers_pr_r" onchange="set_r(19);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_crawlers_pr_l" oninput="valid_lit(19, this);" />
+										<input type="number" name="cave_crawlers_pr_l" onchange="valid_lit(19, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1122,12 +1122,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cave_horrors_pr_r" oninput="set_r(20);" />
+										<input class="pref_slider" type="range" name="cave_horrors_pr_r" onchange="set_r(20);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_horrors_pr_l" oninput="valid_lit(20, this);" />
+										<input type="number" name="cave_horrors_pr_l" onchange="valid_lit(20, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1166,12 +1166,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cave_kraken_pr_r" oninput="set_r(21);" />
+										<input class="pref_slider" type="range" name="cave_kraken_pr_r" onchange="set_r(21);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_kraken_pr_l" oninput="valid_lit(21, this);" />
+										<input type="number" name="cave_kraken_pr_l" onchange="valid_lit(21, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1210,12 +1210,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cave_slimes_pr_r" oninput="set_r(22);" />
+										<input class="pref_slider" type="range" name="cave_slimes_pr_r" onchange="set_r(22);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cave_slimes_pr_l" oninput="valid_lit(22, this);" />
+										<input type="number" name="cave_slimes_pr_l" onchange="valid_lit(22, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1254,12 +1254,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cockatrice_pr_r" oninput="set_r(23);" />
+										<input class="pref_slider" type="range" name="cockatrice_pr_r" onchange="set_r(23);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cockatrice_pr_l" oninput="valid_lit(23, this);" />
+										<input type="number" name="cockatrice_pr_l" onchange="valid_lit(23, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1298,12 +1298,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="cows_pr_r" oninput="set_r(24);" />
+										<input class="pref_slider" type="range" name="cows_pr_r" onchange="set_r(24);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="cows_pr_l" oninput="valid_lit(24, this);" />
+										<input type="number" name="cows_pr_l" onchange="valid_lit(24, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1342,12 +1342,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="crawling_hands_pr_r" oninput="set_r(25);" />
+										<input class="pref_slider" type="range" name="crawling_hands_pr_r" onchange="set_r(25);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="crawling_hands_pr_l" oninput="valid_lit(25, this);" />
+										<input type="number" name="crawling_hands_pr_l" onchange="valid_lit(25, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1386,12 +1386,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="crocodiles_pr_r" oninput="set_r(26);" />
+										<input class="pref_slider" type="range" name="crocodiles_pr_r" onchange="set_r(26);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="crocodiles_pr_l" oninput="valid_lit(26, this);" />
+										<input type="number" name="crocodiles_pr_l" onchange="valid_lit(26, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1430,12 +1430,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="dagannoth_pr_r" oninput="set_r(27);" />
+										<input class="pref_slider" type="range" name="dagannoth_pr_r" onchange="set_r(27);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dagannoth_pr_l" oninput="valid_lit(27, this);" />
+										<input type="number" name="dagannoth_pr_l" onchange="valid_lit(27, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1474,12 +1474,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="dark_beasts_pr_r" oninput="set_r(28);" />
+										<input class="pref_slider" type="range" name="dark_beasts_pr_r" onchange="set_r(28);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dark_beasts_pr_l" oninput="valid_lit(28, this);" />
+										<input type="number" name="dark_beasts_pr_l" onchange="valid_lit(28, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1518,12 +1518,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="desert_liz_pr_r" oninput="set_r(29);" />
+										<input class="pref_slider" type="range" name="desert_liz_pr_r" onchange="set_r(29);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="desert_liz_pr_l" oninput="valid_lit(29, this);" />
+										<input type="number" name="desert_liz_pr_l" onchange="valid_lit(29, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1564,12 +1564,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="dogs_pr_r" oninput="set_r(30);" />
+										<input class="pref_slider" type="range" name="dogs_pr_r" onchange="set_r(30);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dogs_pr_l" oninput="valid_lit(30, this);" />
+										<input type="number" name="dogs_pr_l" onchange="valid_lit(30, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1608,12 +1608,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="dust_devils_pr_r" oninput="set_r(31);" />
+										<input class="pref_slider" type="range" name="dust_devils_pr_r" onchange="set_r(31);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dust_devils_pr_l" oninput="valid_lit(31, this);" />
+										<input type="number" name="dust_devils_pr_l" onchange="valid_lit(31, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1652,12 +1652,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="dwarves_pr_r" oninput="set_r(32);" />
+										<input class="pref_slider" type="range" name="dwarves_pr_r" onchange="set_r(32);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="dwarves_pr_l" oninput="valid_lit(32, this);" />
+										<input type="number" name="dwarves_pr_l" onchange="valid_lit(32, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1696,12 +1696,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="earth_warrs_pr_r" oninput="set_r(33);" />
+										<input class="pref_slider" type="range" name="earth_warrs_pr_r" onchange="set_r(33);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="earth_warrs_pr_l" oninput="valid_lit(33, this);" />
+										<input type="number" name="earth_warrs_pr_l" onchange="valid_lit(33, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1740,12 +1740,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="elves_pr_r" oninput="set_r(34);" />
+										<input class="pref_slider" type="range" name="elves_pr_r" onchange="set_r(34);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="elves_pr_l" oninput="valid_lit(34, this);" />
+										<input type="number" name="elves_pr_l" onchange="valid_lit(34, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1784,12 +1784,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="fever_spiders_pr_r" oninput="set_r(35);" />
+										<input class="pref_slider" type="range" name="fever_spiders_pr_r" onchange="set_r(35);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="fever_spiders_pr_l" oninput="valid_lit(35, this);" />
+										<input type="number" name="fever_spiders_pr_l" onchange="valid_lit(35, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1828,12 +1828,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="fire_giants_pr_r" oninput="set_r(36);" />
+										<input class="pref_slider" type="range" name="fire_giants_pr_r" onchange="set_r(36);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="fire_giants_pr_l" oninput="valid_lit(36, this);" />
+										<input type="number" name="fire_giants_pr_l" onchange="valid_lit(36, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1872,12 +1872,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="flesh_crawlers_pr_r" oninput="set_r(37);" />
+										<input class="pref_slider" type="range" name="flesh_crawlers_pr_r" onchange="set_r(37);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="flesh_crawlers_pr_l" oninput="valid_lit(37, this);" />
+										<input type="number" name="flesh_crawlers_pr_l" onchange="valid_lit(37, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1916,12 +1916,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="fossil_wyvs_pr_r" oninput="set_r(38);" />
+										<input class="pref_slider" type="range" name="fossil_wyvs_pr_r" onchange="set_r(38);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="fossil_wyvs_pr_l" oninput="valid_lit(38, this);" />
+										<input type="number" name="fossil_wyvs_pr_l" onchange="valid_lit(38, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -1960,12 +1960,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="gargoyles_pr_r" oninput="set_r(39);" />
+										<input class="pref_slider" type="range" name="gargoyles_pr_r" onchange="set_r(39);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="gargoyles_pr_l" oninput="valid_lit(39, this);" />
+										<input type="number" name="gargoyles_pr_l" onchange="valid_lit(39, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2006,12 +2006,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="ghosts_pr_r" oninput="set_r(40);" />
+										<input class="pref_slider" type="range" name="ghosts_pr_r" onchange="set_r(40);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ghosts_pr_l" oninput="valid_lit(40, this);" />
+										<input type="number" name="ghosts_pr_l" onchange="valid_lit(40, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2050,12 +2050,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="ghouls_pr_r" oninput="set_r(41);" />
+										<input class="pref_slider" type="range" name="ghouls_pr_r" onchange="set_r(41);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ghouls_pr_l" oninput="valid_lit(41, this);" />
+										<input type="number" name="ghouls_pr_l" onchange="valid_lit(41, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2094,12 +2094,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="goblins_pr_r" oninput="set_r(42);" />
+										<input class="pref_slider" type="range" name="goblins_pr_r" onchange="set_r(42);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="goblins_pr_l" oninput="valid_lit(42, this);" />
+										<input type="number" name="goblins_pr_l" onchange="valid_lit(42, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2138,12 +2138,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="great_dems_pr_r" oninput="set_r(43);" />
+										<input class="pref_slider" type="range" name="great_dems_pr_r" onchange="set_r(43);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="great_dems_pr_l" oninput="valid_lit(43, this);" />
+										<input type="number" name="great_dems_pr_l" onchange="valid_lit(43, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2182,12 +2182,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="green_drags_pr_r" oninput="set_r(44);" />
+										<input class="pref_slider" type="range" name="green_drags_pr_r" onchange="set_r(44);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="green_drags_pr_l" oninput="valid_lit(44, this);" />
+										<input type="number" name="green_drags_pr_l" onchange="valid_lit(44, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2226,12 +2226,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="harpie_bugs_pr_r" oninput="set_r(45);" />
+										<input class="pref_slider" type="range" name="harpie_bugs_pr_r" onchange="set_r(45);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="harpie_bugs_pr_l" oninput="valid_lit(45, this);" />
+										<input type="number" name="harpie_bugs_pr_l" onchange="valid_lit(45, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2270,12 +2270,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="hellhounds_pr_r" oninput="set_r(46);" />
+										<input class="pref_slider" type="range" name="hellhounds_pr_r" onchange="set_r(46);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="hellhounds_pr_l" oninput="valid_lit(46, this);" />
+										<input type="number" name="hellhounds_pr_l" onchange="valid_lit(46, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2317,12 +2317,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="hill_giants_pr_r" oninput="set_r(47);" />
+										<input class="pref_slider" type="range" name="hill_giants_pr_r" onchange="set_r(47);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="hill_giants_pr_l" oninput="valid_lit(47, this);" />
+										<input type="number" name="hill_giants_pr_l" onchange="valid_lit(47, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2361,12 +2361,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="hobgoblins_pr_r" oninput="set_r(48);" />
+										<input class="pref_slider" type="range" name="hobgoblins_pr_r" onchange="set_r(48);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="hobgoblins_pr_l" oninput="valid_lit(48, this);" />
+										<input type="number" name="hobgoblins_pr_l" onchange="valid_lit(48, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2405,12 +2405,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="ice_giants_pr_r" oninput="set_r(49);" />
+										<input class="pref_slider" type="range" name="ice_giants_pr_r" onchange="set_r(49);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ice_giants_pr_l" oninput="valid_lit(49, this);" />
+										<input type="number" name="ice_giants_pr_l" onchange="valid_lit(49, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2451,12 +2451,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="ice_warrs_pr_r" oninput="set_r(50);" />
+										<input class="pref_slider" type="range" name="ice_warrs_pr_r" onchange="set_r(50);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ice_warrs_pr_l" oninput="valid_lit(50, this);" />
+										<input type="number" name="ice_warrs_pr_l" onchange="valid_lit(50, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2495,12 +2495,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="icefiends_pr_r" oninput="set_r(51);" />
+										<input class="pref_slider" type="range" name="icefiends_pr_r" onchange="set_r(51);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="icefiends_pr_l" oninput="valid_lit(51, this);" />
+										<input type="number" name="icefiends_pr_l" onchange="valid_lit(51, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2539,12 +2539,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="infernal_mages_pr_r" oninput="set_r(52);" />
+										<input class="pref_slider" type="range" name="infernal_mages_pr_r" onchange="set_r(52);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="infernal_mages_pr_l" oninput="valid_lit(52, this);" />
+										<input type="number" name="infernal_mages_pr_l" onchange="valid_lit(52, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2583,12 +2583,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="iron_drags_pr_r" oninput="set_r(53);" />
+										<input class="pref_slider" type="range" name="iron_drags_pr_r" onchange="set_r(53);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="iron_drags_pr_l" oninput="valid_lit(53, this);" />
+										<input type="number" name="iron_drags_pr_l" onchange="valid_lit(53, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2627,12 +2627,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="jellies_pr_r" oninput="set_r(54);" />
+										<input class="pref_slider" type="range" name="jellies_pr_r" onchange="set_r(54);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="jellies_pr_l" oninput="valid_lit(54, this);" />
+										<input type="number" name="jellies_pr_l" onchange="valid_lit(54, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2671,12 +2671,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="jungle_horrs_pr_r" oninput="set_r(55);" />
+										<input class="pref_slider" type="range" name="jungle_horrs_pr_r" onchange="set_r(55);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="jungle_horrs_pr_l" oninput="valid_lit(55, this);" />
+										<input type="number" name="jungle_horrs_pr_l" onchange="valid_lit(55, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2715,12 +2715,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="kalphites_pr_r" oninput="set_r(56);" />
+										<input class="pref_slider" type="range" name="kalphites_pr_r" onchange="set_r(56);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="kalphites_pr_l" oninput="valid_lit(56, this);" />
+										<input type="number" name="kalphites_pr_l" onchange="valid_lit(56, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2759,12 +2759,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="killerwatts_pr_r" oninput="set_r(57);" />
+										<input class="pref_slider" type="range" name="killerwatts_pr_r" onchange="set_r(57);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="killerwatts_pr_l" oninput="valid_lit(57, this);" />
+										<input type="number" name="killerwatts_pr_l" onchange="valid_lit(57, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2803,12 +2803,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="kurasks_pr_r" oninput="set_r(58);" />
+										<input class="pref_slider" type="range" name="kurasks_pr_r" onchange="set_r(58);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="kurasks_pr_l" oninput="valid_lit(58, this);" />
+										<input type="number" name="kurasks_pr_l" onchange="valid_lit(58, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2847,12 +2847,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="less_dems_pr_r" oninput="set_r(59);" />
+										<input class="pref_slider" type="range" name="less_dems_pr_r" onchange="set_r(59);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="less_dems_pr_l" oninput="valid_lit(59, this);" />
+										<input type="number" name="less_dems_pr_l" onchange="valid_lit(59, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2893,12 +2893,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="lizardmen_pr_r" oninput="set_r(60);" />
+										<input class="pref_slider" type="range" name="lizardmen_pr_r" onchange="set_r(60);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="lizardmen_pr_l" oninput="valid_lit(60, this);" />
+										<input type="number" name="lizardmen_pr_l" onchange="valid_lit(60, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2937,12 +2937,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="minotaurs_pr_r" oninput="set_r(61);" />
+										<input class="pref_slider" type="range" name="minotaurs_pr_r" onchange="set_r(61);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="minotaurs_pr_l" oninput="valid_lit(61, this);" />
+										<input type="number" name="minotaurs_pr_l" onchange="valid_lit(61, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -2981,12 +2981,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="mithril_drags_pr_r" oninput="set_r(62);" />
+										<input class="pref_slider" type="range" name="mithril_drags_pr_r" onchange="set_r(62);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="mithril_drags_pr_l" oninput="valid_lit(62, this);" />
+										<input type="number" name="mithril_drags_pr_l" onchange="valid_lit(62, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3025,12 +3025,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="mogres_pr_r" oninput="set_r(63);" />
+										<input class="pref_slider" type="range" name="mogres_pr_r" onchange="set_r(63);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="mogres_pr_l" oninput="valid_lit(63, this);" />
+										<input type="number" name="mogres_pr_l" onchange="valid_lit(63, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3069,12 +3069,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="molanisks_pr_r" oninput="set_r(64);" />
+										<input class="pref_slider" type="range" name="molanisks_pr_r" onchange="set_r(64);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="molanisks_pr_l" oninput="valid_lit(64, this);" />
+										<input type="number" name="molanisks_pr_l" onchange="valid_lit(64, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3113,12 +3113,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="monkeys_pr_r" oninput="set_r(65);" />
+										<input class="pref_slider" type="range" name="monkeys_pr_r" onchange="set_r(65);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="monkeys_pr_l" oninput="valid_lit(65, this);" />
+										<input type="number" name="monkeys_pr_l" onchange="valid_lit(65, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3157,12 +3157,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="moss_giants_pr_r" oninput="set_r(66);" />
+										<input class="pref_slider" type="range" name="moss_giants_pr_r" onchange="set_r(66);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="moss_giants_pr_l" oninput="valid_lit(66, this);" />
+										<input type="number" name="moss_giants_pr_l" onchange="valid_lit(66, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3201,12 +3201,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="mutated_zygs_pr_r" oninput="set_r(67);" />
+										<input class="pref_slider" type="range" name="mutated_zygs_pr_r" onchange="set_r(67);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="mutated_zygs_pr_l" oninput="valid_lit(67, this);" />
+										<input type="number" name="mutated_zygs_pr_l" onchange="valid_lit(67, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3245,12 +3245,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="nechryael_pr_r" oninput="set_r(68);" />
+										<input class="pref_slider" type="range" name="nechryael_pr_r" onchange="set_r(68);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="nechryael_pr_l" oninput="valid_lit(68, this);" />
+										<input type="number" name="nechryael_pr_l" onchange="valid_lit(68, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3289,12 +3289,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="ogres_pr_r" oninput="set_r(69);" />
+										<input class="pref_slider" type="range" name="ogres_pr_r" onchange="set_r(69);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="ogres_pr_l" oninput="valid_lit(69, this);" />
+										<input type="number" name="ogres_pr_l" onchange="valid_lit(69, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3335,12 +3335,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="otherworldly_beings_pr_r" oninput="set_r(70);" />
+										<input class="pref_slider" type="range" name="otherworldly_beings_pr_r" onchange="set_r(70);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="otherworldly_beings_pr_l" oninput="valid_lit(70, this);" />
+										<input type="number" name="otherworldly_beings_pr_l" onchange="valid_lit(70, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3379,12 +3379,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="pyrefiends_pr_r" oninput="set_r(71);" />
+										<input class="pref_slider" type="range" name="pyrefiends_pr_r" onchange="set_r(71);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="pyrefiends_pr_l" oninput="valid_lit(71, this);" />
+										<input type="number" name="pyrefiends_pr_l" onchange="valid_lit(71, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3423,12 +3423,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="rats_pr_r" oninput="set_r(72);" />
+										<input class="pref_slider" type="range" name="rats_pr_r" onchange="set_r(72);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="rats_pr_l" oninput="valid_lit(72, this);" />
+										<input type="number" name="rats_pr_l" onchange="valid_lit(72, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3467,12 +3467,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="red_drags_pr_r" oninput="set_r(73);" />
+										<input class="pref_slider" type="range" name="red_drags_pr_r" onchange="set_r(73);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="red_drags_pr_l" oninput="valid_lit(73, this);" />
+										<input type="number" name="red_drags_pr_l" onchange="valid_lit(73, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3511,12 +3511,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="rockslugs_pr_r" oninput="set_r(74);" />
+										<input class="pref_slider" type="range" name="rockslugs_pr_r" onchange="set_r(74);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="rockslugs_pr_l" oninput="valid_lit(74, this);" />
+										<input type="number" name="rockslugs_pr_l" onchange="valid_lit(74, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3555,12 +3555,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="rune_drags_pr_r" oninput="set_r(75);" />
+										<input class="pref_slider" type="range" name="rune_drags_pr_r" onchange="set_r(75);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="rune_drags_pr_l" oninput="valid_lit(75, this);" />
+										<input type="number" name="rune_drags_pr_l" onchange="valid_lit(75, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3599,12 +3599,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="scabarites_pr_r" oninput="set_r(76);" />
+										<input class="pref_slider" type="range" name="scabarites_pr_r" onchange="set_r(76);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="scabarites_pr_l" oninput="valid_lit(76, this);" />
+										<input type="number" name="scabarites_pr_l" onchange="valid_lit(76, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3643,12 +3643,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="scorpions_pr_r" oninput="set_r(77);" />
+										<input class="pref_slider" type="range" name="scorpions_pr_r" onchange="set_r(77);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="scorpions_pr_l" oninput="valid_lit(77, this);" />
+										<input type="number" name="scorpions_pr_l" onchange="valid_lit(77, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3687,12 +3687,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="sea_snakes_pr_r" oninput="set_r(78);" />
+										<input class="pref_slider" type="range" name="sea_snakes_pr_r" onchange="set_r(78);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="sea_snakes_pr_l" oninput="valid_lit(78, this);" />
+										<input type="number" name="sea_snakes_pr_l" onchange="valid_lit(78, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3731,12 +3731,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="shades_pr_r" oninput="set_r(79);" />
+										<input class="pref_slider" type="range" name="shades_pr_r" onchange="set_r(79);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="shades_pr_l" oninput="valid_lit(79, this);" />
+										<input type="number" name="shades_pr_l" onchange="valid_lit(79, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3777,12 +3777,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="shadow_warrs_pr_r" oninput="set_r(80);" />
+										<input class="pref_slider" type="range" name="shadow_warrs_pr_r" onchange="set_r(80);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="shadow_warrs_pr_l" oninput="valid_lit(80, this);" />
+										<input type="number" name="shadow_warrs_pr_l" onchange="valid_lit(80, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3821,12 +3821,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="skeletal_wyvs_pr_r" oninput="set_r(81);" />
+										<input class="pref_slider" type="range" name="skeletal_wyvs_pr_r" onchange="set_r(81);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="skeletal_wyvs_pr_l" oninput="valid_lit(81, this);" />
+										<input type="number" name="skeletal_wyvs_pr_l" onchange="valid_lit(81, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3865,12 +3865,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="skeletons_pr_r" oninput="set_r(82);" />
+										<input class="pref_slider" type="range" name="skeletons_pr_r" onchange="set_r(82);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="skeletons_pr_l" oninput="valid_lit(82, this);" />
+										<input type="number" name="skeletons_pr_l" onchange="valid_lit(82, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3909,12 +3909,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="smoke_devils_pr_r" oninput="set_r(83);" />
+										<input class="pref_slider" type="range" name="smoke_devils_pr_r" onchange="set_r(83);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="smoke_devils_pr_l" oninput="valid_lit(83, this);" />
+										<input type="number" name="smoke_devils_pr_l" onchange="valid_lit(83, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3953,12 +3953,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="spiders_pr_r" oninput="set_r(84);" />
+										<input class="pref_slider" type="range" name="spiders_pr_r" onchange="set_r(84);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="spiders_pr_l" oninput="valid_lit(84, this);" />
+										<input type="number" name="spiders_pr_l" onchange="valid_lit(84, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -3997,12 +3997,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="spirituals_pr_r" oninput="set_r(85);" />
+										<input class="pref_slider" type="range" name="spirituals_pr_r" onchange="set_r(85);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="spirituals_pr_l" oninput="valid_lit(85, this);" />
+										<input type="number" name="spirituals_pr_l" onchange="valid_lit(85, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4041,12 +4041,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="steel_drags_pr_r" oninput="set_r(86);" />
+										<input class="pref_slider" type="range" name="steel_drags_pr_r" onchange="set_r(86);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="steel_drags_pr_l" oninput="valid_lit(86, this);" />
+										<input type="number" name="steel_drags_pr_l" onchange="valid_lit(86, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4085,12 +4085,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="suqahs_pr_r" oninput="set_r(87);" />
+										<input class="pref_slider" type="range" name="suqahs_pr_r" onchange="set_r(87);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="suqahs_pr_l" oninput="valid_lit(87, this);" />
+										<input type="number" name="suqahs_pr_l" onchange="valid_lit(87, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4129,12 +4129,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="terror_dogs_pr_r" oninput="set_r(88);" />
+										<input class="pref_slider" type="range" name="terror_dogs_pr_r" onchange="set_r(88);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="terror_dogs_pr_l" oninput="valid_lit(88, this);" />
+										<input type="number" name="terror_dogs_pr_l" onchange="valid_lit(88, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4173,12 +4173,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="trolls_pr_r" oninput="set_r(89);" />
+										<input class="pref_slider" type="range" name="trolls_pr_r" onchange="set_r(89);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="trolls_pr_l" oninput="valid_lit(89, this);" />
+										<input type="number" name="trolls_pr_l" onchange="valid_lit(89, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4219,12 +4219,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="turoth_pr_r" oninput="set_r(90);" />
+										<input class="pref_slider" type="range" name="turoth_pr_r" onchange="set_r(90);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="turoth_pr_l" oninput="valid_lit(90, this);" />
+										<input type="number" name="turoth_pr_l" onchange="valid_lit(90, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4263,12 +4263,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="tzhaar_pr_r" oninput="set_r(91);" />
+										<input class="pref_slider" type="range" name="tzhaar_pr_r" onchange="set_r(91);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="tzhaar_pr_l" oninput="valid_lit(91, this);" />
+										<input type="number" name="tzhaar_pr_l" onchange="valid_lit(91, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4307,12 +4307,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="vampyres_pr_r" oninput="set_r(92);" />
+										<input class="pref_slider" type="range" name="vampyres_pr_r" onchange="set_r(92);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="vampyres_pr_l" oninput="valid_lit(92, this);" />
+										<input type="number" name="vampyres_pr_l" onchange="valid_lit(92, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4351,12 +4351,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="wall_beasts_pr_r" oninput="set_r(93);" />
+										<input class="pref_slider" type="range" name="wall_beasts_pr_r" onchange="set_r(93);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="wall_beasts_pr_l" oninput="valid_lit(93, this);" />
+										<input type="number" name="wall_beasts_pr_l" onchange="valid_lit(93, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4395,12 +4395,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="waterfiends_pr_r" oninput="set_r(94);" />
+										<input class="pref_slider" type="range" name="waterfiends_pr_r" onchange="set_r(94);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="waterfiends_pr_l" oninput="valid_lit(94, this);" />
+										<input type="number" name="waterfiends_pr_l" onchange="valid_lit(94, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4439,12 +4439,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="werewolves_pr_r" oninput="set_r(95);" />
+										<input class="pref_slider" type="range" name="werewolves_pr_r" onchange="set_r(95);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="werewolves_pr_l" oninput="valid_lit(95, this);" />
+										<input type="number" name="werewolves_pr_l" onchange="valid_lit(95, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4483,12 +4483,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="wolves_pr_r" oninput="set_r(96);" />
+										<input class="pref_slider" type="range" name="wolves_pr_r" onchange="set_r(96);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="wolves_pr_l" oninput="valid_lit(96, this);" />
+										<input type="number" name="wolves_pr_l" onchange="valid_lit(96, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4527,12 +4527,12 @@
 										<span>Preference:</span>
 									</div>
 									<div class="range_pref">
-										<input class="pref_slider" type="range" name="zombies_pr_r" oninput="set_r(97);" />
+										<input class="pref_slider" type="range" name="zombies_pr_r" onchange="set_r(97);" />
 										<p class="extr bad">Bad</p>
 										<p class="extr good">Good</p>
 									</div>
 									<div class="lit_pref">
-										<input type="number" name="zombies_pr_l" oninput="valid_lit(97, this);" />
+										<input type="number" name="zombies_pr_l" onchange="valid_lit(97, this);" />
 										<div  class="dropdown_content">
 											<p>Please enter a number.</p>
 										</div>
@@ -4554,7 +4554,7 @@
 									<p>Note that some tasks, such as fire giants, when done in the wilderness, are significantly risky due to pkers.</p>
 								</div>
 							</span>
-							<input id="wen" class="simple_data" name="wen" type="checkbox" oninput="upd_wen(this.checked);" />
+							<input id="wen" class="simple_data" name="wen" type="checkbox" onchange="upd_wen(this.checked);" />
 						</label>
 
 						<div id="w_tasks">
@@ -4591,12 +4591,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_ankou_pr_r" oninput="set_r(98);" />
+											<input class="pref_slider" type="range" name="w_ankou_pr_r" onchange="set_r(98);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_ankou_pr_l" oninput="valid_lit(98, this);" />
+											<input type="number" name="w_ankou_pr_l" onchange="valid_lit(98, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4635,12 +4635,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_aviansies_pr_r" oninput="set_r(99);" />
+											<input class="pref_slider" type="range" name="w_aviansies_pr_r" onchange="set_r(99);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_aviansies_pr_l" oninput="valid_lit(99, this);" />
+											<input type="number" name="w_aviansies_pr_l" onchange="valid_lit(99, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4681,12 +4681,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_bandits_pr_r" oninput="set_r(100);" />
+											<input class="pref_slider" type="range" name="w_bandits_pr_r" onchange="set_r(100);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_bandits_pr_l" oninput="valid_lit(100, this);" />
+											<input type="number" name="w_bandits_pr_l" onchange="valid_lit(100, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4725,12 +4725,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_bears_pr_r" oninput="set_r(101);" />
+											<input class="pref_slider" type="range" name="w_bears_pr_r" onchange="set_r(101);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_bears_pr_l" oninput="valid_lit(101, this);" />
+											<input type="number" name="w_bears_pr_l" onchange="valid_lit(101, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4769,12 +4769,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_black_dems_pr_r" oninput="set_r(102);" />
+											<input class="pref_slider" type="range" name="w_black_dems_pr_r" onchange="set_r(102);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_black_dems_pr_l" oninput="valid_lit(102, this);" />
+											<input type="number" name="w_black_dems_pr_l" onchange="valid_lit(102, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4813,12 +4813,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_black_drags_pr_r" oninput="set_r(103);" />
+											<input class="pref_slider" type="range" name="w_black_drags_pr_r" onchange="set_r(103);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_black_drags_pr_l" oninput="valid_lit(103, this);" />
+											<input type="number" name="w_black_drags_pr_l" onchange="valid_lit(103, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4857,12 +4857,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_bosses_pr_r" oninput="set_r(104);" />
+											<input class="pref_slider" type="range" name="w_bosses_pr_r" onchange="set_r(104);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_bosses_pr_l" oninput="valid_lit(104, this);" />
+											<input type="number" name="w_bosses_pr_l" onchange="valid_lit(104, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4901,12 +4901,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_chaos_druids_pr_r" oninput="set_r(105);" />
+											<input class="pref_slider" type="range" name="w_chaos_druids_pr_r" onchange="set_r(105);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_chaos_druids_pr_l" oninput="valid_lit(105, this);" />
+											<input type="number" name="w_chaos_druids_pr_l" onchange="valid_lit(105, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4945,12 +4945,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_dark_warrs_pr_r" oninput="set_r(106);" />
+											<input class="pref_slider" type="range" name="w_dark_warrs_pr_r" onchange="set_r(106);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_dark_warrs_pr_l" oninput="valid_lit(106, this);" />
+											<input type="number" name="w_dark_warrs_pr_l" onchange="valid_lit(106, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -4989,12 +4989,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_earth_warrs_pr_r" oninput="set_r(107);" />
+											<input class="pref_slider" type="range" name="w_earth_warrs_pr_r" onchange="set_r(107);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_earth_warrs_pr_l" oninput="valid_lit(107, this);" />
+											<input type="number" name="w_earth_warrs_pr_l" onchange="valid_lit(107, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5033,12 +5033,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_ents_pr_r" oninput="set_r(108);" />
+											<input class="pref_slider" type="range" name="w_ents_pr_r" onchange="set_r(108);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_ents_pr_l" oninput="valid_lit(108, this);" />
+											<input type="number" name="w_ents_pr_l" onchange="valid_lit(108, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5077,12 +5077,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_fire_giants_pr_r" oninput="set_r(109);" />
+											<input class="pref_slider" type="range" name="w_fire_giants_pr_r" onchange="set_r(109);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_fire_giants_pr_l" oninput="valid_lit(109, this);" />
+											<input type="number" name="w_fire_giants_pr_l" onchange="valid_lit(109, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5123,12 +5123,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_great_dems_pr_r" oninput="set_r(110);" />
+											<input class="pref_slider" type="range" name="w_great_dems_pr_r" onchange="set_r(110);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_great_dems_pr_l" oninput="valid_lit(110, this);" />
+											<input type="number" name="w_great_dems_pr_l" onchange="valid_lit(110, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5167,12 +5167,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_green_drags_pr_r" oninput="set_r(111);" />
+											<input class="pref_slider" type="range" name="w_green_drags_pr_r" onchange="set_r(111);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_green_drags_pr_l" oninput="valid_lit(111, this);" />
+											<input type="number" name="w_green_drags_pr_l" onchange="valid_lit(111, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5211,12 +5211,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_hellhounds_pr_r" oninput="set_r(112);" />
+											<input class="pref_slider" type="range" name="w_hellhounds_pr_r" onchange="set_r(112);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_hellhounds_pr_l" oninput="valid_lit(112, this);" />
+											<input type="number" name="w_hellhounds_pr_l" onchange="valid_lit(112, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5255,12 +5255,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_ice_giants_pr_r" oninput="set_r(113);" />
+											<input class="pref_slider" type="range" name="w_ice_giants_pr_r" onchange="set_r(113);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_ice_giants_pr_l" oninput="valid_lit(113, this);" />
+											<input type="number" name="w_ice_giants_pr_l" onchange="valid_lit(113, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5299,12 +5299,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_ice_warrs_pr_r" oninput="set_r(114);" />
+											<input class="pref_slider" type="range" name="w_ice_warrs_pr_r" onchange="set_r(114);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_ice_warrs_pr_l" oninput="valid_lit(114, this);" />
+											<input type="number" name="w_ice_warrs_pr_l" onchange="valid_lit(114, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5343,12 +5343,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_lava_drags_pr_r" oninput="set_r(115);" />
+											<input class="pref_slider" type="range" name="w_lava_drags_pr_r" onchange="set_r(115);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_lava_drags_pr_l" oninput="valid_lit(115, this);" />
+											<input type="number" name="w_lava_drags_pr_l" onchange="valid_lit(115, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5387,12 +5387,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_less_dems_pr_r" oninput="set_r(116);" />
+											<input class="pref_slider" type="range" name="w_less_dems_pr_r" onchange="set_r(116);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_less_dems_pr_l" oninput="valid_lit(116, this);" />
+											<input type="number" name="w_less_dems_pr_l" onchange="valid_lit(116, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5431,12 +5431,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_mag_axes_pr_r" oninput="set_r(117);" />
+											<input class="pref_slider" type="range" name="w_mag_axes_pr_r" onchange="set_r(117);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_mag_axes_pr_l" oninput="valid_lit(117, this);" />
+											<input type="number" name="w_mag_axes_pr_l" onchange="valid_lit(117, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5475,12 +5475,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_mammoths_pr_r" oninput="set_r(118);" />
+											<input class="pref_slider" type="range" name="w_mammoths_pr_r" onchange="set_r(118);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_mammoths_pr_l" oninput="valid_lit(118, this);" />
+											<input type="number" name="w_mammoths_pr_l" onchange="valid_lit(118, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5519,12 +5519,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_revenants_pr_r" oninput="set_r(119);" />
+											<input class="pref_slider" type="range" name="w_revenants_pr_r" onchange="set_r(119);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_revenants_pr_l" oninput="valid_lit(119, this);" />
+											<input type="number" name="w_revenants_pr_l" onchange="valid_lit(119, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5565,12 +5565,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_rogues_pr_r" oninput="set_r(120);" />
+											<input class="pref_slider" type="range" name="w_rogues_pr_r" onchange="set_r(120);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_rogues_pr_l" oninput="valid_lit(120, this);" />
+											<input type="number" name="w_rogues_pr_l" onchange="valid_lit(120, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5609,12 +5609,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_scorpions_pr_r" oninput="set_r(121);" />
+											<input class="pref_slider" type="range" name="w_scorpions_pr_r" onchange="set_r(121);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_scorpions_pr_l" oninput="valid_lit(121, this);" />
+											<input type="number" name="w_scorpions_pr_l" onchange="valid_lit(121, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5653,12 +5653,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_skeletons_pr_r" oninput="set_r(122);" />
+											<input class="pref_slider" type="range" name="w_skeletons_pr_r" onchange="set_r(122);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_skeletons_pr_l" oninput="valid_lit(122, this);" />
+											<input type="number" name="w_skeletons_pr_l" onchange="valid_lit(122, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5697,12 +5697,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_spiders_pr_r" oninput="set_r(123);" />
+											<input class="pref_slider" type="range" name="w_spiders_pr_r" onchange="set_r(123);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_spiders_pr_l" oninput="valid_lit(123, this);" />
+											<input type="number" name="w_spiders_pr_l" onchange="valid_lit(123, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5741,12 +5741,12 @@
 											<span>Preference:</span>
 										</div>
 										<div class="range_pref">
-											<input class="pref_slider" type="range" name="w_spirituals_pr_r" oninput="set_r(124);" />
+											<input class="pref_slider" type="range" name="w_spirituals_pr_r" onchange="set_r(124);" />
 											<p class="extr bad">Bad</p>
 											<p class="extr good">Good</p>
 										</div>
 										<div class="lit_pref">
-											<input type="number" name="w_spirituals_pr_l" oninput="valid_lit(124, this);" />
+											<input type="number" name="w_spirituals_pr_l" onchange="valid_lit(124, this);" />
 											<div  class="dropdown_content">
 												<p>Please enter a number.</p>
 											</div>
@@ -5796,7 +5796,7 @@
 		<p id="TODO">
 			This is my personal todo list for the website, you can ignore this.<br /><br />
 			TODO:<br /><br />
-			Make impossible tasks be valid.
+			Make impossible tasks be valid.<br />
 			Make impossible tasks turn off pref input.<br />
 			Add import/export.
 		</p>
