@@ -1,117 +1,117 @@
 * {
-    font-family: sans-serif;
+	font-family: sans-serif;
 }
 
 body {
-    background: #419F6C;
-    padding: 2vh 1vw;
+	background: #419F6C;
+	padding: 2vh 1vw;
 }
 
 .menu-button {
-    display: block;
-    float: left;
-    background: darkgreen;
-    color: white;
-    
-    width: 6em;
-    height: 1em;
-    
-    border: solid black 0.5px;
-    border-left: solid black 2px;
-    border-bottom: solid black 2px;
-    border-radius: 10px;
-    
-    margin-right: 3px;
-    margin-bottom: 3px;
-    padding: 0.25em 0.35em 0.35em;
-    
-    font-size: 0.875em;
-    text-decoration: none;
-    text-align: center;
+	display: block;
+	float: left;
+	background: darkgreen;
+	color: white;
+
+	width: 6em;
+	height: 1em;
+
+	border: solid black 0.5px;
+	border-left: solid black 2px;
+	border-bottom: solid black 2px;
+	border-radius: 10px;
+
+	margin-right: 3px;
+	margin-bottom: 3px;
+	padding: 0.25em 0.35em 0.35em;
+
+	font-size: 0.875em;
+	text-decoration: none;
+	text-align: center;
 }
 
 .menu-button:last-child {
-    margin-bottom: 3vh;
+	margin-bottom: 3vh;
 }
 
 .menu-button:hover {
-    background: lightgreen;
-    color: black;
+	background: lightgreen;
+	color: black;
 }
 
 .menu-button:active {
-    background: lightblue;
+	background: lightblue;
 }
 
 .dropdown {
-    width: 18em;
-    position: relative;
+	width: 18em;
+	position: relative;
 }
 
 .dropdown-content {
-    display: none;
-    width: 7em;
-    height: auto;
-    position: absolute;
-    background: white;
-    
-    padding: 1px;
+	display: none;
+	width: 7em;
+	height: auto;
+	position: absolute;
+	background: white;
 
-    color: gray;
-    top: 100%;
-    
-    border: solid 1px black;
+	padding: 1px;
+
+	color: gray;
+	top: 100%;
+
+	border: solid 1px black;
 }
 
 .dropdown:hover .dropdown-content {
-    display: block;
+	display: block;
 }
 
 #content {
-    clear: left;
+	clear: left;
 }
 
 h1 {
-    font-size: 2em;
-    text-decoration: underline;
+	font-size: 2em;
+	text-decoration: underline;
 }
 
 h4 {
-    font-size: 1.6em;
-    text-decoration: underline;
+	font-size: 1.6em;
+	text-decoration: underline;
 }
 
 h5 {
-    font-size: 1.3em;
+	font-size: 1.3em;
 }
 
 #information p, li {
-    font-size: 1.1em;
+	font-size: 1.1em;
 }
 
 .NYI {
-    color: black;
-    background: red;
-    padding: 1px;
-    font-size: 1.5em;
-    font-weight: bold;
-    text-align: center;
-    border: solid purple 0.25em;
+	color: black;
+	background: red;
+	padding: 1px;
+	font-size: 1.5em;
+	font-weight: bold;
+	text-align: center;
+	border: solid purple 0.25em;
 }
 
 .NYI:hover {
-    background: yellow;
+	background: yellow;
 }
 
 .buddy {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    
-    width: 15vw;
-    height: 15vw;
-    max-height: 70px;
-    max-width: 70px;
-    
-    margin: 0vh 1vw;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+
+	width: 15vw;
+	height: 15vw;
+	max-height: 70px;
+	max-width: 70px;
+
+	margin: 0vh 1vw;
 }

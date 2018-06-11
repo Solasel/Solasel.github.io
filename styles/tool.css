@@ -157,6 +157,7 @@ h1 {
 .head_prompt {
 	display: inline-block;
 	
+	margin-bottom: 1em;
 	border: solid black 1px;
 	padding: 0.5em;
 }
