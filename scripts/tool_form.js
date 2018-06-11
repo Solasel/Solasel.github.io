@@ -1429,7 +1429,7 @@ function validate() {
 		for (i = 0; i < all_tasks.length; i++) {
 			task = all_tasks[i];
 			if (!v_task(task, verb)) {
-				msg += "Please fill in info for " + task.name + ".<br /><br />";
+				msg += "Please fill in your preference for " + task.name + ".<br /><br />";
 				rv = false;
 				signal_task(task.id);
 			}
