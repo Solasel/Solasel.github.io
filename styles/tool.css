@@ -142,12 +142,20 @@ h1 {
 	color: black;
 }
 
+#dura_rem {
+	display: none;
+}
+
 #wpelite {
 	display: none;
 	width: 14em;
 	
 	border: solid black 1px;
 	padding: 0.5em;
+}
+
+#interactive {
+	display: none;
 }
 
 .head_prompt {
@@ -257,7 +265,8 @@ h1 {
 	display: none;
 }
 
-.submission {
+#submission {
+	display: inline-block;
     text-align: center;
 	margin-top: 5vh;
 }

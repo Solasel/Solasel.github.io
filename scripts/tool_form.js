@@ -1178,82 +1178,101 @@ function upd_s_lvl(s) {
 	if (v_s_lvl) {
 		document.getElementById("s_lvl_in_drop").className = "simple_data";
 		document.getElementById("s_lvl_in").style.background = "white";
-		for (i = 0; i < all_tasks.length; i++) { upd_task_disp(all_tasks[i]); }
 		
-		if (s < 50 || document.getElementById("cmb_lvl_in").value < 100) {
-			disable_master("duradel");
+		if (s < 50 || !v_s_lvl || document.getElementById("cmb_lvl_in").value < 100) {
+			disable_master("duradel", 6);
 			document.getElementById("dura_tt").className = "simple_label";
 		} else {
 			enable_master("duradel");
 			document.getElementById("dura_tt").className = "simple_label dropdown";
 		}
+		
+		for (i = 0; i < all_tasks.length; i++) { upd_task_disp(all_tasks[i]); }
+		
 	} else {
 		document.getElementById("s_lvl_in_drop").className = "simple_data dropdown";
 		document.getElementById("s_lvl_in").style.background = "#ffa8a8";
 	}
+	
+	toggle_inter();
 }
 
 /* Verifies the player's combat level. */
 function upd_cmb_lvl(c) {
 	
 	v_cmb_lvl = !(isNaN(c) || c < 3 || 126 < c);
+	
+	document.getElementById("cmb_lvl_in_drop").className = v_cmb_lvl ? "simple_data" : "simple_data dropdown";
+	document.getElementById("cmb_lvl_in").style.background = v_cmb_lvl ? "white" : "#ffa8a8";
+	
 	if (v_cmb_lvl) {
-		document.getElementById("cmb_lvl_in_drop").className = "simple_data";
-		document.getElementById("cmb_lvl_in").style.background = "white";
 		
 		if (c < 20) {
-			disable_master("mazchna");
+			disable_master("mazchna", 2);
 		} else {
 			enable_master("mazchna");
 		}
 		
 		if (c < 40) {
-			disable_master("vannaka");
+			disable_master("vannaka", 3);
 		} else {
 			enable_master("vannaka");
 		}
 		
 		if (c < 70) {
-			disable_master("chaeldar");
+			disable_master("chaeldar", 4);
 		} else {
 			enable_master("chaeldar");
 		}
 		
 		if (c < 85) {
-			disable_master("nieve");
+			disable_master("nieve", 5);
 		} else {
 			enable_master("nieve");
 		}
 		
 		if (c < 100 || !v_s_lvl || s_lvl < 50) {
-			disable_master("duradel");
+			disable_master("duradel", 6);
 			document.getElementById("dura_tt").className = "simple_label";
 		} else {
 			enable_master("duradel");
 			document.getElementById("dura_tt").className = "simple_label dropdown";
 		}
-		
-	} else {
-		document.getElementById("cmb_lvl_in_drop").className = "simple_data dropdown";
-		document.getElementById("cmb_lvl_in").style.background = "#ffa8a8";
 	}
+	
+	toggle_inter();
+}
+
+/* If we've changed the criteria for enabling the interactive pane, change its visibility. */
+function toggle_inter() {
+	var v = v_s_lvl && v_cmb_lvl;
+	
+	document.getElementById("interactive").style.display = v ? "block" : "none";
+	
+	document.getElementById("submission").className = v ? "" : "dropdown";
+	document.getElementById("generate").disabled = v ? "" : "disabled";
+	
+	document.getElementById("nosub_s").style.display = v_s_lvl ? "none" : "block";
+	document.getElementById("nosub_cmb").style.display = v_cmb_lvl ? "none" : "block";
 }
 
 /* Blocks a user from selecting a given master. */
-function disable_master(m) {
-	var parent = document.getElementById(m),
-		checkbox = document.getElementById(m + "_entry");
+function disable_master(n, m) {
+	var parent = document.getElementById(n),
+		checkbox = document.getElementById(n + "_entry");
 	
 	parent.style.background = "#f73d3d";
 	parent.className = "master dropdown";
 	
 	checkbox.disabled = "disabled";
+	if (checkbox.checked) { upd_masters(false, m); }
+	checkbox.checked = "";
 }
 
 /* Allows a user to select a given master. */
-function enable_master(m) {
-	var parent = document.getElementById(m),
-		checkbox = document.getElementById(m + "_entry");
+function enable_master(n) {
+	var parent = document.getElementById(n),
+		checkbox = document.getElementById(n + "_entry");
 	
 	parent.style.background = "";
 	parent.className = "master";
@@ -1265,18 +1284,14 @@ function enable_master(m) {
 function upd_masters(e, m) {
 	var i, task;
 	
-	upd_s_lvl(s_lvl);
-	upd_cmb_lvl(document.getElementById("cmb_lvl_in").value);
-	
 	num_masters += (e ? 1 : -1);
-	en_masters[m] = e;
 	
 	for (i = 0; i < all_tasks.length; i++) {
 		task = all_tasks[i];
 		if (task.masters[m]) {
 			task.count += (e ? 1 : -1);
 		}
-		if (v_s_lvl) { upd_task_disp(task); }
+		upd_task_disp(task);
 	}
 }
 
@@ -1391,20 +1406,6 @@ function v_task(task, verb) {
 /* Validates the form, and gives the output if it's valid. */
 function validate() {
 	var i, task, rv = true, msg = "", verb = document.getElementById("verb_entry").checked;
-	
-	if (!v_s_lvl) {
-		document.getElementById("s_lvl_in_drop").className = "simple_data dropdown";
-		document.getElementById("s_lvl_in").style.background = "#ffa8a8";
-		msg += "Please enter a valid slayer level.<br />";
-		rv = false;
-	}
-	
-	if (!v_cmb_lvl) {
-		document.getElementById("cmb_lvl_in_drop").className = "simple_data dropdown";
-		document.getElementById("cmb_lvl_in").style.background = "#ffa8a8";
-		msg += "Please enter a valid combat level.<br />"
-		rv = false;
-	}
 	
 	if (document.getElementById("num_blocks_in").value < 0) {
 		msg += "Please enter your available block slots.<br />";
