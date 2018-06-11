@@ -259,7 +259,7 @@ function sol_repr(m, cmb_app) {
 
 	rv = "<br />Master: " + m.consts.name + "<br />";
 	rv += "<br />Saturated solution? " + (sol.sat ? "Yes." : "No.") + "<br />";
-	rv += cmb_app ? "<br />Enable Combat-level appropriate tasks." :
+	rv += cmb_app ? "<br />Enable Combat-level appropriate tasks.<br />" :
 	"<br />Disable Combat-level appropriate tasks.<br />";
 
 	if (cmb_app) {
@@ -291,8 +291,10 @@ function sol_repr(m, cmb_app) {
 	}
 
 	if (!sol.sat) {
-		rv += "<br />In addition, you can skip " + sol.skip_perc.toFixed(2) + "% of your " +
-			tasks[sol.borderline].consts.name + " tasks.<br />";
+		if (sol.borderline < all) {
+			rv += "<br />In addition, you can skip " + sol.skip_perc.toFixed(2) + "% of your " +
+				tasks[sol.borderline].consts.name + " tasks.<br />";
+		}
 	} else {
 		rv += "<br />Of the tasks you rated highest, you can skip " + sol.skip_perc.toFixed(2) +
 			"% of them, at your discretion.<br />";
@@ -622,7 +624,7 @@ function solve(m) {
 				change = true;
 				cmb_blocks[i] = true;
 			}
-			poss[i] = poss[i] && !change;
+			poss[i] = poss[i] && cmb_lvl >= tasks[i].consts.cmb_rec;
 		}
 
 		/* If we saw any changes, add in the new solution. */
