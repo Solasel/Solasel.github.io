@@ -1175,9 +1175,11 @@ function upd_s_lvl(s) {
 	
 	s_lvl = s;
 	v_s_lvl = !(isNaN(s) || s < 1 || 99 < s);
+	
+	document.getElementById("s_lvl_in_drop").className = v_s_lvl ? "simple_data" : "simple_data dropdown";
+	document.getElementById("s_lvl_in").style.background = v_s_lvl ? "white" : "#ffa8a8";
+	
 	if (v_s_lvl) {
-		document.getElementById("s_lvl_in_drop").className = "simple_data";
-		document.getElementById("s_lvl_in").style.background = "white";
 		
 		if (s < 50 || !v_s_lvl || document.getElementById("cmb_lvl_in").value < 100) {
 			disable_master("duradel", 6);
@@ -1188,10 +1190,6 @@ function upd_s_lvl(s) {
 		}
 		
 		for (i = 0; i < all_tasks.length; i++) { upd_task_disp(all_tasks[i]); }
-		
-	} else {
-		document.getElementById("s_lvl_in_drop").className = "simple_data dropdown";
-		document.getElementById("s_lvl_in").style.background = "#ffa8a8";
 	}
 	
 	toggle_inter();
