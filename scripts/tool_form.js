@@ -1467,4 +1467,5 @@ function output() {
 					   '</body>' +
 
 					   '</html>');
+	win.document.close();
 }
